@@ -1,0 +1,6 @@
+{
+  "name": "Platinum Real Estate Group",
+  "description": "Bespoke luxury residences and commercial real estate with immersive UI, interactive property showcases, and theme support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
