@@ -109,8 +109,13 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
                   className="flex gap-5 w-full"
                 >
                   {ONGOING_ITEMS.map((item, idx) => (
-                    <div
+                    <motion.div
                       key={idx}
+                      initial={{ opacity: 0, x: 24, y: 12 }}
+                      whileInView={{ opacity: 1, x: 0, y: 0 }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      transition={{ duration: 0.65, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                      whileHover={{ y: -6, scale: 1.01 }}
                       className="w-[calc(50%-10px)] flex flex-col bg-white overflow-hidden shadow-[0_24px_70px_rgba(0,0,0,0.14)] group cursor-pointer shrink-0 border border-[#e6d7b7] rounded-[1.5rem]"
                     >
                       <div className="relative aspect-[1/1] w-full overflow-hidden bg-neutral-900">
@@ -128,7 +133,7 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
                           {item.location}
                         </p>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </motion.div>
               </div>

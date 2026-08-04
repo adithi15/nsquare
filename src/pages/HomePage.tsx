@@ -4,7 +4,6 @@ import { HeroSlide, ThemeMode } from '../types';
 import { HeroSlider } from '../components/HeroSlider';
 import { PlatinumWorldSection } from '../components/PlatinumWorldSection';
 import { HomeExcellenceCombinedSection } from '../components/HomeExcellenceSection';
-import { OngoingProjectsCarousel } from '../components/OngoingProjectsCarousel';
 import { TestimonialsSection } from '../components/TestimonialsSection';
 
 interface HomePageProps {
@@ -38,8 +37,9 @@ export const HomePage: React.FC<HomePageProps> = ({
         <PlatinumWorldSection theme={theme} />
       </div>
 
+      {/* Combined section: About Us → Ongoing Projects → Team → Presence */}
       <HomeExcellenceCombinedSection theme={theme} />
-      <OngoingProjectsCarousel theme={theme} />
+
       <TestimonialsSection theme={theme} />
     </motion.div>
   );

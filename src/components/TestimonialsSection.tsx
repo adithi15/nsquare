@@ -55,18 +55,18 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ theme 
   });
 
   return (
-    <section className="px-6 md:px-12 py-16 max-w-7xl mx-auto w-full relative bg-[#f4ead5]">
+    <section className="px-6 md:px-12 py-16 max-w-7xl mx-auto w-full relative" style={{ background: 'url(/assets/img/testimonialbg.jpg) no-repeat #eff2f6', backgroundPosition: 'right' }}>
       <div className="absolute left-0 top-1/2 hidden lg:block -translate-y-1/2">
-        <span className="[writing-mode:vertical-lr] rotate-180 uppercase tracking-[0.35em] text-[10px] font-semibold text-[#7e6642]">
+        <span className="[writing-mode:vertical-lr] rotate-180 uppercase tracking-[0.35em] text-[10px] font-semibold text-[#a1896b]">
           TESTIMONIALS
         </span>
       </div>
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 relative">
         <div>
-          <h2 className="text-3xl md:text-4xl serif italic text-neutral-900 dark:text-white font-light leading-tight">
-            We Care About Our Customer’s Experience Too
+          <h2 className="text-3xl md:text-4xl font-serif italic text-[#222] dark:text-white font-light leading-tight">
+            We Care About Our Customer's Experience Too
           </h2>
-          <p className="text-xs md:text-sm text-neutral-600 dark:text-white/70 font-light mt-3 max-w-2xl">
+          <p className="text-xs md:text-sm text-[#58595b] dark:text-white/70 font-light mt-3 max-w-2xl">
             Real stories from homeowners who found their sanctuary in Platinum Group developments.
           </p>
         </div>
@@ -93,9 +93,11 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ theme 
           {displayedSlides.map((item, idx) => (
             <motion.div
               key={`${item.id}-${idx}`}
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: idx * 0.1 }}
+              initial={{ opacity: 0, y: 24, rotateX: 8, rotateY: -6, scale: 0.96 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0, rotateY: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -6, scale: 1.01, rotate: -0.3 }}
               className="rounded-3xl overflow-hidden border border-[#e6d6bd] bg-white shadow-xl backdrop-blur-xl"
             >
               <div
@@ -109,7 +111,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ theme 
                 />
                 <div className="absolute inset-0 bg-black/25" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-[#8c7445] text-white flex items-center justify-center shadow-[0_0_30px_rgba(140,116,69,0.35)] transition-transform duration-300 hover:scale-105">
+                  <div className="w-16 h-16 rounded-full bg-[#a1896b] text-white flex items-center justify-center shadow-[0_0_30px_rgba(140,116,69,0.35)] transition-transform duration-300 hover:scale-105">
                     <Play className="w-7 h-7 fill-black" />
                   </div>
                 </div>
@@ -117,14 +119,14 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ theme 
 
               <div className="p-6 space-y-4">
                 <div>
-                  <Quote className="w-7 h-7 text-[#8c7445] mb-4" />
+                  <Quote className="w-7 h-7 text-[#a1896b] mb-4" />
                   <p className="text-sm text-[#2c2620] font-light italic leading-relaxed">
                     "{item.quote}"
                   </p>
                 </div>
                 <div className="pt-4 border-t border-[#e5d6bf]">
                   <h4 className="text-sm font-semibold text-[#111]">{item.name}</h4>
-                  <p className="text-[10px] text-[#8c7445] tracking-[0.32em] uppercase mt-1">{item.project}</p>
+                  <p className="text-[10px] text-[#a1896b] tracking-[0.32em] uppercase mt-1">{item.project}</p>
                 </div>
               </div>
             </motion.div>
@@ -147,7 +149,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ theme 
           <button
             key={idx}
             onClick={() => setCurrentIndex(idx)}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${currentIndex === idx ? 'bg-[#8c7445] scale-110' : 'bg-[#c9b698]'}`}
+            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${currentIndex === idx ? 'bg-[#a1896b] scale-110' : 'bg-[#c9b698]'}`}
             aria-label={`Go to testimonial ${idx + 1}`}
           />
         ))}

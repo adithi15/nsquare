@@ -114,7 +114,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
       {/* Slide Location Badge (Top Right below header controls) */}
       <div className="absolute top-24 sm:top-28 md:top-32 right-6 sm:right-12 md:right-20 z-20 pointer-events-none">
         <div className="flex items-center space-x-1.5 text-white/90 text-[10px] tracking-[0.2em] uppercase bg-black/40 px-3.5 py-1.5 rounded-full backdrop-blur-md border border-white/20 shadow-lg">
-          <MapPin className="w-3 h-3 text-[#C5A059]" />
+          <MapPin className="w-3 h-3 text-[#b88a33]" />
           <span>{currentSlide.location}</span>
         </div>
       </div>
@@ -125,7 +125,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
         <button
           onClick={handlePrev}
           aria-label="Previous slide"
-          className="p-1.5 text-white/80 hover:text-[#C5A059] transition-all cursor-pointer group"
+          className="p-1.5 text-white/80 hover:text-[#b88a33] transition-all cursor-pointer group"
           title="Previous Slide"
         >
           <ChevronUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
@@ -147,7 +147,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
                   className={`w-4 h-4 rotate-45 flex items-center justify-center transition-all duration-300 ${
                     isActive
                       ? 'border-[1.8px] border-white shadow-[0_0_10px_rgba(255,255,255,0.8)] scale-110'
-                      : 'border border-white/60 group-hover:border-[#C5A059] group-hover:scale-110'
+                      : 'border border-white/60 group-hover:border-[#b88a33] group-hover:scale-110'
                   }`}
                 >
                   {/* Inner Filled Diamond for Active */}
@@ -164,7 +164,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
         <button
           onClick={handleNext}
           aria-label="Next slide"
-          className="p-1.5 text-white/80 hover:text-[#C5A059] transition-all cursor-pointer group"
+          className="p-1.5 text-white/80 hover:text-[#b88a33] transition-all cursor-pointer group"
           title="Next Slide"
         >
           <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
@@ -202,13 +202,13 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             <div className="pt-8 flex flex-wrap gap-4">
               <button
                 onClick={() => onOpenScheduleVisit(currentSlide)}
-                className="bg-[#C5A059] text-black px-8 py-3 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-[#D4B575] transition-all rounded-sm shadow-[0_12px_40px_rgba(0,0,0,0.25)]"
+                className="bg-[#b88a33] text-black px-8 py-3 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-[#D4B575] transition-all rounded-sm shadow-[0_12px_40px_rgba(0,0,0,0.25)]"
               >
                 Schedule A Visit
               </button>
               <button
                 onClick={() => onOpenBrochure(currentSlide)}
-                className="border border-white/50 text-white text-[10px] uppercase tracking-[0.35em] font-bold px-8 py-3 hover:border-[#C5A059] hover:text-[#C5A059] transition-all rounded-sm bg-white/10"
+                className="border border-white/50 text-white text-[10px] uppercase tracking-[0.35em] font-bold px-8 py-3 hover:border-[#b88a33] hover:text-[#b88a33] transition-all rounded-sm bg-white/10"
               >
                 Request Floorplans
               </button>
@@ -237,7 +237,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
                 duration: 6,
                 ease: 'linear',
               }}
-              className="h-full bg-[#C5A059] shadow-[0_0_10px_#C5A059]"
+              className="h-full bg-[#b88a33] shadow-[0_0_10px_#b88a33]"
             />
           </div>
           <span className="text-[9px] uppercase tracking-widest text-white/50 font-light">

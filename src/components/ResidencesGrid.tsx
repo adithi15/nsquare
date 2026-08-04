@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import { Property, ThemeMode } from '../types';
 import { ArrowUpRight, Check, MapPin, Sparkles } from 'lucide-react';
 
@@ -59,9 +60,14 @@ export const ResidencesGrid: React.FC<ResidencesGridProps> = ({
 
       {/* Property Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {filteredProperties.map((prop) => (
-          <div
+        {filteredProperties.map((prop, index) => (
+          <motion.div
             key={prop.id}
+            initial={{ opacity: 0, y: 24, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.75, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{ y: -6, scale: 1.01, rotate: -0.3 }}
             className="glass-card rounded-2xl overflow-hidden group hover:border-gold/40 transition-all duration-300 flex flex-col justify-between border border-neutral-200 dark:border-white/10 bg-white/80 dark:bg-black/40 shadow-sm dark:shadow-none"
           >
             {/* Image Banner */}
@@ -142,7 +148,7 @@ export const ResidencesGrid: React.FC<ResidencesGridProps> = ({
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

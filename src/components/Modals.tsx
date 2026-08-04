@@ -138,7 +138,7 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({ property, isOpen, 
                   type="checkbox"
                   checked={form.receiveOnWhatsApp}
                   onChange={(e) => setForm({ ...form, receiveOnWhatsApp: e.target.checked })}
-                  className="accent-[#C5A059] w-4 h-4"
+                  className="accent-[#b88a33] w-4 h-4"
                 />
                 <span>Send PDF floor plans directly to WhatsApp</span>
               </label>

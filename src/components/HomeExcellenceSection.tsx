@@ -1567,65 +1567,46 @@ export const AboutUsSection: React.FC<SectionProps> = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative w-full bg-[#f4e2c8] text-[#111]">
-      {/* Full-bleed row: text sits within a max-width reading column, image bleeds to the browser edge */}
-      <div className="relative flex flex-col lg:block min-h-[300px] lg:min-h-[520px]">
+    <section className="relative w-full overflow-hidden" style={{ background: '#f5e6d3' }}>
+      {/* Vertical "ABOUT US" label — pinned to far left edge */}
+      <span className="hidden lg:flex absolute left-0 top-0 bottom-0 items-center z-20 pointer-events-none"
+        style={{ writingMode: 'vertical-lr', transform: 'rotate(180deg)', fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#a1896b', fontWeight: 600, padding: '0 6px' }}>
+        ABOUT US
+      </span>
 
-        {/* Vertical "ABOUT US" label pinned to the far left edge */}
-        <span className="hidden lg:block absolute left-4 xl:left-6 top-1/2 -translate-y-1/2 [writing-mode:vertical-lr] rotate-180 text-[10px] tracking-[0.4em] uppercase text-[#8b6c44] font-semibold select-none">
-          ABOUT US
-        </span>
-
-        {/* Text column — plain on beige, no card. Kept wide (~57%) so plenty of beige shows before the image starts */}
-        <div className="relative z-0 flex flex-col justify-center pl-10 pr-6 py-14 sm:pl-16 md:pl-20 lg:pl-24 lg:pr-16 lg:py-0 lg:w-[58%]">
-          <h2 className="text-3xl sm:text-4xl md:text-[42px] font-serif text-[#111] leading-[1.15] tracking-tight max-w-[30rem]">
-            Where Excellence Is Etched<br className="hidden sm:block" /> In Every Process
+      <div className="flex flex-col lg:flex-row min-h-[420px] lg:min-h-[500px]">
+        {/* LEFT: Text area — beige background */}
+        <div className="relative lg:w-[50%] flex flex-col justify-center px-8 py-12 lg:py-16 lg:pl-16 lg:pr-12" style={{ background: '#f5e6d3' }}>
+          <h2 className="text-3xl sm:text-[38px] md:text-[42px] font-serif text-[#222] leading-[1.15] tracking-tight">
+            Where Excellence Is Etched<br />
+            In Every Process
           </h2>
-          <p className="text-[14px] sm:text-[15px] text-[#5b5649] leading-[1.9] mt-6 pr-4 lg:pr-0 max-w-[30rem]">
+          <p className="text-[14px] text-[#58595b] leading-[1.85] mt-5 text-justify" style={{ width: '88%' }}>
             With a massive presence across Navi Mumbai, Platinum Group has created a legacy of excellence in the real estate landscape of the region. The group achieved great success with the collective vision of Dharamshi Patel, Girish Chheda and Virchand Virsaria. Currently driven by their second generation, Platinum Group is constantly creating iconic landmarks that adhere to the finest standards of quality.
           </p>
           <button
             onClick={() => navigate('/about')}
-            className="mt-8 self-start px-10 py-3 bg-[#b19661] hover:bg-[#98794c] text-white text-[11px] font-semibold uppercase tracking-[0.18em] transition-colors duration-300 shadow-lg rounded-none cursor-pointer"
+            className="mt-8 self-start px-8 py-3 bg-[#a1896b] hover:bg-[#8b7559] text-white text-[11px] font-semibold uppercase tracking-[0.15em] transition-colors duration-300 cursor-pointer"
           >
             Know More
           </button>
         </div>
 
-        {/* Image column — narrower (~43%) so the beige panel on the left reads bigger, matches reference.
-            Bleeds to the right edge AND drops below the section's own bottom edge,
-            overlapping the section that follows (matches reference screenshots) */}
-        <div className="relative w-full h-[320px] sm:h-[420px] lg:h-auto lg:absolute lg:right-0 lg:top-[42px] lg:w-[44%] lg:h-[calc(100%+150px)] z-10">
+        {/* RIGHT: Photo — bleeds to browser edge, white rect border overlay */}
+        <div className="relative lg:w-[50%] min-h-[340px] lg:min-h-0 overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80"
-            alt="Where Excellence Is Etched In Every Process"
-            className="w-full h-full object-cover object-center"
+            src="/assets/img/home/about.jpg"
+            alt="Where Excellence Is Etched"
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/15" />
-
-          <span className="absolute bottom-4 right-5 text-[9px] uppercase tracking-[0.35em] text-white/85">
+          {/* White rectangle outline overlay — matches reference screenshot exactly */}
+          <div className="absolute z-10 pointer-events-none"
+            style={{ top: '12%', left: '18%', right: '8%', bottom: '8%', border: '2px solid rgba(255,255,255,0.85)' }} />
+          {/* Disclaimer */}
+          <span className="absolute bottom-3 right-4 z-10 text-white/80"
+            style={{ fontSize: '8px', letterSpacing: '0.3em', textTransform: 'uppercase' }}>
             Image Is For Representation Purpose Only
           </span>
-
-          {/* Single continuous "step" line — measured directly off the reference screenshot:
-              starts at 52% across the image (from its left/seam edge), 0% down (image top),
-              drops to 27% height, steps left to 22% across, then runs straight down to 100%
-              (the wrapper's full bled height) — so it visually travels from the beige section,
-              across the photo, and down into the dark section it overlaps. */}
-          <svg
-            className="hidden lg:block absolute inset-0 w-full h-full z-20 pointer-events-none"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-            fill="none"
-          >
-            <path
-              d="M 52 0 L 52 27 L 22 27 L 22 100"
-              stroke="white"
-              strokeOpacity="0.85"
-              strokeWidth="1"
-              vectorEffect="non-scaling-stroke"
-            />
-          </svg>
         </div>
       </div>
     </section>
@@ -1657,126 +1638,130 @@ const ONGOING_ITEMS: OngoingProject[] = [
 export const OngoingProjectsCarousel: React.FC<SectionProps> = () => {
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const maxIndex = ONGOING_ITEMS.length - 2;
+  // Show 2 cards at a time; slide by 1
+  const visibleCards = 2;
+  const maxIndex = ONGOING_ITEMS.length - visibleCards;
 
   useEffect(() => {
     const timer = window.setInterval(() => {
       setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
-    }, 4200);
+    }, 4000);
     return () => window.clearInterval(timer);
   }, [maxIndex]);
 
   const totalDots = 4;
-  const activeDotIndex = Math.min(totalDots - 1, Math.floor((currentIndex / maxIndex) * totalDots));
+  const activeDotIndex = Math.min(totalDots - 1, Math.floor((currentIndex / maxIndex) * (totalDots - 1)));
 
   const handleDotClick = (dotIdx: number) => {
     const targetIndex = Math.round((dotIdx / (totalDots - 1)) * maxIndex);
-    setCurrentIndex(targetIndex);
+    setCurrentIndex(Math.min(targetIndex, maxIndex));
   };
 
   return (
-    <section className="w-full bg-[#111213] text-white pt-20 pb-14 relative border-t border-[#2b2316]">
-      <div className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20">
-        <span className="[writing-mode:vertical-lr] rotate-180 uppercase tracking-[0.35em] text-[10px] font-semibold text-[#b49e69] whitespace-nowrap">
-          ONGOING PROJECTS
-        </span>
-      </div>
+    <section className="w-full text-white relative overflow-hidden" style={{ background: 'url(/assets/img/home/projectbg.jpg) no-repeat center center', backgroundSize: 'cover' }}>
+      {/* Vertical "ONGOING PROJECTS" label — far left */}
+      <span className="hidden lg:flex absolute left-0 top-0 bottom-0 items-center z-20 pointer-events-none"
+        style={{ writingMode: 'vertical-lr', transform: 'rotate(180deg)', fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.75)', fontWeight: 600, padding: '0 6px' }}>
+        ONGOING PROJECTS
+      </span>
 
-      <div className="max-w-[1380px] mx-auto pl-12 sm:pl-16 lg:pl-24 pr-0 sm:pr-0 relative overflow-visible">
-        <div className="grid grid-cols-1 lg:grid-cols-[300px_minmax(0,1fr)] gap-5">
-          <div className="relative z-30 border border-[#3c3220] p-10 bg-[#141517] shadow-[0_28px_100px_rgba(0,0,0,0.28)] overflow-hidden lg:h-[calc(100%+90px)] lg:-mb-[90px]">
-            {/* Background photo — couple, dark overlay, sits behind the icon/text (matches reference).
-                On desktop the card itself bleeds ~90px past this section's bottom edge, overlapping
-                slightly into the Team section that follows. */}
-            <img
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
-              alt=""
-              className="absolute inset-0 w-full h-full object-cover opacity-70"
-            />
-            <div className="absolute inset-0 bg-black/55" />
+      <div className="relative z-10 py-12 md:py-16 lg:py-20 pl-6 lg:pl-14">
+        {/* 4-column layout (matches screenshot exactly):
+            [info card] [photo card] [photo card] [view all panel] */}
+        <div className="flex items-stretch gap-0 lg:gap-0 w-full overflow-hidden">
+
+          {/* Col 1: Info card with white 1px border, dark bg, icon + text */}
+          <div className="hidden lg:flex flex-col justify-end p-8 shrink-0 w-[22%] min-h-[440px] relative overflow-hidden"
+            style={{ border: '1px solid rgba(255,255,255,0.5)' }}>
+            <div className="absolute inset-0 bg-black/30" />
             <div className="relative z-10">
-              <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center">
+              <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center mb-7">
                 <Building2 className="w-7 h-7 text-[#1b1c1e]" />
               </div>
-
-            <h2 className="text-3xl sm:text-4xl font-serif leading-[1.1] font-semibold text-white tracking-tight mt-7">
-              Beautifying Skylines<br />
-              Of The Future With<br />
-              Excellence
-            </h2>
-            <p className="text-[12px] sm:text-[13px] text-[#cdc09b] leading-[1.85] mt-5 max-w-[16rem]">
-              Our diverse range of ongoing projects exemplifies our commitment to exceptional construction standards and elegant design.
-            </p>
+              <h2 className="text-2xl lg:text-3xl font-serif font-semibold text-white leading-[1.2] tracking-tight">
+                Beautifying Skylines<br />
+                Of The Future With<br />
+                Excellence
+              </h2>
+              <p className="text-[12px] text-white/75 leading-[1.85] mt-4">
+                Our diverse range of ongoing projects exemplifies our commitment to exceptional construction standards and elegant design.
+              </p>
             </div>
           </div>
 
-          <div className="relative overflow-hidden">
-            <div className="flex gap-5 items-stretch">
-              <div className="w-[76%] min-w-0 overflow-hidden">
-                <motion.div
-                  animate={{ x: `calc(-${currentIndex} * (50% + 20px))` }}
-                  transition={{ duration: 0.85, ease: [0.25, 1, 0.5, 1] }}
-                  className="flex gap-5 w-full"
+          {/* Col 2 + 3: Sliding project photo cards — each card has photo + white label strip */}
+          <div className="flex-1 min-w-0 overflow-hidden">
+            <motion.div
+              animate={{ x: `calc(-${currentIndex} * 50%)` }}
+              transition={{ duration: 0.75, ease: [0.25, 1, 0.5, 1] }}
+              className="flex w-full"
+              style={{ width: `${ONGOING_ITEMS.length * 50}%` }}
+            >
+              {ONGOING_ITEMS.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="shrink-0 flex flex-col bg-white overflow-hidden group cursor-pointer"
+                  style={{ width: `${100 / ONGOING_ITEMS.length}%` }}
                 >
-                  {ONGOING_ITEMS.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="w-[calc(50%-6px)] flex flex-col bg-white overflow-hidden shadow-[0_24px_70px_rgba(0,0,0,0.14)] group cursor-pointer shrink-0 border border-[#e6d7b7] rounded-[1.5rem]"
-                    >
-                      <div className="relative aspect-[1/1] w-full overflow-hidden bg-neutral-900">
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </div>
-                      <div className="p-5 bg-white text-[#111]">
-                        <h3 className="text-lg font-serif font-semibold text-[#111]">
-                          {item.title}
-                        </h3>
-                        <p className="text-[11px] text-[#6b6555] mt-2 font-medium">
-                          {item.location}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </motion.div>
-              </div>
-
-              <div
-                onClick={() => navigate('/projects')}
-                className="flex-1 min-w-[260px] max-w-[280px] relative overflow-hidden bg-[#f7f2e7] border border-[#e7d7b8] shadow-[0_20px_60px_rgba(0,0,0,0.12)] flex flex-col justify-center items-center text-center p-7 cursor-pointer"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=850&q=80"
-                  alt="View All Projects"
-                  className="absolute inset-0 w-full h-full object-cover opacity-20"
-                  />
-                <div className="absolute inset-0 bg-white/90" />
-                <div className="relative z-10 flex flex-col items-center justify-center space-y-4">
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[#4d4232] leading-tight">
-                    VIEW<br />ALL PROJECTS
-                  </span>
-                  <div className="w-12 h-12 rounded-full bg-[#bda56e] text-white flex items-center justify-center shadow-lg">
-                    <ChevronRight className="w-5 h-5" />
+                  {/* Photo — square-ish */}
+                  <div className="relative overflow-hidden bg-neutral-900" style={{ aspectRatio: '1/1' }}>
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  {/* White label strip */}
+                  <div className="px-4 py-3 bg-white text-[#111]">
+                    <h3 className="text-[14px] font-serif font-semibold text-[#111] leading-snug">
+                      {item.title},
+                    </h3>
+                    <p className="text-[11px] text-[#6b6555] mt-0.5">
+                      {item.location}
+                    </p>
                   </div>
                 </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Col 4: VIEW ALL PROJECTS panel */}
+          <div
+            onClick={() => navigate('/projects')}
+            className="hidden lg:flex shrink-0 w-[17%] flex-col justify-center items-center text-center relative overflow-hidden cursor-pointer"
+            style={{ border: '1px solid rgba(255,255,255,0.3)' }}
+          >
+            <img
+              src="/assets/img/home/viewprojects.jpg"
+              alt="View All Projects"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/45" />
+            <div className="relative z-10 flex flex-col items-center gap-4">
+              <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-white leading-tight">
+                VIEW<br />ALL PROJECTS
+              </span>
+              <div className="w-11 h-11 rounded-full bg-[#b88a33] flex items-center justify-center">
+                <ChevronRight className="w-5 h-5 text-white" />
               </div>
             </div>
-
-            <div className="flex items-center justify-center space-x-2 pt-6 pr-4">
-              {[0, 1, 2, 3].map((dotIdx) => (
-                <button
-                  key={dotIdx}
-                  onClick={() => handleDotClick(dotIdx)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                    activeDotIndex === dotIdx ? 'bg-[#b79f6b] scale-125' : 'bg-[#d6c99e]/70 hover:bg-[#bbac7c]'
-                  }`}
-                  aria-label={`Go to section ${dotIdx + 1}`}
-                />
-              ))}
-            </div>
           </div>
+        </div>
+
+        {/* Pagination dots — centered below the cards */}
+        <div className="flex items-center justify-center gap-2 pt-5">
+          {[0, 1, 2, 3].map((dotIdx) => (
+            <button
+              key={dotIdx}
+              onClick={() => handleDotClick(dotIdx)}
+              className={`rounded-full transition-all duration-300 cursor-pointer ${
+                activeDotIndex === dotIdx
+                  ? 'w-3 h-3 bg-white'
+                  : 'w-2.5 h-2.5 bg-white/40 hover:bg-white/70'
+              }`}
+              aria-label={`Go to section ${dotIdx + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>
@@ -1790,41 +1775,51 @@ export const TeamCraftingLegaciesSection: React.FC<SectionProps> = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative w-full bg-[#f7e7d3] text-[#111]">
-      <div className="relative flex flex-col lg:block min-h-[320px] lg:min-h-[480px]">
+    <section className="relative w-full overflow-hidden" style={{ background: '#f5e6d3' }}>
+      {/* Cream/beige top strip that spans full width above the photo (matches screenshot) */}
+      <div className="w-full h-[80px] lg:h-[100px]" style={{ background: '#f5e6d3' }} />
 
-        {/* Image column — full-bleed to the LEFT browser edge (~42% width), no rounded corners, no container padding */}
-        <div className="relative w-full h-[320px] sm:h-[420px] lg:h-auto lg:absolute lg:left-0 lg:top-0 lg:w-[42%] lg:h-full z-10">
+      {/* Main two-column row: photo LEFT, text RIGHT */}
+      <div className="flex flex-col lg:flex-row">
+        {/* LEFT: Photo — full-bleed, no padding, takes ~48% width */}
+        <div className="relative w-full lg:w-[48%] min-h-[360px] lg:min-h-[560px] overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=80"
+            src="/assets/img/home/quality.jpg"
             alt="Crafting Legacies"
-            className="w-full h-full object-cover object-center"
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/16" />
-          <div className="absolute bottom-4 left-4 text-white/80 text-[10px] uppercase tracking-[0.35em] font-normal">
+          {/* "Shot At One Platinum" label bottom-left */}
+          <span className="absolute bottom-4 left-4 z-10 text-white/80"
+            style={{ fontSize: '9px', letterSpacing: '0.3em', textTransform: 'uppercase' }}>
             Shot At One Platinum
-          </div>
+          </span>
         </div>
 
-        {/* Text column — plain on cream, wide (~58%), pushed right past the image's width */}
-        <div className="relative z-0 flex flex-col justify-center pl-10 pr-6 py-14 sm:pl-16 md:pl-20 lg:pl-[50%] lg:pr-16 lg:py-0">
-          <span className="text-[10px] uppercase tracking-[0.35em] font-semibold text-[#8b6c44] mb-4 inline-block">
+        {/* RIGHT: Text on beige background */}
+        <div className="relative lg:w-[52%] flex flex-col justify-center px-8 py-12 lg:py-16 lg:pl-14 lg:pr-16" style={{ background: '#f5e6d3' }}>
+          <span className="text-[11px] uppercase tracking-[0.3em] font-semibold text-[#a1896b] mb-4 inline-block">
             Team
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-[42px] font-serif text-[#111] leading-[1.18] tracking-tight mb-6 max-w-lg">
-            Crafting Legacies That Meet<br className="hidden sm:block" /> Global Standards
+          {/* Thin horizontal line under Team label (matches reference) */}
+          <div className="w-[140px] h-px bg-[#a1896b]/40 mb-6" />
+          <h2 className="text-3xl sm:text-[38px] md:text-[42px] font-serif text-[#222] leading-[1.15] tracking-tight mb-5">
+            Crafting Legacies That Meet<br />
+            Global Standards
           </h2>
-          <p className="text-[14px] sm:text-[15px] text-[#5d5548] leading-[1.9] mb-10 max-w-lg">
-            Each of our projects is handcrafted to perfection right from design to the development stage. Employing nuances of urban planning, strategic analysis, and leveraging on the highest standards of geotechnical engineering, our projects meet and exceed the calibre of world-class construction. We relentlessly focus not only on quality creation, but we also aim to enhance the quality of life and living standards of people, making us a leading choice for safe investments.
+          <p className="text-[14px] text-[#58595b] leading-[1.85] mb-8 text-justify" style={{ maxWidth: '480px' }}>
+            Each of our projects is handcrafted to perfection right from design to the development stage. Employing nuances of urban planning, strategic analysis, and leveraging on the highest standards of geotechnical engineering, our projects meet and exceed the calibre of world-class construction. We relentlessly focus not only on quality creation, but we also aim to enhance the quality of life and living standards of people, making us a leading choice for safe investments. We know that every home we build carries our legacy through the tides of time.
           </p>
           <button
             onClick={() => navigate('/about')}
-            className="self-start px-10 py-3 bg-[#ad9360] hover:bg-[#997a47] text-white text-[11px] font-semibold uppercase tracking-[0.18em] transition-colors duration-300 shadow-lg rounded-none cursor-pointer"
+            className="self-start px-8 py-3 bg-[#a1896b] hover:bg-[#8b7559] text-white text-[11px] font-semibold uppercase tracking-[0.15em] transition-colors duration-300 cursor-pointer"
           >
             Know More
           </button>
         </div>
       </div>
+
+      {/* Bottom padding */}
+      <div className="w-full h-10 lg:h-16" style={{ background: '#f5e6d3' }} />
     </section>
   );
 };
@@ -1879,10 +1874,10 @@ export const PlatinumPresenceSection: React.FC<SectionProps> = () => {
   ];
 
   return (
-    <section className="w-full bg-[#f5ebdc] text-[#111] py-16 md:py-24 relative overflow-hidden">
+    <section className="w-full py-10 md:py-16 relative overflow-hidden" style={{ background: 'url(/assets/img/home/ourpresence.jpg) no-repeat', backgroundSize: 'cover', color: '#fff' }}>
       {/* Side Label */}
       <div className="absolute top-12 left-6 hidden xl:block">
-        <span className="[writing-mode:vertical-lr] rotate-180 uppercase tracking-[0.35em] text-[10px] font-medium text-[#7e6642] whitespace-nowrap">
+        <span className="[writing-mode:vertical-lr] rotate-180 uppercase tracking-[0.35em] text-[10px] font-medium text-white/70 whitespace-nowrap">
           PLATINUM PRESENCE
         </span>
       </div>
@@ -1893,14 +1888,14 @@ export const PlatinumPresenceSection: React.FC<SectionProps> = () => {
           {/* Left Column: Heading & Accordions */}
           <div className="lg:col-span-5 space-y-8">
             <div>
-              <span className="xl:hidden text-[10px] uppercase tracking-[0.35em] font-medium text-[#7e6642] block mb-2">
+              <span className="xl:hidden text-[10px] uppercase tracking-[0.35em] font-medium text-white/70 block mb-2">
                 PLATINUM PRESENCE
               </span>
-              <h2 className="text-3xl sm:text-4xl font-serif leading-[1.25] font-normal text-[#111]">
+              <h2 className="text-3xl sm:text-4xl font-serif leading-[1.25] font-normal text-white">
                 A Solid Footprint Across<br />
                 Navi Mumbai
               </h2>
-              <p className="text-[13px] text-[#4a4a4a] leading-relaxed font-normal mt-4">
+              <p className="text-[13px] text-white/80 leading-relaxed font-normal mt-4">
                 We have a wide presence across Navi Mumbai's key locations like Seawoods, Nerul, Kharghar and Ulwe among others.
               </p>
             </div>
@@ -1908,15 +1903,15 @@ export const PlatinumPresenceSection: React.FC<SectionProps> = () => {
             {/* Accordion FAQ */}
             <div className="space-y-3 pt-2">
               {/* ONGOING PROJECTS */}
-              <div className="border-b border-white/10 pb-3">
+              <div className="border-b border-white/20 pb-3">
                 <button
                   onClick={() => setOpenFaq(openFaq === 'ongoing' ? null : 'ongoing')}
-                  className="w-full flex items-center justify-between text-left py-2 hover:text-[#c5b596] transition-colors cursor-pointer group"
+                  className="w-full flex items-center justify-between text-left py-2 hover:text-[#d4c28b] transition-colors cursor-pointer group"
                 >
-                  <span className="text-lg font-serif text-white group-hover:text-[#c5b596]">
+                  <span className="text-lg font-serif text-white group-hover:text-[#d4c28b]">
                     Ongoing Projects ({ONGOING_LIST.length})
                   </span>
-                  <span className="text-[#c5b596] text-xl font-bold">{openFaq === 'ongoing' ? '−' : '+'}</span>
+                  <span className="text-[#d4c28b] text-xl font-bold">{openFaq === 'ongoing' ? '−' : '+'}</span>
                 </button>
                 <AnimatePresence>
                   {openFaq === 'ongoing' && (
@@ -1926,16 +1921,16 @@ export const PlatinumPresenceSection: React.FC<SectionProps> = () => {
                       exit={{ opacity: 0, height: 0 }}
                       className="overflow-hidden"
                     >
-                      <ul className="pt-3 space-y-2 text-[12px] text-neutral-300 pl-2">
+                      <ul className="pt-3 space-y-2 text-[12px] pl-2">
                         {ONGOING_LIST.map((item, idx) => (
                           <li
                             key={idx}
                             onClick={() => setActiveLocation(item.key)}
-                            className="flex items-center space-x-2 cursor-pointer hover:text-[#c5b596] transition-colors"
+                            className="flex items-center space-x-2 cursor-pointer hover:text-[#d4c28b] transition-colors"
                           >
-                            <span className="w-1.5 h-1.5 bg-[#9e8a63] rounded-full shrink-0" />
+                            <span className="w-1.5 h-1.5 bg-[#a1896b] rounded-full shrink-0" />
                             <span className="font-medium text-white">{item.name},</span>
-                            <span className="text-neutral-400">{item.location}</span>
+                            <span className="text-white/60">{item.location}</span>
                           </li>
                         ))}
                       </ul>
@@ -1945,15 +1940,15 @@ export const PlatinumPresenceSection: React.FC<SectionProps> = () => {
               </div>
 
               {/* COMPLETED PROJECTS */}
-              <div className="border-b border-white/10 pb-3">
+              <div className="border-b border-white/20 pb-3">
                 <button
                   onClick={() => setOpenFaq(openFaq === 'completed' ? null : 'completed')}
-                  className="w-full flex items-center justify-between text-left py-2 hover:text-[#c5b596] transition-colors cursor-pointer group"
+                  className="w-full flex items-center justify-between text-left py-2 hover:text-[#d4c28b] transition-colors cursor-pointer group"
                 >
-                  <span className="text-lg font-serif text-white group-hover:text-[#c5b596]">
+                  <span className="text-lg font-serif text-white group-hover:text-[#d4c28b]">
                     Completed Projects ({COMPLETED_LIST.length})
                   </span>
-                  <span className="text-[#c5b596] text-xl font-bold">{openFaq === 'completed' ? '−' : '+'}</span>
+                  <span className="text-[#d4c28b] text-xl font-bold">{openFaq === 'completed' ? '−' : '+'}</span>
                 </button>
                 <AnimatePresence>
                   {openFaq === 'completed' && (
@@ -1963,16 +1958,16 @@ export const PlatinumPresenceSection: React.FC<SectionProps> = () => {
                       exit={{ opacity: 0, height: 0 }}
                       className="overflow-hidden"
                     >
-                      <ul className="pt-3 space-y-2 text-[12px] text-neutral-300 pl-2 max-h-[220px] overflow-y-auto custom-scrollbar">
+                      <ul className="pt-3 space-y-2 text-[12px] pl-2 max-h-[220px] overflow-y-auto custom-scrollbar">
                         {COMPLETED_LIST.map((item, idx) => (
                           <li
                             key={idx}
                             onClick={() => setActiveLocation(item.key)}
-                            className="flex items-center space-x-2 cursor-pointer hover:text-[#c5b596] transition-colors"
+                            className="flex items-center space-x-2 cursor-pointer hover:text-[#d4c28b] transition-colors"
                           >
-                            <span className="w-1.5 h-1.5 bg-[#9e8a63] rounded-full shrink-0" />
+                            <span className="w-1.5 h-1.5 bg-[#a1896b] rounded-full shrink-0" />
                             <span className="font-medium text-white">{item.name},</span>
-                            <span className="text-neutral-400">{item.location}</span>
+                            <span className="text-white/60">{item.location}</span>
                           </li>
                         ))}
                       </ul>
@@ -1982,15 +1977,15 @@ export const PlatinumPresenceSection: React.FC<SectionProps> = () => {
               </div>
 
               {/* UPCOMING PROJECTS */}
-              <div className="border-b border-white/10 pb-3">
+              <div className="border-b border-white/20 pb-3">
                 <button
                   onClick={() => setOpenFaq(openFaq === 'upcoming' ? null : 'upcoming')}
-                  className="w-full flex items-center justify-between text-left py-2 hover:text-[#c5b596] transition-colors cursor-pointer group"
+                  className="w-full flex items-center justify-between text-left py-2 hover:text-[#d4c28b] transition-colors cursor-pointer group"
                 >
-                  <span className="text-lg font-serif text-white group-hover:text-[#c5b596]">
+                  <span className="text-lg font-serif text-white group-hover:text-[#d4c28b]">
                     Upcoming Projects ({UPCOMING_LIST.length})
                   </span>
-                  <span className="text-[#c5b596] text-xl font-bold">{openFaq === 'upcoming' ? '−' : '+'}</span>
+                  <span className="text-[#d4c28b] text-xl font-bold">{openFaq === 'upcoming' ? '−' : '+'}</span>
                 </button>
                 <AnimatePresence>
                   {openFaq === 'upcoming' && (
@@ -2000,16 +1995,16 @@ export const PlatinumPresenceSection: React.FC<SectionProps> = () => {
                       exit={{ opacity: 0, height: 0 }}
                       className="overflow-hidden"
                     >
-                      <ul className="pt-3 space-y-2 text-[12px] text-neutral-300 pl-2">
+                      <ul className="pt-3 space-y-2 text-[12px] pl-2">
                         {UPCOMING_LIST.map((item, idx) => (
                           <li
                             key={idx}
                             onClick={() => setActiveLocation(item.key)}
-                            className="flex items-center space-x-2 cursor-pointer hover:text-[#c5b596] transition-colors"
+                            className="flex items-center space-x-2 cursor-pointer hover:text-[#d4c28b] transition-colors"
                           >
-                            <span className="w-1.5 h-1.5 bg-[#9e8a63] rounded-full shrink-0" />
+                            <span className="w-1.5 h-1.5 bg-[#a1896b] rounded-full shrink-0" />
                             <span className="font-medium text-white">{item.name},</span>
-                            <span className="text-neutral-400">{item.location}</span>
+                            <span className="text-white/60">{item.location}</span>
                           </li>
                         ))}
                       </ul>
