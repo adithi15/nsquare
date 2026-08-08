@@ -1,5 +1,5 @@
 import React from 'react';
-import { ResidencesGrid } from '../components/ResidencesGrid';
+import { ResidencesGrid } from '../components/projects/ResidencesGrid';
 import { Property, ThemeMode } from '../types';
 
 interface CommercialPageProps {

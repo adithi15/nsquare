@@ -1,0 +1,1 @@
+Vite 6 + React 19 + TypeScript 5.8 as the build/type stack; Tailwind CSS v4 via `@tailwindcss/vite` plugin for styling; `react-router-dom` v7 for client-side routing; `motion` for animations; `express` and `dotenv` for optional server-side features; `tsx` for dev-time execution.
