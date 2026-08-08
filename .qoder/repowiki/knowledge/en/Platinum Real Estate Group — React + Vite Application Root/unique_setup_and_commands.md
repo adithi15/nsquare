@@ -1,0 +1,1 @@
+`npm run dev` starts the Vite dev server on port 3000 bound to `0.0.0.0`; set `DISABLE_HMR=true` to disable hot reload and file watching. `npm run build` produces a static `dist/` bundle; `npm run preview` serves it locally; `npm run lint` runs `tsc --noEmit` against the shared `tsconfig.json`.

@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigate, Navigate } from 'react-router-dom';
 import { ThemeMode, NavTab, Property } from './types';
 import { PROPERTIES, HERO_SLIDES } from './data/residences';
-import { Header } from './components/Header';
-import { BrochureModal, ScheduleModal } from './components/Modals';
-import { Footer } from './components/Footer';
+import { Header } from './components/layout/Header';
+import { BrochureModal, ScheduleModal } from './components/layout/Modals';
+import { Footer } from './components/layout/Footer';
+import { ScrollTopButton } from './components/layout/ScrollTopButton';
 import { HomePage } from './pages/HomePage';
 import { ProjectsPage } from './pages/ProjectsPage';
 import { LegacyPage } from './pages/LegacyPage';
@@ -132,6 +133,7 @@ export default function App() {
                     const found = PROPERTIES.find((p) => p.id === id);
                     if (found) setSelectedProperty(found);
                   }}
+                  onViewAllProjects={() => handleSelectNavTab('projects')}
                 />
               </motion.div>
             }
@@ -171,7 +173,7 @@ export default function App() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.35 }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                 className="flex-1"
               >
                 <LegacyPage
@@ -190,7 +192,7 @@ export default function App() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.35 }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                 className="flex-1"
               >
                 <ContactPage theme={theme} />
@@ -206,7 +208,7 @@ export default function App() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.35 }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                 className="flex-1"
               >
                 <CommercialPage
@@ -248,6 +250,9 @@ export default function App() {
         onClose={() => setScheduleModalProperty(null)}
         theme={theme}
       />
+
+      {/* Floating back-to-top control */}
+      <ScrollTopButton />
     </div>
   );
 }

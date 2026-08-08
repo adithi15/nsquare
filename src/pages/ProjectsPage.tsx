@@ -1,6 +1,6 @@
 import React from 'react';
 import { Property, ThemeMode } from '../types';
-import { ProjectsPage as ProjectsContent } from '../components/ProjectsPage';
+import { ProjectsPage as ProjectsContent } from '../components/projects/ProjectsPage';
 
 interface ProjectsPageProps {
   theme: ThemeMode;

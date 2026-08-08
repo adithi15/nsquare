@@ -1,0 +1,1 @@
+Top-level project root that configures the Vite/React/Tailwind build, defines shared TypeScript paths and aliases, and wires the app_shell child into a single-page real-estate showcase application.

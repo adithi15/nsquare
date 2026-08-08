@@ -1,0 +1,18 @@
+schema_version: 1
+module_path: ""
+title: Platinum Real Estate Group — React + Vite Application Root
+scope:
+    - README.md
+    - .gitignore
+    - package.json
+    - vite.config.ts
+    - tailwind.config.cjs
+    - tsconfig.json
+    - index.html
+    - metadata.json
+    - bun.lock
+    - package-lock.json
+    - .env.example
+source_files: []
+depends_on: []
+related_to: []

@@ -1,0 +1,1 @@
+Bootstraps the React application, mounts the root component under a router, and provides the top-level routing, theme, navigation state, and modal orchestration for all pages.

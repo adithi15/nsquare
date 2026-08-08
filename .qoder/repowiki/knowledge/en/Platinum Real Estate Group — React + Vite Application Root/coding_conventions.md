@@ -1,0 +1,2 @@
+- Absolute imports use the `@/` prefix resolved by both Vite and TypeScript's `paths` mapping to the project root.
+- Brand colors are referenced exclusively through the Tailwind-configured `gold`, `gold-light`, and `gold-dark` tokens rather than raw hex values.

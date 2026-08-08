@@ -1,0 +1,1 @@
+React 18 with `createRoot`, `react-router-dom` for client-side routing, `motion/react` (Framer Motion) for route transition animations, and Tailwind CSS v4 (`@import "tailwindcss"`) with a custom `dark` variant for theming.

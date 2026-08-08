@@ -1,10 +1,13 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { HeroSlide, ThemeMode } from '../types';
-import { HeroSlider } from '../components/HeroSlider';
-import { PlatinumWorldSection } from '../components/PlatinumWorldSection';
-import { HomeExcellenceCombinedSection } from '../components/HomeExcellenceSection';
-import { TestimonialsSection } from '../components/TestimonialsSection';
+
+import { HeroSlider } from '../components/home/HeroSlider';
+import { VisionSection } from '../components/home/VisionSection';
+import { PlatinumWorldSection } from '../components/home/PlatinumWorldSection';
+import { OngoingProjectsCarousel } from '../components/home/OngoingProjectsCarousel';
+import { FootprintMapSection } from '../components/home/FootprintMapSection';
+import { TestimonialsSection } from '../components/home/TestimonialsSection';
 
 interface HomePageProps {
   theme: ThemeMode;
@@ -12,6 +15,7 @@ interface HomePageProps {
   onOpenBrochure: (slide: HeroSlide) => void;
   onOpenScheduleVisit: (slide: HeroSlide) => void;
   onSelectPropertyId: (id: string) => void;
+  onViewAllProjects?: () => void;
 }
 
 export const HomePage: React.FC<HomePageProps> = ({
@@ -20,6 +24,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   onOpenBrochure,
   onOpenScheduleVisit,
   onSelectPropertyId,
+  onViewAllProjects,
 }) => {
   return (
     <motion.div className="flex-1 flex flex-col">
@@ -33,12 +38,15 @@ export const HomePage: React.FC<HomePageProps> = ({
         />
       </div>
 
+      <VisionSection theme={theme} />
+
       <div id="section-legacy-world" className="m-0 p-0">
         <PlatinumWorldSection theme={theme} />
       </div>
 
-      {/* Combined section: About Us → Ongoing Projects → Team → Presence */}
-      <HomeExcellenceCombinedSection theme={theme} />
+      <OngoingProjectsCarousel theme={theme} onViewAll={onViewAllProjects} />
+
+      <FootprintMapSection theme={theme} />
 
       <TestimonialsSection theme={theme} />
     </motion.div>

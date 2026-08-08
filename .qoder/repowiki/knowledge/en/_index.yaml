@@ -1,0 +1,39 @@
+# 知识卡导出索引文件
+schema_version: 1
+locale: en-US
+branch: main
+nodes_managed: true
+exported_at: "2026-08-07T19:26:01Z"
+modules:
+    "":
+        dir_name: Platinum Real Estate Group — React + Vite Application Root
+        title: Platinum Real Estate Group — React + Vite Application Root
+        scope:
+            - README.md
+            - .gitignore
+            - package.json
+            - vite.config.ts
+            - tailwind.config.cjs
+            - tsconfig.json
+            - index.html
+            - metadata.json
+            - bun.lock
+            - package-lock.json
+            - .env.example
+        source_files: []
+        children:
+            - app_shell
+        depends_on: []
+        related_to: []
+    app_shell:
+        dir_name: Application Shell & Root Bootstrap
+        title: Application Shell & Root Bootstrap
+        scope:
+            - src/App.tsx
+            - src/main.tsx
+            - src/index.css
+            - src/types.ts
+        source_files: []
+        children: []
+        depends_on: []
+        related_to: []

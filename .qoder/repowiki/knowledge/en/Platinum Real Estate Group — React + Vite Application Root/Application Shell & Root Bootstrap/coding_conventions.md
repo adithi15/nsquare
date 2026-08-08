@@ -1,0 +1,5 @@
+- Global UI state (theme, active tab, selected property, modal payloads) is held in `App` and passed down as props rather than using context or external stores.
+- Page routes are declared as `<Route>` entries inside a single `<Routes>` block wrapped in `AnimatePresence`, each view motion-wrapped with consistent initial/animate/exit transitions keyed by a stable string.
+- Navigation between tabs uses `useNavigate` to programmatically change URLs and scrolls to the top after every tab switch.
+- Dark/light mode is applied by toggling a `dark` class on `document.documentElement` and setting explicit Tailwind utility classes on `body`, while shared styles live in `index.css` under `light-theme`/`dark-theme` scoped selectors.
+- Cross-component data contracts are defined once in `types.ts` as TypeScript interfaces and types and re-exported to consumers instead of being redefined locally.
