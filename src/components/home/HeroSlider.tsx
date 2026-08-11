@@ -22,6 +22,8 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
 
   const currentSlide = slides[currentIndex];
 
+  // Commented out automatic slide timer for video background
+  /*
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % slides.length);
@@ -29,6 +31,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
 
     return () => clearInterval(timer);
   }, [slides.length, currentIndex]);
+  */
 
 
 
@@ -48,6 +51,21 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
 
   return (
     <section className="relative w-full h-screen min-h-screen overflow-hidden flex flex-col justify-between">
+      {/* Background Video (Image Slider Commented Out below) */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <video
+          src="/assets/hero/hero.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/35 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.08),_transparent_30%)] opacity-80 pointer-events-none" />
+      </div>
+
+      {/* Image Slider Commented Out
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide.id}
@@ -69,6 +87,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.08),_transparent_30%)] opacity-80 pointer-events-none" />
         </motion.div>
       </AnimatePresence>
+      */}
 
       <div className="absolute top-24 sm:top-28 md:top-32 right-6 sm:right-12 md:right-20 z-20 pointer-events-none">
         <div className="flex items-center space-x-1.5 text-white/90 text-[10px] tracking-[0.2em] uppercase bg-black/40 px-3.5 py-1.5 rounded-full backdrop-blur-md border border-white/20 shadow-lg">
@@ -146,8 +165,9 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
         </AnimatePresence>
       </div>
 
-      {/* Floating Bottom-Right Progress & Disclaimer (slightly inset upward and inward) */}
+      {/* Floating Bottom-Right Disclaimer (slightly inset upward and inward) */}
       <div className="absolute bottom-10 right-12 z-30 flex flex-col items-center space-y-2.5 pointer-events-none">
+        {/* Commented out progress bar for static video background
         <div className="w-36 h-[2px] bg-white/20 rounded-full overflow-hidden relative">
           <motion.div
             key={`progress-${currentIndex}`}
@@ -160,8 +180,9 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             className="h-full bg-[#b88a33] shadow-[0_0_10px_#b88a33]"
           />
         </div>
+        */}
         <span className="text-[9px] uppercase tracking-widest text-white/45 font-light whitespace-nowrap">
-          Image Is For Representation Purpose Only
+          Video Is For Representation Purpose Only
         </span>
       </div>
     </section>
