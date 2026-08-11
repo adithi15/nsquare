@@ -56,6 +56,7 @@ export const Header: React.FC<HeaderProps> = ({
   const navItems: { label: string; tab: NavTab; hasDropdown?: boolean }[] = [
     { label: 'HOME', tab: 'residences' },
     { label: 'PROJECTS', tab: 'projects', hasDropdown: true },
+    { label: 'REDEVELOPMENT', tab: 'redevelopment' },
     { label: 'ABOUT US', tab: 'legacy' },
     { label: 'CONTACT US', tab: 'contact' },
   ];
@@ -78,18 +79,18 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-5 md:px-10 lg:px-14 shrink-0 transition-all duration-500 ease-in-out ${
       isScrolled 
-        ? 'bg-black/60 backdrop-blur-2xl border-b border-white/10 shadow-2xl py-3 md:py-3'
-        : 'bg-transparent pt-4 pb-3 md:pt-4 md:pb-3 lg:pt-4 lg:pb-3'
+        ? 'bg-black/60 backdrop-blur-2xl border-b border-white/10 shadow-2xl py-2.5 md:py-3'
+        : 'bg-transparent py-4 md:py-5'
     }`}>
       {/* Brand Logo */}
       <button 
         onClick={() => { onSelectTab('residences'); closeMobileMenu(); }}
-        className="flex items-center text-left group cursor-pointer focus:outline-none z-10 ml-8 md:ml-20 lg:ml-32"
+        className="flex items-center text-left group cursor-pointer focus:outline-none z-30 ml-6 md:ml-12 lg:ml-20"
       >
         <img
           src="/N-Square-logo.png"
           alt="N Square logo"
-          className="h-16 md:h-20 lg:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+          className="h-14 md:h-18 lg:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
         />
       </button>
 
@@ -126,22 +127,11 @@ export const Header: React.FC<HeaderProps> = ({
                       : 'text-white/90 hover:text-white'
                   }`}
                 >
-                  {/* Circle Dot Bullet Indicator with Fixed Thin Vertical Connecting Line */}
-                  <div className="relative flex items-center justify-center w-3.5 h-3.5">
-                    {isHighlighted && (
-                      <motion.div
-                        layoutId="activeHeaderVerticalLine"
-                        layout="position"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ type: 'spring', stiffness: 350, damping: 32 }}
-                        className="absolute -top-[200px] bottom-1/2 left-1/2 -translate-x-1/2 w-[0.5px] bg-white pointer-events-none z-0"
-                      />
-                    )}
-                    <span className={`w-2.5 h-2.5 rounded-full transition-all duration-300 relative z-10 ${
+                  {/* Square Dot Bullet Indicator */}
+                  <div className="relative flex items-center justify-center w-3 h-3">
+                    <span className={`w-2 h-2 transition-all duration-300 relative z-10 ${
                       isHighlighted 
-                        ? 'bg-white scale-125' 
+                        ? 'bg-white scale-110' 
                         : 'border border-white/40 bg-transparent'
                     }`} />
                   </div>
@@ -172,7 +162,7 @@ export const Header: React.FC<HeaderProps> = ({
                           onClick={() => handleDropdownItemClick(sub.filter)}
                           className="w-full text-left px-5 py-3 text-[11px] uppercase tracking-[0.2em] transition-all flex items-center space-x-2.5 group cursor-pointer text-neutral-700 hover:text-neutral-900 hover:bg-black/5"
                         >
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]/60 group-hover:bg-[#C5A059] group-hover:scale-125 transition-all" />
+                          <span className="w-1.5 h-1.5 bg-[#C5A059]/60 group-hover:bg-[#C5A059] group-hover:scale-125 transition-all" />
                           <span className="font-medium">{sub.label}</span>
                         </button>
                       ))}
@@ -194,22 +184,11 @@ export const Header: React.FC<HeaderProps> = ({
                   : 'text-white/90 hover:text-white'
               }`}
             >
-              {/* Circle Dot Bullet Indicator with Fixed Thin Vertical Connecting Line */}
-              <div className="relative flex items-center justify-center w-3.5 h-3.5">
-                {isHighlighted && (
-                  <motion.div
-                    layoutId="activeHeaderVerticalLine"
-                    layout="position"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ type: 'spring', stiffness: 350, damping: 32 }}
-                    className="absolute -top-[200px] bottom-1/2 left-1/2 -translate-x-1/2 w-[0.5px] bg-white pointer-events-none z-0"
-                  />
-                )}
-                <span className={`w-2.5 h-2.5 rounded-full transition-all duration-300 relative z-10 ${
+              {/* Square Dot Bullet Indicator */}
+              <div className="relative flex items-center justify-center w-3 h-3">
+                <span className={`w-2 h-2 transition-all duration-300 relative z-10 ${
                   isHighlighted 
-                    ? 'bg-white scale-125' 
+                    ? 'bg-white scale-110' 
                     : 'border border-white/40 bg-transparent'
                 }`} />
               </div>
@@ -319,7 +298,7 @@ export const Header: React.FC<HeaderProps> = ({
                   }`}
                 >
                   <div className="flex items-center space-x-2">
-                    <span className="w-2 h-2 rounded-full bg-[#C5A059]" />
+                    <span className="w-2 h-2 bg-[#C5A059]" />
                     <span>{item.label}</span>
                   </div>
                   {item.hasDropdown && (

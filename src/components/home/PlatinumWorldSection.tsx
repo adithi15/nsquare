@@ -77,7 +77,7 @@ export const PlatinumWorldSection: React.FC<PlatinumWorldSectionProps> = ({ them
               whileInView={{ opacity: 1, y: 0 }}
               viewport={VIEWPORT}
               transition={{ duration: 0.9, delay: i * 0.12, ease: EASE }}
-              className="flex flex-col items-center text-center gap-3 py-8 px-2 border border-white/5 bg-white/[0.02] backdrop-blur-sm"
+              className="flex flex-col items-center text-center gap-3 py-8 px-2 border border-white/5 bg-white/[0.02] backdrop-blur-sm hover:border-[#C5A059]/60 hover:bg-white/[0.04] transition-all duration-500 cursor-pointer"
             >
               <Counter stat={stat} />
               <span className="text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-white/60 leading-relaxed">

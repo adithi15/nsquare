@@ -28,10 +28,10 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
   const alignCls = align === 'center' ? 'items-center text-center' : 'items-start text-left';
   return (
     <motion.div
-      initial={{ opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 15, filter: 'blur(4px)' }}
+      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
       viewport={VIEWPORT}
-      transition={{ duration: 1.0, ease: EASE }}
+      transition={{ duration: 1.2, ease: EASE }}
       className={`flex flex-col ${alignCls} gap-4 mb-12 md:mb-16 px-2`}
     >
       <span className="text-[10px] md:text-[11px] uppercase tracking-[0.4em] text-[#C5A059] font-semibold">

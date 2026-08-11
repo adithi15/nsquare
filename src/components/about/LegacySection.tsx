@@ -18,7 +18,7 @@ const SideLabel = ({ text, className = "text-neutral-400" }: { text: string; cla
   </div>
 );
 
-export const LegacySection: React.FC<LegacySectionProps> = () => {
+export const LegacySection: React.FC<LegacySectionProps> = ({ theme = 'light' }) => {
   return (
     <div className="w-full bg-[#f4efe6] text-neutral-800 font-sans pb-20">
 
@@ -37,14 +37,11 @@ export const LegacySection: React.FC<LegacySectionProps> = () => {
         {/* Side Label */}
         <SideLabel text="ABOUT N-SQUARE" className="text-white/50" />
 
-        <span className="absolute bottom-4 right-6 text-[9px] uppercase tracking-widest text-white/40 z-10">
-          Images For Representation Purpose Only
-        </span>
       </section>
 
       {/* 2. OVERLAPPING BEIGE HERO INTRO CARD */}
       <section className="relative z-20 px-6 md:px-16 max-w-6xl mx-auto w-full -mt-40 md:-mt-52">
-        <div className="bg-[#f4e3ca] p-10 md:p-14 shadow-2xl border border-neutral-300/60 text-left space-y-5">
+        <div className="bg-[#f4e3ca] p-10 md:p-14 shadow-2xl border border-neutral-300/60 text-center space-y-5">
           <div className="flex items-center gap-4 md:gap-6">
             <span className="hidden sm:block h-[2px] flex-1 bg-[#c2a26c]/70" />
             <h1 className="text-3xl md:text-5xl font-serif text-neutral-900 leading-snug tracking-wide text-center">
@@ -52,75 +49,182 @@ export const LegacySection: React.FC<LegacySectionProps> = () => {
             </h1>
             <span className="hidden sm:block h-[2px] flex-1 bg-[#c2a26c]/70" />
           </div>
-          <p className="text-sm md:text-base text-neutral-700 font-light leading-relaxed max-w-4xl">
+          <p className="text-sm md:text-base text-neutral-700 font-light leading-relaxed max-w-4xl mx-auto">
             {ABOUT.body1}
           </p>
-          <p className="text-sm md:text-base text-neutral-700 font-light leading-relaxed max-w-4xl">
+          <p className="text-sm md:text-base text-neutral-700 font-light leading-relaxed max-w-4xl mx-auto">
             {ABOUT.body2}
           </p>
+          {/* @ts-ignore */}
+          {ABOUT.body3 && (
+            <p className="text-sm md:text-base text-neutral-700 font-light leading-relaxed max-w-4xl mx-auto">
+              {/* @ts-ignore */}
+              {ABOUT.body3}
+            </p>
+          )}
+          {/* @ts-ignore */}
+          {ABOUT.body4 && (
+            <p className="text-xs md:text-sm uppercase tracking-[0.25em] font-semibold text-[#c2a26c] border-t border-neutral-300/40 pt-4 max-w-4xl mx-auto mt-5">
+              {/* @ts-ignore */}
+              {ABOUT.body4}
+            </p>
+          )}
         </div>
       </section>
 
       {/* 3. FOUNDERS SECTION */}
-      <section className="relative w-full pt-20 pb-20 px-6 md:px-20 mt-16 overflow-hidden bg-[#0C0C0C]">
+      <section className={`relative w-full pt-20 pb-24 px-6 md:px-20 mt-16 overflow-hidden transition-colors duration-500 ${
+        theme === 'dark' ? 'bg-[#0C0C0C]' : 'bg-white'
+      }`}>
         {/* Side Label */}
-        <SideLabel text="THE FOUNDERS" className="text-white/60" />
+        <SideLabel text="THE FOUNDERS" className={theme === 'dark' ? 'text-white/60' : 'text-neutral-400'} />
 
-        <div className="relative z-10 max-w-6xl mx-auto pl-4 lg:pl-10">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-12 text-white">
-            <div className="md:col-span-5 space-y-2">
-              <h2 className="text-2xl md:text-3xl font-serif text-white leading-tight">
-                The Visionaries Behind<br />
-                N-Square’s Growing Legacy
-              </h2>
-            </div>
-            <div className="md:col-span-7">
-              <p className="text-xs md:text-[13px] text-white/80 font-light leading-relaxed">
-                N-Square Developers is the coming together of two trusted legacies — Neelkanth Group and Namastey Realty. Led by founders with over two decades of on-ground experience, the company has grown into a name synonymous with quality-first development across Navi Mumbai.
-              </p>
-            </div>
-          </div>
+        <div className="relative z-10 max-w-6xl mx-auto pl-4 lg:pl-10 space-y-16 md:space-y-24">
+          
+          {/* Row 1: Mr. Anil Ravriya */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+            {/* Left: Image Card */}
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              className="md:col-span-4 relative group"
+            >
+              <div className="absolute -top-4 -left-4 w-full h-full border border-[#c2a26c]/40 z-0 pointer-events-none" />
+              <div className="relative aspect-square w-full bg-neutral-900 border border-white/10 z-10 overflow-hidden shadow-xl">
+                <img
+                  src="/assets/branding/director-anil.png"
+                  alt="Mr. Anil Ravriya"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="absolute -bottom-4 -right-4 w-8 h-8 border-b-4 border-r-4 border-[#c2a26c] z-20 pointer-events-none" />
+            </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {DIRECTORS.map((leader, idx) => (
-              <motion.div
-                key={leader.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="space-y-4"
-              >
-                <div className="relative aspect-[4/4.2] w-full bg-neutral-900 border border-white/20">
-                  <img
-                    src={leader.image}
-                    alt={leader.name}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover object-top"
-                  />
-                  <div className="absolute -top-5 -right-5 w-14 h-14 border-t-8 border-r-8 border-[#c2a26c]" />
-                </div>
-
-                <div className="text-white space-y-1.5 pt-1">
-                  <h3 className="text-sm font-medium tracking-wide">
-                    {leader.name}
+            {/* Right: Text Card */}
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              className={`md:col-span-8 p-8 md:p-10 shadow-lg border flex flex-col justify-center min-h-[300px] transition-all duration-500 hover:-translate-y-1 hover:shadow-xl ${
+                theme === 'dark' 
+                  ? 'bg-gradient-to-br from-[#161512] to-[#0F0E0C] border-[#C5A059]/20' 
+                  : 'bg-[#FDF3E7] border-neutral-300/40'
+              }`}
+            >
+              <div className="space-y-4">
+                <div className="space-y-1">
+                  <h3 className={`text-lg md:text-xl font-serif font-bold tracking-wide ${
+                    theme === 'dark' ? 'text-white' : 'text-neutral-950'
+                  }`}>
+                    Leadership That Builds Lasting Value
                   </h3>
-                  <p className="text-[10px] uppercase tracking-wider text-[#c2a26c]">
-                    {leader.role}
-                  </p>
-                  <p className="text-[11px] text-white/70 font-light leading-relaxed">
-                    {leader.bio}
+                  <p className="text-[10px] uppercase tracking-widest text-[#c2a26c] font-medium">
+                    Mr. Anil Ravriya · Founder & Director
                   </p>
                 </div>
-              </motion.div>
-            ))}
+                
+                <p className={`font-serif italic text-xs md:text-sm leading-relaxed border-l-2 border-[#c2a26c] pl-4 ${
+                  theme === 'dark' ? 'text-[#C5A059]' : 'text-[#8c7445]'
+                }`}>
+                  "Success isn't just about delivering projects; it's about building enduring value for our clients, partners, and communities."
+                </p>
+
+                <div className={`text-xs md:text-[13px] leading-relaxed font-light space-y-3 ${
+                  theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'
+                }`}>
+                  <p>
+                    As Director of <strong className="font-semibold">NSQUARE</strong>, <strong className="font-semibold text-[#c2a26c]">Anil Ravriya</strong> brings a clear vision rooted in operational excellence, innovation, and long-term value creation. His leadership combines disciplined execution with a forward-thinking approach, ensuring that every project meets the highest standards of quality and integrity.
+                  </p>
+                  <p>
+                    With a strong emphasis on <strong className="font-semibold">quality execution, ethical practices, and continuous innovation</strong>, Mr. Ravriya continues to shape NSQUARE's growth while upholding the values, trust, and legacy that define the brand.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </div>
+
+          {/* Row 2: Mr. Jignesh Patel */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+            {/* Left: Text Card (Desktop: left, Mobile: bottom) */}
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              className={`order-last md:order-first md:col-span-8 p-8 md:p-10 shadow-lg border flex flex-col justify-center min-h-[300px] transition-all duration-500 hover:-translate-y-1 hover:shadow-xl ${
+                theme === 'dark' 
+                  ? 'bg-gradient-to-br from-[#161512] to-[#0F0E0C] border-[#C5A059]/20' 
+                  : 'bg-[#FDF3E7] border-neutral-300/40'
+              }`}
+            >
+              <div className="space-y-4">
+                <div className="space-y-1">
+                  <h3 className={`text-lg md:text-xl font-serif font-bold tracking-wide ${
+                    theme === 'dark' ? 'text-white' : 'text-neutral-950'
+                  }`}>
+                    Vision & Execution Combined
+                  </h3>
+                  <p className="text-[10px] uppercase tracking-widest text-[#c2a26c] font-medium">
+                    Mr. Jignesh Patel · Founder & Director
+                  </p>
+                </div>
+
+                <p className={`font-serif italic text-xs md:text-sm leading-relaxed border-l-2 border-[#c2a26c] pl-4 ${
+                  theme === 'dark' ? 'text-[#C5A059]' : 'text-[#8c7445]'
+                }`}>
+                  "True leadership is built on trust, consistency, and getting things done right."
+                </p>
+
+                <div className={`text-xs md:text-[13px] leading-relaxed font-light space-y-3 ${
+                  theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'
+                }`}>
+                  <p>
+                    As Director of Namastey, <strong className="font-semibold text-[#c2a26c]">Jignesh Patel</strong> brings a strategic vision and hands-on approach to leadership, with a strong focus on <strong className="font-semibold">quality, operational excellence, and long-term value creation</strong>. His practical, results-driven mindset combines disciplined execution with a commitment to building lasting relationships with clients, partners, and stakeholders.
+                  </p>
+                  <p>
+                    Under his leadership, Namastey continues to grow with confidence while staying rooted in <strong className="font-semibold">integrity, reliability, and quality</strong>.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right: Image Card (Desktop: right, Mobile: top) */}
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              className="order-first md:order-last md:col-span-4 relative group"
+            >
+              <div className="absolute -top-4 -right-4 w-full h-full border border-[#c2a26c]/40 z-0 pointer-events-none" />
+              <div className="relative aspect-square w-full bg-neutral-900 border border-white/10 z-10 overflow-hidden shadow-xl">
+                <img
+                  src="/assets/branding/director-jignesh.png"
+                  alt="Mr. Jignesh Patel"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="absolute -bottom-4 -left-4 w-8 h-8 border-b-4 border-l-4 border-[#c2a26c] z-20 pointer-events-none" />
+            </motion.div>
+          </div>
+
         </div>
       </section>
 
       {/* 5. VISION · MISSION · BELIEF SECTION */}
       <section className="relative w-full py-24 px-6 md:px-20 overflow-hidden bg-[#0C0C0C]">
+        
+        {/* Architectural Background Watermark */}
+        <div className="absolute right-4 top-1/4 text-[12vw] font-serif font-bold text-white/[0.012] select-none pointer-events-none uppercase tracking-[0.18em] z-0 leading-none">
+          Legacy
+        </div>
 
         {/* Side Label */}
         <SideLabel text="VISION · MISSION · BELIEF" className="text-white/60" />
@@ -145,8 +249,8 @@ export const LegacySection: React.FC<LegacySectionProps> = () => {
                 <Eye className="w-7 h-7" strokeWidth={1.2} />
               </div>
               <h3 className="text-lg font-serif text-white mb-3">Our Vision</h3>
-              <p className="text-xs text-white/70 font-light leading-relaxed">
-                To establish itself as a thought leader across all verticals of the real estate industry & own a name synonymous with crafting world-class assets.
+              <p className="text-xs text-white/75 font-light leading-relaxed">
+                To be a premier real estate brand admired as an industry leader—celebrated for creating thoughtfully designed, high-quality, and innovative life-spaces. We aspire to set benchmark standards in customer-centricity and people-first practices, while nurturing enduring, trust-based relationships with all our stakeholders.
               </p>
             </div>
 
@@ -159,8 +263,8 @@ export const LegacySection: React.FC<LegacySectionProps> = () => {
                 <Target className="w-7 h-7" strokeWidth={1.2} />
               </div>
               <h3 className="text-lg font-serif text-white mb-3">Our Mission</h3>
-              <p className="text-xs text-white/70 font-light leading-relaxed">
-                To be a prudent, tactical and path-breaking realtor that specializes in landmark creations as an ode to the world of real estate.
+              <p className="text-xs text-white/75 font-light leading-relaxed">
+                To engineer superior living spaces rooted in quality, built on trust, and designed for generations to come. To craft modern, sustainable environments where communities thrive and lifelong value is built.
               </p>
             </div>
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, animate } from 'framer-motion';
 import { Building2, ChevronRight } from 'lucide-react';
 import { ThemeMode } from '../../types';
 import { ONGOING_PROJECTS } from '../../data/nsquare';
@@ -10,31 +10,45 @@ interface OngoingProjectsCarouselProps {
   onViewAll?: () => void;
 }
 
-// Signature Projects in the Making — dark band with outlined intro panel,
-// auto-scrolling white project cards, fixed view-all column and dots.
 export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = ({ onViewAll }) => {
   const trackRef = useRef<HTMLDivElement>(null);
   const [activeDot, setActiveDot] = useState(0);
+  const [snapType, setSnapType] = useState('x mandatory');
+  const scrollAnimRef = useRef<any>(null);
+
+  const smoothScrollTo = (el: HTMLElement, to: number, duration = 3.2) => {
+    // Temporarily disable scrollSnapType so it doesn't fight our eased scroll loop
+    setSnapType('none');
+    el.style.scrollSnapType = 'none';
+
+    // Stop any active animation before starting a new one
+    if (scrollAnimRef.current) {
+      scrollAnimRef.current.stop();
+    }
+
+    scrollAnimRef.current = animate(el.scrollLeft, to, {
+      duration: duration,
+      ease: [0.22, 1, 0.36, 1], // Calm, slow ease
+      onUpdate: (latest) => {
+        el.scrollLeft = latest;
+      },
+      onComplete: () => {
+        // Re-enable scrollSnapType once settled so user swiping remains intact
+        setSnapType('x mandatory');
+        el.style.scrollSnapType = 'x mandatory';
+      }
+    });
+  };
 
   const handleScroll = () => {
     const el = trackRef.current;
     if (!el) return;
     const max = el.scrollWidth - el.clientWidth;
     if (max <= 0) return;
-    setActiveDot(Math.min(3, Math.round((el.scrollLeft / max) * 3)));
-
-    // after manual scrolling settles, snap back to the nearest clean 2-card stop
-    window.clearTimeout(snapTimer.current);
-    snapTimer.current = window.setTimeout(() => {
-      const track = trackRef.current;
-      if (!track) return;
-      const step = getStep(track);
-      const nearest = Math.round(track.scrollLeft / step);
-      indexRef.current = nearest;
-      if (Math.abs(track.scrollLeft - nearest * step) > 4) {
-        smoothScrollTo(track, nearest * step, 700);
-      }
-    }, 180);
+    const step = getStep(el);
+    const nearest = Math.round(el.scrollLeft / step);
+    const maxIndex = Math.max(1, Math.round(max / step));
+    setActiveDot(Math.min(3, Math.round((nearest / maxIndex) * 3)));
   };
 
   const goToDot = (i: number) => {
@@ -44,11 +58,9 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
     const step = getStep(el);
     const maxIndex = Math.max(1, Math.round(max / step));
     const target = Math.round((maxIndex / 3) * i);
-    indexRef.current = target;
     smoothScrollTo(el, Math.min(max, target * step));
   };
 
-  // exact card + gap distance, measured from the laid-out cards
   const getStep = (el: HTMLElement) => {
     const cards = el.querySelectorAll('article');
     if (cards.length > 1) {
@@ -57,33 +69,7 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
     return cards[0] ? cards[0].getBoundingClientRect().width + 28 : el.clientWidth;
   };
 
-  // slow eased horizontal glide — browser smooth-scroll felt too snappy/fast
-  const rafRef = useRef<number>(0);
-  const indexRef = useRef(0);
-  const snapTimer = useRef<number>(0);
-  const smoothScrollTo = (el: HTMLElement, to: number, duration = 2000) => {
-    const from = el.scrollLeft;
-    const change = to - from;
-    const start = performance.now();
-    const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
-    cancelAnimationFrame(rafRef.current);
-    const step = (now: number) => {
-      const p = Math.min(1, (now - start) / duration);
-      el.scrollLeft = from + change * ease(p);
-      if (p < 1) rafRef.current = requestAnimationFrame(step);
-    };
-    rafRef.current = requestAnimationFrame(step);
-  };
-
-  useEffect(
-    () => () => {
-      cancelAnimationFrame(rafRef.current);
-      window.clearTimeout(snapTimer.current);
-    },
-    []
-  );
-
-  // calm auto-scroll — one clean 2-card stop every 4.5 seconds, loops at the end
+  // calm auto-scroll — one clean card stop every 4.5 seconds, loops at the end
   useEffect(() => {
     const id = window.setInterval(() => {
       const el = trackRef.current;
@@ -91,10 +77,18 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
       const step = getStep(el);
       const max = el.scrollWidth - el.clientWidth;
       const maxIndex = Math.max(1, Math.round(max / step));
-      indexRef.current = indexRef.current >= maxIndex ? 0 : indexRef.current + 1;
-      smoothScrollTo(el, Math.min(max, indexRef.current * step));
+      
+      const nearest = Math.round(el.scrollLeft / step);
+      const nextIndex = nearest >= maxIndex ? 0 : nearest + 1;
+      smoothScrollTo(el, Math.min(max, nextIndex * step));
     }, 4500);
-    return () => window.clearInterval(id);
+
+    return () => {
+      window.clearInterval(id);
+      if (scrollAnimRef.current) {
+        scrollAnimRef.current.stop();
+      }
+    };
   }, []);
 
   return (
@@ -138,11 +132,11 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
             </p>
           </motion.div>
 
-          {/* Center — auto-scrolling white project cards */}
           <div
             ref={trackRef}
             onScroll={handleScroll}
             className="flex-1 min-w-0 overflow-x-auto no-scrollbar lg:mr-[248px] xl:mr-[272px]"
+            style={{ scrollSnapType: snapType }}
           >
             <div className="flex gap-6 lg:gap-7 items-stretch pb-2">
               {ONGOING_PROJECTS.map((p, i) => (
@@ -153,6 +147,7 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
                   viewport={VIEWPORT}
                   transition={{ duration: 1.2, delay: (i % 2) * 0.15, ease: EASE }}
                   className="shrink-0 w-[76vw] sm:w-[380px] lg:w-[calc(50%-14px)] bg-white flex flex-col group"
+                  style={{ scrollSnapAlign: 'start' }}
                 >
                   <div className="relative overflow-hidden aspect-[4/4.4]">
                     <img
@@ -210,7 +205,7 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
           View All Projects <ChevronRight className="w-4 h-4" />
         </button>
 
-        {/* pagination dots */}
+        {/* Pagination Dots */}
         <div className="flex items-center justify-center gap-2.5 mt-10">
           {[0, 1, 2, 3].map((i) => (
             <button

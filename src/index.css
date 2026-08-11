@@ -135,3 +135,30 @@ body, div, section, header, footer, nav, button, input, textarea, select {
 ::-webkit-scrollbar-thumb:hover {
   background: #b88a33;
 }
+
+/* -------------------------------------------------------------
+   GLOBAL TYPOGRAPHY OVERRIDES - LUXURY LIGHTWEIGHT FONTS
+   ------------------------------------------------------------- */
+
+/* Reduce heading weights to clean regular/light weights for a premium luxury look */
+h1, h2 {
+  font-weight: 300 !important;
+}
+
+h3, h4, h5, h6 {
+  font-weight: 400 !important;
+}
+
+/* Soften Tailwind bold helper classes to medium (500) to keep hierarchy elegant */
+.font-bold {
+  font-weight: 500 !important;
+}
+
+.font-semibold {
+  font-weight: 500 !important;
+}
+
+/* Map standard bold elements to medium weight */
+strong, b {
+  font-weight: 500 !important;
+}

@@ -1,6 +1,6 @@
 export type ThemeMode = 'dark' | 'light';
 
-export type NavTab = 'residences' | 'projects' | 'commercial' | 'legacy' | 'contact';
+export type NavTab = 'residences' | 'projects' | 'commercial' | 'legacy' | 'contact' | 'redevelopment';
 
 export interface HeroSlide {
   id: string;

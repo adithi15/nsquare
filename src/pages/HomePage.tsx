@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { HeroSlide, ThemeMode } from '../types';
 
 import { HeroSlider } from '../components/home/HeroSlider';
+import { RedevelopmentHomeSection } from '../components/home/RedevelopmentHomeSection';
 import { VisionSection } from '../components/home/VisionSection';
 import { PlatinumWorldSection } from '../components/home/PlatinumWorldSection';
 import { OngoingProjectsCarousel } from '../components/home/OngoingProjectsCarousel';
@@ -16,6 +17,7 @@ interface HomePageProps {
   onOpenScheduleVisit: (slide: HeroSlide) => void;
   onSelectPropertyId: (id: string) => void;
   onViewAllProjects?: () => void;
+  onNavigateToRedevelopment: () => void;
 }
 
 export const HomePage: React.FC<HomePageProps> = ({
@@ -25,6 +27,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   onOpenScheduleVisit,
   onSelectPropertyId,
   onViewAllProjects,
+  onNavigateToRedevelopment,
 }) => {
   return (
     <motion.div className="flex-1 flex flex-col">
@@ -37,6 +40,11 @@ export const HomePage: React.FC<HomePageProps> = ({
           onSelectPropertyId={onSelectPropertyId}
         />
       </div>
+
+      <RedevelopmentHomeSection
+        theme={theme}
+        onNavigateToRedevelopment={onNavigateToRedevelopment}
+      />
 
       <VisionSection theme={theme} />
 

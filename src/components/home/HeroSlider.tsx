@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { HeroSlide, ThemeMode } from '../../types';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronUp, ChevronDown, MapPin } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 
 interface HeroSliderProps {
   slides: HeroSlide[];
@@ -30,13 +30,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
     return () => clearInterval(timer);
   }, [slides.length, currentIndex]);
 
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
-  };
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % slides.length);
-  };
 
   const titleChunks: { text: string; space: boolean }[] = [];
   currentSlide.title
@@ -83,49 +77,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
         </div>
       </div>
 
-      <div className="absolute right-6 sm:right-10 top-1/2 -translate-y-1/2 z-30 flex flex-col items-center space-y-3.5 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-        <button
-          onClick={handlePrev}
-          aria-label="Previous slide"
-          className="p-1.5 text-white/80 hover:text-[#b88a33] transition-all cursor-pointer group"
-          title="Previous Slide"
-        >
-          <ChevronUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
-        </button>
 
-        <div className="flex flex-col items-center space-y-2.5 py-1">
-          {slides.map((_, idx) => {
-            const isActive = idx === currentIndex;
-            return (
-              <button
-                key={idx}
-                onClick={() => setCurrentIndex(idx)}
-                aria-label={`Go to slide ${idx + 1}`}
-                className="relative p-1 flex items-center justify-center cursor-pointer group transition-all duration-300"
-              >
-                <div
-                  className={`w-4 h-4 rotate-45 flex items-center justify-center transition-all duration-300 ${
-                    isActive
-                      ? 'border-[1.8px] border-white shadow-[0_0_10px_rgba(255,255,255,0.8)] scale-110'
-                      : 'border border-white/60 group-hover:border-[#b88a33] group-hover:scale-110'
-                  }`}
-                >
-                  {isActive && <div className="w-1.5 h-1.5 bg-white shadow-[0_0_6px_#ffffff]" />}
-                </div>
-              </button>
-            );
-          })}
-        </div>
-
-        <button
-          onClick={handleNext}
-          aria-label="Next slide"
-          className="p-1.5 text-white/80 hover:text-[#b88a33] transition-all cursor-pointer group"
-          title="Next Slide"
-        >
-          <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
-        </button>
-      </div>
 
       <div className="relative z-20 px-6 md:px-16 mt-auto mb-20 max-w-5xl">
         <AnimatePresence mode="wait">
@@ -194,24 +146,23 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
         </AnimatePresence>
       </div>
 
-      <div className="relative z-20 px-6 md:px-12 pb-8 flex flex-col items-center justify-center gap-4 pt-4 bg-gradient-to-t from-black/80 to-transparent">
-        <div className="flex flex-col items-center space-y-1 w-full max-w-xs">
-          <div className="w-full h-[2px] bg-white/20 rounded-full overflow-hidden relative">
-            <motion.div
-              key={`progress-${currentIndex}`}
-              initial={{ width: '0%' }}
-              animate={{ width: '100%' }}
-              transition={{
-                duration: 6,
-                ease: 'linear',
-              }}
-              className="h-full bg-[#b88a33] shadow-[0_0_10px_#b88a33]"
-            />
-          </div>
-          <span className="text-[9px] uppercase tracking-widest text-white/50 font-light">
-            Image Is For Representation Purpose Only
-          </span>
+      {/* Floating Bottom-Right Progress & Disclaimer (slightly inset upward and inward) */}
+      <div className="absolute bottom-10 right-12 z-30 flex flex-col items-center space-y-2.5 pointer-events-none">
+        <div className="w-36 h-[2px] bg-white/20 rounded-full overflow-hidden relative">
+          <motion.div
+            key={`progress-${currentIndex}`}
+            initial={{ width: '0%' }}
+            animate={{ width: '100%' }}
+            transition={{
+              duration: 6,
+              ease: 'linear',
+            }}
+            className="h-full bg-[#b88a33] shadow-[0_0_10px_#b88a33]"
+          />
         </div>
+        <span className="text-[9px] uppercase tracking-widest text-white/45 font-light whitespace-nowrap">
+          Image Is For Representation Purpose Only
+        </span>
       </div>
     </section>
   );

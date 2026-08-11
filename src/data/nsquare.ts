@@ -24,6 +24,8 @@ export interface NSDirector {
   role: string;
   image: string;
   bio: string;
+  quote?: string;
+  heading?: string;
 }
 
 export interface NSStat {
@@ -116,13 +118,16 @@ export const DIRECTORS: NSDirector[] = [
     name: 'Mr. Anil Ravriya',
     role: 'Founder — N Square · Director — Neelkanth Group',
     image: '/assets/branding/director-anil.png',
-    bio: 'With over two decades of experience shaping Navi Mumbai\'s skyline, Anil Ravriya leads N-Square with a vision of quality-first development and enduring trust with every family.',
+    bio: 'As Director of NSQUARE, Anil Ravriya brings a clear vision rooted in operational excellence, innovation, and long-term value creation. His leadership combines disciplined execution with a forward-thinking approach, ensuring that every project meets the highest standards of quality and integrity. With a strong emphasis on quality execution, ethical practices, and continuous innovation, Mr. Ravriya continues to shape NSQUARE\'s growth while upholding the values, trust, and legacy that define the brand.',
+    heading: 'Leadership That Builds Lasting Value',
+    quote: "Success isn't just about delivering projects; it's about building enduring value for our clients, partners, and communities.",
   },
   {
     name: 'Mr. Jignesh Patel',
     role: 'Founder — N Square & Namastey Realty',
     image: '/assets/branding/director-jignesh.png',
-    bio: 'A new-generation entrepreneur combining real estate insight with customer-centric innovation, Jignesh Patel drives N-Square\'s expansion into landmark residential and commercial destinations.',
+    bio: 'As Director of Namastey, Jignesh Patel brings a strategic vision and hands-on approach to leadership, with a strong focus on quality, operational excellence, and long-term value creation. His practical, results-driven mindset combines disciplined execution with a commitment to building lasting relationships with clients, partners, and stakeholders. Under his leadership, Namastey continues to grow with confidence while staying rooted in integrity, reliability, and quality.',
+    quote: 'True leadership is built on trust, consistency, and getting things done right.',
   },
 ];
 
@@ -143,8 +148,10 @@ export const CONTACT = {
 // ------------------------------------------------------------
 export const ABOUT = {
   heading: 'Two Legacies. One Vision.',
-  body1: 'N-Square Developers is the coming together of two trusted names — Neelkanth Group and Namastey Realty. With a combined legacy of over 23 years, we have transformed Navi Mumbai\'s skyline with landmarks that stand for quality, transparency and timeless design.',
-  body2: 'From premium residences to iconic commercial destinations, every N-Square development is built on a single promise — homes and spaces that families are proud of, for generations.',
+  body1: 'N-Square Developers brings together the trusted legacy of Neelkanth Group and Namastey Realty, uniting decades of experience, expertise, and a shared commitment to excellence.',
+  body2: 'With a combined legacy spanning over 23 years, we have contributed to the evolving skyline of Navi Mumbai through thoughtfully designed landmarks that embody quality, transparency, and timeless architecture.',
+  body3: 'From premium residences to distinctive commercial destinations, every N-Square development is envisioned with purpose and built to create lasting value. Our philosophy is simple — to create exceptional homes and spaces that inspire pride today and endure for generations.',
+  body4: 'Built on Trust. Defined by Excellence. Designed for Generations.',
   visionImpact: [
     'Creating landmark destinations that elevate everyday living',
     'Delivering on time, every time — with uncompromised quality',

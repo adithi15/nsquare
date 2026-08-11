@@ -5,12 +5,13 @@ import { PROPERTIES, HERO_SLIDES } from './data/residences';
 import { Header } from './components/layout/Header';
 import { BrochureModal, ScheduleModal } from './components/layout/Modals';
 import { Footer } from './components/layout/Footer';
-import { ScrollTopButton } from './components/layout/ScrollTopButton';
+import { CookieConsent } from './components/layout/CookieConsent';
 import { HomePage } from './pages/HomePage';
 import { ProjectsPage } from './pages/ProjectsPage';
 import { LegacyPage } from './pages/LegacyPage';
 import { ContactPage } from './pages/ContactPage';
 import { CommercialPage } from './pages/CommercialPage';
+import { RedevelopmentPage } from './pages/RedevelopmentPage';
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function App() {
@@ -60,6 +61,8 @@ export default function App() {
       setActiveTab('contact');
     } else if (path === '/commercial') {
       setActiveTab('commercial');
+    } else if (path === '/redevelopment') {
+      setActiveTab('redevelopment');
     } else if (path === '/' || path === '/residences') {
       setActiveTab('residences');
     }
@@ -81,6 +84,9 @@ export default function App() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (tab === 'commercial') {
       navigate('/commercial');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (tab === 'redevelopment') {
+      navigate('/redevelopment');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -134,6 +140,7 @@ export default function App() {
                     if (found) setSelectedProperty(found);
                   }}
                   onViewAllProjects={() => handleSelectNavTab('projects')}
+                  onNavigateToRedevelopment={() => handleSelectNavTab('redevelopment')}
                 />
               </motion.div>
             }
@@ -225,6 +232,22 @@ export default function App() {
             }
           />
 
+          <Route
+            path="/redevelopment"
+            element={
+              <motion.div
+                key="redevelopment-view"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className="flex-1"
+              >
+                <RedevelopmentPage theme={theme} />
+              </motion.div>
+            }
+          />
+
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AnimatePresence>
@@ -251,8 +274,8 @@ export default function App() {
         theme={theme}
       />
 
-      {/* Floating back-to-top control */}
-      <ScrollTopButton />
+      {/* Cookie Consent Banner */}
+      <CookieConsent theme={theme} />
     </div>
   );
 }
