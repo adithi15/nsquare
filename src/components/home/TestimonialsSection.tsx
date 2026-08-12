@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ThemeMode } from '../../types';
 import { motion, AnimatePresence } from 'motion/react';
 import { Quote } from 'lucide-react';
@@ -65,28 +65,31 @@ const TESTIMONIALS = [
 
 export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ theme }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const visibleCount = 2;
-  const totalSlides = TESTIMONIALS.length;
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const maxIndex = isMobile ? 3 : 2;
 
   const handlePrev = () => {
-    setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
+    setCurrentIndex((prev) => (prev - 1 + (maxIndex + 1)) % (maxIndex + 1));
   };
 
   const handleNext = () => {
-    setDirection(1);
-    setCurrentIndex((prev) => (prev + 1) % totalSlides);
+    setCurrentIndex((prev) => (prev + 1) % (maxIndex + 1));
   };
 
-  const displayedSlides = Array.from({ length: visibleCount }, (_, idx) => {
-    const index = (currentIndex + idx) % totalSlides;
-    return TESTIMONIALS[index];
-  });
-
   return (
-    <section className="py-16 w-full relative">
+    <section className="py-16 w-full relative overflow-hidden">
+      {/* Architectural Background Watermark */}
+      <div className="absolute right-4 bottom-4 text-[12vw] font-serif font-bold text-[#c2a26c]/[0.015] dark:text-white/[0.008] select-none pointer-events-none uppercase tracking-[0.2em] z-0 leading-none">
+        Voices
+      </div>
       <div className="absolute left-0 top-[38%] hidden lg:block -translate-y-1/2">
         <span className="[writing-mode:vertical-lr] rotate-180 uppercase tracking-[0.35em] text-[10px] font-semibold text-[#7e6642]">
           TESTIMONIALS
@@ -104,68 +107,61 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ theme 
         </div>
       </div>
 
-      <div className="relative mt-8">
+      <div className="relative mt-8 max-w-5xl mx-auto">
         <button
           onClick={handlePrev}
-          className="hidden md:block absolute -left-20 lg:-left-28 top-1/2 -translate-y-1/2 z-10 text-neutral-900 dark:text-white hover:text-[#8c7445] dark:hover:text-[#C5A059] transition-all duration-300 hover:-translate-x-1 cursor-pointer"
+          className="hidden lg:block absolute -left-20 xl:-left-24 top-1/2 -translate-y-1/2 z-10 text-neutral-900 dark:text-white hover:text-[#8c7445] dark:hover:text-[#C5A059] transition-all duration-300 hover:-translate-x-1 cursor-pointer"
           aria-label="Previous testimonial"
         >
-          <LongArrow direction="left" className="w-16 lg:w-20 h-auto" />
+          <LongArrow direction="left" className="w-16 h-auto" />
         </button>
         <button
           onClick={handleNext}
-          className="hidden md:block absolute -right-20 lg:-right-28 top-1/2 -translate-y-1/2 z-10 text-neutral-900 dark:text-white hover:text-[#8c7445] dark:hover:text-[#C5A059] transition-all duration-300 hover:translate-x-1 cursor-pointer"
+          className="hidden lg:block absolute -right-20 xl:-right-24 top-1/2 -translate-y-1/2 z-10 text-neutral-900 dark:text-white hover:text-[#8c7445] dark:hover:text-[#C5A059] transition-all duration-300 hover:translate-x-1 cursor-pointer"
           aria-label="Next testimonial"
         >
-          <LongArrow direction="right" className="w-16 lg:w-20 h-auto" />
+          <LongArrow direction="right" className="w-16 h-auto" />
         </button>
-        <div className="overflow-hidden">
-        <AnimatePresence mode="popLayout" initial={false} custom={direction}>
+        <div className="overflow-hidden px-1">
           <motion.div
-            key={currentIndex}
-            custom={direction}
-            variants={{
-              enter: (dir: number) => ({ x: dir >= 0 ? '104%' : '-104%' }),
-              center: { x: '0%' },
-              exit: (dir: number) => ({ x: dir >= 0 ? '-104%' : '104%' }),
-            }}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            animate={{ x: isMobile ? `calc(-${currentIndex} * (100% + 24px))` : `calc(-${currentIndex} * (50% + 12px))` }}
+            transition={{ type: "spring", stiffness: 32, damping: 15, mass: 1.2 }}
+            className="flex flex-row gap-6 min-h-[220px]"
           >
-          {displayedSlides.map((item) => (
-            <div
-              key={item.id}
-              className="rounded-2xl overflow-hidden bg-white dark:bg-neutral-900 border border-black/5 dark:border-white/10 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.18)] hover:shadow-[0_28px_70px_-24px_rgba(0,0,0,0.28)] hover:-translate-y-1 transition-all duration-500"
-            >
-              <div className="relative h-80 md:h-[26rem] overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-[2000ms] hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-              </div>
+            {TESTIMONIALS.map((item) => (
+              <div
+                key={item.id}
+                className="relative rounded-xl bg-gradient-to-br from-white/95 to-white/90 dark:from-[#141414] dark:to-[#0C0C0C] border border-black/[0.06] dark:border-white/5 shadow-[0_12px_30px_rgba(0,0,0,0.06)] p-6 md:p-8 flex flex-col justify-between overflow-hidden cursor-pointer w-full md:w-[calc(50%-12px)] shrink-0"
+              >
+                {/* Giant background quote watermark */}
+                <Quote className="absolute right-6 top-6 w-16 h-16 text-[#c2a26c]/[0.08] dark:text-[#c2a26c]/[0.04] pointer-events-none select-none rotate-180" />
 
-              <div className="p-6 space-y-4">
-                <div>
-                  <Quote className="w-7 h-7 text-[#8c7445] mb-4" />
-                  <p className="text-sm text-[#2c2620] dark:text-white/80 font-light italic leading-relaxed">
+                <div className="space-y-4 relative z-10">
+                  <Quote className="w-6 h-6 text-[#c2a26c] mb-2 rotate-180" />
+                  <p className="text-xs md:text-sm text-neutral-700 dark:text-white/80 font-light italic leading-relaxed">
                     “{item.quote}”
                   </p>
                 </div>
-                <div className="pt-4 border-t border-[#e5d6bf] dark:border-white/10">
-                  <h4 className="text-sm font-semibold text-[#111] dark:text-white">{item.name}</h4>
-                  <p className="text-[10px] text-[#8c7445] tracking-[0.32em] uppercase mt-1">{item.project}</p>
+
+                <div className="pt-5 mt-5 border-t border-[#e5d6bf]/40 dark:border-white/5 flex items-center gap-4 relative z-10">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    loading="lazy"
+                    className="w-11 h-11 rounded-full object-cover border border-[#c2a26c]/30"
+                  />
+                  <div>
+                    <h4 className="text-xs md:text-sm font-semibold text-[#111] dark:text-white leading-none">
+                      {item.name}
+                    </h4>
+                    <p className="text-[9px] text-[#8c7445] tracking-[0.25em] uppercase mt-1.5 leading-none">
+                      {item.project}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
           </motion.div>
-        </AnimatePresence>
         </div>
       </div>
       </div>

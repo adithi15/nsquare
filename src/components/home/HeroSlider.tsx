@@ -87,14 +87,14 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.08),_transparent_30%)] opacity-80 pointer-events-none" />
         </motion.div>
       </AnimatePresence>
-      */}
-
+     
       <div className="absolute top-24 sm:top-28 md:top-32 right-6 sm:right-12 md:right-20 z-20 pointer-events-none">
         <div className="flex items-center space-x-1.5 text-white/90 text-[10px] tracking-[0.2em] uppercase bg-black/40 px-3.5 py-1.5 rounded-full backdrop-blur-md border border-white/20 shadow-lg">
           <MapPin className="w-3 h-3 text-[#b88a33]" />
           <span>{currentSlide.location}</span>
         </div>
       </div>
+ */}
 
 
 
@@ -124,13 +124,13 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
                       }}
                       className="inline-block"
                     >
-                      {t.text}
+                      {/* {t.text}njhjbvnm */}
                     </motion.span>
                   );
                 })}
               </h1>
 
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.1, delay: lateDelay, ease: [0.22, 1, 0.36, 1] as const }}
@@ -139,7 +139,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
                 <p className="text-[11px] uppercase tracking-[0.35em] text-white/70 border-l-2 border-white/40 pl-4">
                   {currentSlide.subtitle}
                 </p>
-              </motion.div>
+              </motion.div> */}
             </div>
 
             <motion.div
