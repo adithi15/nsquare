@@ -69,7 +69,7 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
             <span className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-[#C5A059] font-bold block">
               Redevelopment
             </span>
-            <h2 className={`text-xl md:text-3xl font-serif tracking-wide leading-tight ${
+            <h2 className={`text-xl md:text-3xl font-['Corporate_A',_'Corporate_S',_serif] tracking-wide leading-tight ${
               isDark ? 'text-white' : 'text-neutral-900'
             }`}>
               THOUGHTFUL REDEVELOPMENT,<br />LASTING VALUE.
@@ -78,7 +78,7 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
           </div>
 
           {/* Bullet points copy */}
-          <div className="lg:col-span-7 space-y-5 text-sm md:text-base font-light leading-relaxed">
+          <div className="lg:col-span-7 space-y-5 text-sm md:text-base font-light leading-relaxed font-['Outfit']">
             <div className="flex gap-4">
               <span className="mt-2.5 w-1.5 h-1.5 bg-[#C5A059] shrink-0" />
               <p className={isDark ? 'text-neutral-300' : 'text-neutral-700'}>
@@ -108,7 +108,7 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
             {/* Elegant Gradient Quote */}
             <motion.h3 
               variants={fadeInUpVariants}
-              className="font-serif text-3xl md:text-5xl italic font-light tracking-wide leading-tight bg-gradient-to-r from-[#b88a33] via-[#e6c387] to-[#b88a33] bg-clip-text text-transparent"
+              className="font-['Cormorant_Garamond'] text-[#c5a059] text-3xl md:text-5xl italic font-light tracking-wide leading-tight"
             >
               "Where quality is a journey and not the destination"
             </motion.h3>
@@ -163,7 +163,7 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
             <div className="absolute -top-4 -left-4 w-full h-full border border-[#C5A059]/40 z-0 pointer-events-none" />
             
             {/* Image container */}
-            <div className="relative border border-neutral-300/40 dark:border-white/10 p-2 bg-white/5 backdrop-blur-sm shadow-2xl z-10 overflow-hidden group">
+            <div className="relative border border-neutral-300/40 dark:border-white/10 p-2 bg-white/5 backdrop-blur-sm z-10 overflow-hidden group">
               <div className="overflow-hidden relative aspect-[4/3] w-full">
                 <img
                   src="/assets/img/redevelopment_model.jpg"

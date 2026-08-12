@@ -150,13 +150,13 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             >
               <button
                 onClick={() => onOpenScheduleVisit(currentSlide)}
-                className="bg-[#b88a33] text-black px-8 py-3 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-[#D4B575] transition-all rounded-sm shadow-[0_12px_40px_rgba(0,0,0,0.25)]"
+                className="bg-[#c5a059] text-black px-8 py-3 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-[#D4B575] transition-all rounded-sm shadow-[0_12px_40px_rgba(0,0,0,0.25)]"
               >
                 Schedule A Visit
               </button>
               <button
                 onClick={() => onOpenBrochure(currentSlide)}
-                className="border border-white/50 text-white text-[10px] uppercase tracking-[0.35em] font-bold px-8 py-3 hover:border-[#b88a33] hover:text-[#b88a33] transition-all rounded-sm bg-white/10"
+                className="border border-white/50 text-white text-[10px] uppercase tracking-[0.35em] font-bold px-8 py-3 hover:border-[#c5a059] hover:text-[#c5a059] transition-all rounded-sm bg-white/10"
               >
                 Request Floorplans
               </button>

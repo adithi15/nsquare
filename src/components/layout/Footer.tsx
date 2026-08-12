@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeMode, NavTab } from '../../types';
-import { Facebook, Instagram, Youtube, Linkedin, PhoneCall, Mail, MapPin, MessageCircle } from 'lucide-react';
+import { PhoneCall, Mail, MapPin, MessageCircle } from 'lucide-react';
 import { ONGOING_PROJECTS, CONTACT } from '../../data/nsquare';
 
 interface FooterProps {
@@ -81,10 +81,18 @@ export const Footer: React.FC<FooterProps> = ({ theme, maharera = 'P52000000000'
 
             {/* Socials */}
             <div className="pt-3 flex items-center gap-3">
-              <a href="#" aria-label="Facebook" className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-white/70 hover:border-[#C5A059] hover:text-[#C5A059] hover:-translate-y-0.5 transition-all duration-300"><Facebook className="w-4 h-4" /></a>
-              <a href="#" aria-label="Instagram" className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-white/70 hover:border-[#C5A059] hover:text-[#C5A059] hover:-translate-y-0.5 transition-all duration-300"><Instagram className="w-4 h-4" /></a>
-              <a href="#" aria-label="YouTube" className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-white/70 hover:border-[#C5A059] hover:text-[#C5A059] hover:-translate-y-0.5 transition-all duration-300"><Youtube className="w-4 h-4" /></a>
-              <a href="#" aria-label="LinkedIn" className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-white/70 hover:border-[#C5A059] hover:text-[#C5A059] hover:-translate-y-0.5 transition-all duration-300"><Linkedin className="w-4 h-4" /></a>
+              <a href="#" aria-label="Facebook" className="hover:-translate-y-0.5 transition-transform duration-300">
+                <img src="/socials/facebook.png" alt="Facebook" className="w-9 h-9 object-contain" />
+              </a>
+              <a href="#" aria-label="Instagram" className="hover:-translate-y-0.5 transition-transform duration-300">
+                <img src="/socials/instagram.png" alt="Instagram" className="w-9 h-9 object-contain" />
+              </a>
+              <a href="#" aria-label="YouTube" className="hover:-translate-y-0.5 transition-transform duration-300">
+                <img src="/socials/youtube.png" alt="YouTube" className="w-9 h-9 object-contain" />
+              </a>
+              <a href="#" aria-label="LinkedIn" className="hover:-translate-y-0.5 transition-transform duration-300">
+                <img src="/socials/linkedin.png" alt="LinkedIn" className="w-9 h-9 object-contain" />
+              </a>
             </div>
           </div>
         </div>

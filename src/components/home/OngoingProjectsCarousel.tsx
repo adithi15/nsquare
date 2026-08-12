@@ -154,7 +154,7 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
                       src={p.image}
                       alt={p.name}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-[2200ms] ease-out group-hover:scale-108"
+                      className="w-full h-full object-cover transition-transform duration-[2200ms] ease-out group-hover:scale-110"
                     />
                   </div>
                   <div className="bg-white px-6 py-5">

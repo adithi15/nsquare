@@ -61,7 +61,7 @@ export const PlatinumWorldSection: React.FC<PlatinumWorldSectionProps> = ({ them
           transition={{ duration: 1.0, ease: EASE }}
           className="text-center mb-12 md:mb-16"
         >
-          <span className="text-[10px] md:text-[11px] uppercase tracking-[0.4em] text-[#C5A059] font-semibold">
+          <span className="text-[10px] md:text-[11px] uppercase tracking-[0.4em] text-[#C5A059] font-bold">
             Milestones
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white leading-tight mt-4">

@@ -7,6 +7,11 @@ module.exports = {
         gold: '#C5A059',
         'gold-light': '#D4B575',
         'gold-dark': '#A27E3B'
+      },
+      fontFamily: {
+        sans: ['Outfit', 'sans-serif'],
+        serif: ['"Corporate A"', '"Corporate S"', 'serif'],
+        stylish: ['"Cormorant Garamond"', 'serif'],
       }
     },
   },

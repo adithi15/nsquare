@@ -77,25 +77,25 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-5 md:px-10 lg:px-14 shrink-0 transition-all duration-500 ease-in-out ${
-      isScrolled 
-        ? 'bg-black/60 backdrop-blur-2xl border-b border-white/10 shadow-2xl py-2.5 md:py-3'
-        : 'bg-transparent py-4 md:py-5'
-    }`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-5 md:px-10 lg:px-14 shrink-0 transition-all duration-500 ease-in-out bg-black/70 backdrop-blur-xl ${isScrolled
+      ? 'border-b border-white/10 shadow-2xl py-1 md:py-1.5'
+      : 'py-2 md:py-2.5'
+      }`}>
       {/* Brand Logo */}
-      <button 
+      <button
         onClick={() => { onSelectTab('residences'); closeMobileMenu(); }}
-        className="flex items-center text-left group cursor-pointer focus:outline-none z-30 ml-6 md:ml-12 lg:ml-20"
+        aria-label="Go to home page"
+        className="flex items-center text-left group cursor-pointer focus-visible:ring-2 focus-visible:ring-[#C5A059] focus-visible:outline-none z-30 ml-6 md:ml-12 lg:ml-20"
       >
         <img
           src="/N-Square-logo.png"
           alt="N Square logo"
-          className="h-14 md:h-18 lg:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+          className="h-14 md:h-[4.5rem] lg:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
         />
       </button>
 
       {/* Desktop Navigation Links */}
-      <nav 
+      <nav
         className="hidden md:flex items-center space-x-6 lg:space-x-8 z-10"
         onMouseLeave={() => setHoveredTab(null)}
       >
@@ -105,8 +105,8 @@ export const Header: React.FC<HeaderProps> = ({
 
           if (item.hasDropdown) {
             return (
-              <div 
-                key={item.label} 
+              <div
+                key={item.label}
                 className="relative"
                 onMouseEnter={() => {
                   setHoveredTab(item.tab);
@@ -121,24 +121,22 @@ export const Header: React.FC<HeaderProps> = ({
                     onSelectTab(item.tab);
                     setProjectsDropdownOpen(!projectsDropdownOpen);
                   }}
-                  className={`flex items-center space-x-2.5 text-xs lg:text-[13px] tracking-[0.24em] uppercase font-semibold cursor-pointer transition-all duration-300 relative py-1.5 ${
-                    isHighlighted 
-                      ? 'text-white font-bold' 
-                      : 'text-white/90 hover:text-white'
-                  }`}
+                  className={`flex items-center space-x-2.5 text-xs lg:text-[13px] tracking-[0.24em] uppercase font-semibold cursor-pointer transition-all duration-300 relative py-1.5 ${isHighlighted
+                    ? 'text-white font-bold'
+                    : 'text-white/90 hover:text-white'
+                    }`}
                 >
                   {/* Square Dot Bullet Indicator */}
                   <div className="relative flex items-center justify-center w-3 h-3">
-                    <span className={`w-2 h-2 transition-all duration-300 relative z-10 ${
-                      isHighlighted 
-                        ? 'bg-white scale-110' 
-                        : 'border border-white/40 bg-transparent'
-                    }`} />
+                    <span className={`w-2 h-2 transition-all duration-300 relative z-10 ${isHighlighted
+                      ? 'bg-[#c5a059] scale-110'
+                      : 'border border-[#c5a059]/50 bg-transparent'
+                      }`} />
                   </div>
 
                   <span>{item.label}</span>
 
-                  <motion.span 
+                  <motion.span
                     animate={{ rotate: projectsDropdownOpen ? 180 : 0 }}
                     transition={{ duration: 0.2 }}
                   >
@@ -178,19 +176,17 @@ export const Header: React.FC<HeaderProps> = ({
               key={item.label}
               onMouseEnter={() => setHoveredTab(item.tab)}
               onClick={() => onSelectTab(item.tab)}
-              className={`flex items-center space-x-2.5 text-xs lg:text-[13px] tracking-[0.24em] uppercase font-semibold cursor-pointer transition-all duration-300 relative py-1.5 ${
-                isHighlighted 
-                  ? 'text-white font-bold drop-shadow-sm' 
-                  : 'text-white/90 hover:text-white'
-              }`}
+              className={`flex items-center space-x-2.5 text-xs lg:text-[13px] tracking-[0.24em] uppercase font-semibold cursor-pointer transition-all duration-300 relative py-1.5 ${isHighlighted
+                ? 'text-white font-bold drop-shadow-sm'
+                : 'text-white/90 hover:text-white'
+                }`}
             >
               {/* Square Dot Bullet Indicator */}
               <div className="relative flex items-center justify-center w-3 h-3">
-                <span className={`w-2 h-2 transition-all duration-300 relative z-10 ${
-                  isHighlighted 
-                    ? 'bg-white scale-110' 
-                    : 'border border-white/40 bg-transparent'
-                }`} />
+                <span className={`w-2 h-2 transition-all duration-300 relative z-10 ${isHighlighted
+                  ? 'bg-[#c5a059] scale-110'
+                  : 'border border-[#c5a059]/40 bg-transparent'
+                  }`} />
               </div>
               <span>{item.label}</span>
             </button>
@@ -228,7 +224,8 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center gap-2.5">
           <button
             onClick={onOpenVisitModal}
-            className="p-2.5 rounded-full bg-white text-black"
+            aria-label="Schedule a visit"
+            className="p-2.5 rounded-full bg-white text-black hover:bg-white/90 transition-all"
           >
             <Phone className="w-[18px] h-[18px]" />
           </button>
@@ -251,7 +248,9 @@ export const Header: React.FC<HeaderProps> = ({
             if (mobileMenuOpen) closeMobileMenu();
             else setMobileMenuOpen(true);
           }}
-          className="p-2 rounded-lg border border-white/20 bg-black/30 backdrop-blur-md text-white"
+          aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={mobileMenuOpen}
+          className="p-2 rounded-lg border border-white/20 bg-black/30 backdrop-blur-md text-white focus-visible:ring-2 focus-visible:ring-[#C5A059] focus-visible:outline-none"
         >
           {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
@@ -275,7 +274,7 @@ export const Header: React.FC<HeaderProps> = ({
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -293,9 +292,8 @@ export const Header: React.FC<HeaderProps> = ({
                       closeMobileMenu();
                     }
                   }}
-                  className={`w-full text-left text-xs uppercase tracking-widest py-1.5 border-b border-black/5 flex items-center justify-between ${
-                    activeTab === item.tab ? 'text-neutral-900 font-bold' : ''
-                  }`}
+                  className={`w-full text-left text-xs uppercase tracking-widest py-1.5 border-b border-black/5 flex items-center justify-between ${activeTab === item.tab ? 'text-neutral-900 font-bold' : ''
+                    }`}
                 >
                   <div className="flex items-center space-x-2">
                     <span className="w-2 h-2 bg-[#C5A059]" />

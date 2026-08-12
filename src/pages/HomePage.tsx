@@ -5,7 +5,7 @@ import { HeroSlide, ThemeMode } from '../types';
 import { HeroSlider } from '../components/home/HeroSlider';
 import { RedevelopmentHomeSection } from '../components/home/RedevelopmentHomeSection';
 import { VisionSection } from '../components/home/VisionSection';
-import { PlatinumWorldSection } from '../components/home/PlatinumWorldSection';
+import { PartnershipSection } from '../components/home/PartnershipSection';
 import { OngoingProjectsCarousel } from '../components/home/OngoingProjectsCarousel';
 import { FootprintMapSection } from '../components/home/FootprintMapSection';
 import { TestimonialsSection } from '../components/home/TestimonialsSection';
@@ -49,7 +49,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       <VisionSection theme={theme} />
 
       <div id="section-legacy-world" className="m-0 p-0">
-        <PlatinumWorldSection theme={theme} />
+        <PartnershipSection />
       </div>
 
       <OngoingProjectsCarousel theme={theme} onViewAll={onViewAllProjects} />
