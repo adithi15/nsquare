@@ -9,6 +9,7 @@ export interface HeroSlide {
   code: string;
   location: string;
   image: string;
+  video?: string;
   propertyId: string;
 }
 

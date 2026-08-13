@@ -108,6 +108,7 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
             {/* Elegant Gradient Quote */}
             <motion.h3 
               variants={fadeInUpVariants}
+              style={{ color: '#c5a059' }}
               className="font-['Cormorant_Garamond'] text-[#c5a059] text-3xl md:text-5xl italic font-light tracking-wide leading-tight"
             >
               "Where quality is a journey and not the destination"

@@ -11,6 +11,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     subtitle: 'A G+30 LANDMARK ABOVE KHARGHAR',
     location: 'Kharghar, Navi Mumbai',
     image: '/assets/hero/darshan.jpg',
+    video: '/assets/hero/hero1.mp4',
     propertyId: 'neelkanth-darshan',
   },
   {
@@ -20,6 +21,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     subtitle: 'G+33 COMMERCIAL ICON · POSSESSION 2030',
     location: 'Rabale, Navi Mumbai',
     image: '/assets/hero/unicorn.jpg',
+    video: '/assets/hero/hero2.mp4',
     propertyId: 'neelkanth-unicorn',
   },
   {
@@ -29,34 +31,8 @@ export const HERO_SLIDES: HeroSlide[] = [
     subtitle: 'RESIDENCES & RETAIL IN THE HEART OF ULWE',
     location: 'Ulwe, Navi Mumbai',
     image: '/assets/hero/space.jpg',
+    video: '/assets/hero/hero3.mp4',
     propertyId: 'neelkanth-space',
-  },
-  {
-    id: 'slide-dham',
-    code: 'SIGNATURE 04',
-    title: 'NEELKANTH DHAM',
-    subtitle: 'G+22 TOWERS OF LIGHT & AIR',
-    location: 'Roadpali, Navi Mumbai',
-    image: '/assets/hero/dham.jpg',
-    propertyId: 'neelkanth-dham',
-  },
-  {
-    id: 'slide-luxuria',
-    code: 'LEGACY 01',
-    title: 'NEELKANTH LUXURIA',
-    subtitle: 'THE FLAGSHIP — DELIVERED 2024',
-    location: 'Taloja, Navi Mumbai',
-    image: '/assets/hero/luxuria.jpg',
-    propertyId: 'neelkanth-luxuria',
-  },
-  {
-    id: 'slide-shiv',
-    code: 'SIGNATURE 05',
-    title: 'NEELKANTH SHIV',
-    subtitle: 'SKY DECKS OVER KAMOTHE',
-    location: 'Kamothe, Navi Mumbai',
-    image: '/assets/hero/shiv.jpg',
-    propertyId: 'neelkanth-shiv',
   },
 ];
 
