@@ -19,21 +19,34 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
   onSelectPropertyId,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentDuration, setCurrentDuration] = useState(6.5);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const currentSlide = slides[currentIndex];
 
   useEffect(() => {
+    const timeouts: NodeJS.Timeout[] = [];
     videoRefs.current.forEach((vid, idx) => {
       if (vid) {
         if (idx === currentIndex) {
           vid.currentTime = 0;
           vid.play().catch(e => console.log('Autoplay prevented', e));
+          
+          if (vid.duration) {
+            setCurrentDuration(vid.duration);
+          } else {
+            vid.onloadedmetadata = () => setCurrentDuration(vid.duration);
+          }
         } else {
-          vid.pause();
+          // Let the outgoing video continue playing during the 1.2s crossfade
+          const t = setTimeout(() => {
+            vid.pause();
+          }, 1200);
+          timeouts.push(t);
         }
       }
     });
+    return () => timeouts.forEach(clearTimeout);
   }, [currentIndex]);
 
   useEffect(() => {
@@ -70,11 +83,12 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
       {slides.map((slide, index) => {
         const isActive = index === currentIndex;
         return (
-          <div
+          <motion.div
             key={slide.id}
-            className={`absolute inset-0 overflow-hidden transition-opacity duration-1000 ease-in-out ${
-              isActive ? 'opacity-100 z-0' : 'opacity-0 -z-10'
-            }`}
+            initial={false}
+            animate={{ opacity: isActive ? 1 : 0, zIndex: isActive ? 10 : 0 }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute inset-0 overflow-hidden"
           >
             {slide.video ? (
               <video
@@ -83,9 +97,13 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
                 muted
                 playsInline
                 className="w-full h-full object-cover object-center"
-                onEnded={() => {
+                onTimeUpdate={(e) => {
                   if (isActive) {
-                    setCurrentIndex((prev) => (prev + 1) % slides.length);
+                    const video = e.currentTarget;
+                    // Trigger transition 1.2s before the video ends to perfectly align with the crossfade
+                    if (video.duration && video.duration - video.currentTime <= 1.2) {
+                      setCurrentIndex((prev) => (prev + 1) % slides.length);
+                    }
                   }
                 }}
               />
@@ -102,7 +120,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/35 to-transparent z-10 pointer-events-none" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.08),_transparent_30%)] opacity-80 pointer-events-none" />
-          </div>
+          </motion.div>
         );
       })}
 
@@ -173,13 +191,13 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
 
       {/* Floating Bottom-Right Disclaimer (slightly inset upward and inward) */}
       <div className="absolute bottom-10 right-12 z-30 flex flex-col items-center space-y-2.5 pointer-events-none">
-        <div className="w-36 h-[2px] bg-white/20 rounded-full overflow-hidden relative">
+        <div className="w-56 h-[2px] bg-white/20 rounded-full overflow-hidden relative">
           <motion.div
-            key={`progress-${currentIndex}`}
+            key={`progress-${currentIndex}-${currentDuration}`}
             initial={{ width: '0%' }}
             animate={{ width: '100%' }}
             transition={{
-              duration: 6,
+              duration: currentSlide.video ? currentDuration : 6.5,
               ease: 'linear',
             }}
             className="h-full bg-[#b88a33] shadow-[0_0_10px_#b88a33]"
