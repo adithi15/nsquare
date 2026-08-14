@@ -24,7 +24,9 @@ import {
   MapPin,
   CheckCircle2,
   ArrowRight,
-  MessageCircle
+  MessageCircle,
+  Car,
+  HeartHandshake
 } from 'lucide-react';
 import { CONTACT } from '../data/nsquare';
 
@@ -149,7 +151,7 @@ export const RedevelopmentPage: React.FC<RedevelopmentPageProps> = ({ theme = 'l
   };
 
   return (
-    <div className={`w-full flex flex-col space-y-16 pb-24 transition-colors duration-500 ${
+    <div className={`w-full flex flex-col space-y-20 pb-24 transition-colors duration-500 ${
       isDark ? 'bg-[#0A0A0A] text-neutral-200' : 'bg-[#f8f6f0] text-neutral-800'
     } font-sans overflow-hidden`}>
       
@@ -187,19 +189,246 @@ export const RedevelopmentPage: React.FC<RedevelopmentPageProps> = ({ theme = 'l
 
       </section>
 
-      {/* 2. WHY SOCIETIES CHOOSE REDEVELOPMENT */}
+      {/* 2. INTRO & WHAT IS REDEVELOPMENT */}
+      <section className="px-6 md:px-12 lg:px-16 max-w-7xl mx-auto w-full pt-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
+          
+          {/* Left Column: Redefining Redevelopment */}
+          <div className="lg:col-span-7 space-y-6 text-left">
+            <h2 className={`text-2xl md:text-[2.1rem] font-serif leading-tight tracking-wide uppercase ${
+              isDark ? 'text-white' : 'text-neutral-950'
+            }`}>
+              Redefining Redevelopment.<br />Building What's Next.
+            </h2>
+            <div className={`space-y-4.5 text-xs md:text-[13.5px] leading-relaxed font-light ${
+              isDark ? 'text-neutral-400' : 'text-neutral-700'
+            }`}>
+              <p>
+                At <strong className="font-semibold text-[#C5A059]">NSQUARE</strong>, we believe redevelopment is more than rebuilding a structure — it is about <strong className="font-semibold text-neutral-950 dark:text-white">creating better homes, stronger communities, and lasting value.</strong> With our understanding of Navi Mumbai's evolving landscape, we work closely with housing societies, homeowners, and stakeholders to transform existing properties into thoughtfully planned, modern developments.
+              </p>
+              <p>
+                We understand that redevelopment is a significant decision for every society and its members. That's why we believe in a <strong className="font-semibold text-neutral-950 dark:text-white">transparent, collaborative, and well-managed process</strong>, keeping residents informed and involved at every stage — from planning and approvals to construction and handover.
+              </p>
+              <p>
+                Our approach combines <strong className="font-semibold text-neutral-950 dark:text-white">design excellence, quality construction, disciplined execution, and ethical practices</strong> to create developments that meet the aspirations of today while adding long-term value for tomorrow.
+              </p>
+              <p>
+                At <strong className="font-semibold text-[#C5A059]">NSQUARE</strong>, we don't just rebuild structures; we build trust and long-term value. We strive to make the process as seamless and stress-free as possible for our clients.
+              </p>
+            </div>
+          </div>
+
+          {/* Right Column: What Is Redevelopment? */}
+          <div className={`lg:col-span-5 p-8 border flex flex-col justify-center min-h-[300px] text-left ${
+            isDark 
+              ? 'bg-neutral-900/30 border-white/5' 
+              : 'bg-[#f4efe6] border-neutral-300/40 shadow-sm'
+          }`}>
+            <h3 className="text-xl font-serif text-[#C5A059] mb-4 uppercase tracking-wide">
+              What Is Redevelopment?
+            </h3>
+            <p className={`text-xs md:text-[13.5px] leading-relaxed font-light ${
+              isDark ? 'text-neutral-400' : 'text-neutral-700'
+            }`}>
+              Redevelopment offers a powerful solution for housing societies in Mumbai where old buildings are either dilapidated, uninhabitable or lack modern amenities. It is a process of demolishing existing structures and reconstructing buildings into modern, functional spaces. Redevelopment of societies accelerates and empowers them with more space, better amenities, and an improved quality of life.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. BENEFITS OF REDEVELOPMENT BOX (6 PILLARS) */}
+      <section className="px-6 md:px-12 lg:px-16 max-w-7xl mx-auto w-full">
+        <div className={`p-8 md:p-14 text-center border shadow-xl relative overflow-hidden transition-all duration-300 ${
+          isDark 
+            ? 'bg-[#121212]/95 border-white/5 text-white shadow-black/60' 
+            : 'bg-[#F9F8F6] border-neutral-200/80 text-neutral-800'
+        }`}>
+          {/* Top accent line */}
+          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#E2863B]/20 via-[#E2863B] to-[#E2863B]/20 dark:from-[#C5A059]/20 dark:via-[#C5A059] dark:to-[#C5A059]/20" />
+          
+          <h2 className="text-3xl md:text-[2.6rem] font-serif text-[#E2863B] dark:text-[#C5A059] tracking-wide mb-3">
+            Benefits of Redevelopment
+          </h2>
+          <p className="text-[11px] md:text-xs uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400 font-semibold mb-12 max-w-3xl mx-auto">
+            PARTNERING WITH A REPUTABLE DEVELOPER LIKE N-SQUARE UNLOCKS A RANGE OF BENEFITS FOR SOCIETIES.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12 max-w-5xl mx-auto">
+            {/* Benefit 1: Optimal Space Utilization */}
+            <div className="flex flex-col items-center text-center space-y-3.5 group cursor-default">
+              <div className="flex items-center justify-center text-[#E2863B] dark:text-[#C5A059] transition-transform duration-300 group-hover:scale-110">
+                <svg className="w-11 h-11" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                  {/* Center Square */}
+                  <rect x="7" y="11" width="16" height="16" rx="0.5" />
+                  {/* Top Horizontal Measurement Arrow */}
+                  <line x1="7" y1="5" x2="23" y2="5" />
+                  <polyline points="10,2 7,5 10,8" />
+                  <polyline points="20,2 23,5 20,8" />
+                  {/* Right Vertical Measurement Arrow */}
+                  <line x1="29" y1="11" x2="29" y2="27" />
+                  <polyline points="26,14 29,11 32,14" />
+                  <polyline points="26,24 29,27 32,24" />
+                </svg>
+              </div>
+              <span className={`text-xs md:text-sm tracking-wider font-semibold ${
+                isDark ? 'text-neutral-200' : 'text-neutral-800'
+              }`}>
+                Optimal Space Utilization
+              </span>
+            </div>
+
+            {/* Benefit 2: Dedicated Parking Space */}
+            <div className="flex flex-col items-center text-center space-y-3.5 group cursor-default">
+              <div className="flex items-center justify-center text-[#E2863B] dark:text-[#C5A059] transition-transform duration-300 group-hover:scale-110">
+                <svg className="w-11 h-11" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  {/* Left: Top-down view of car */}
+                  <line x1="2" y1="5" x2="2" y2="31" strokeDasharray="2 2" />
+                  <line x1="20" y1="5" x2="20" y2="31" />
+                  <rect x="5.5" y="8" width="11" height="20" rx="3" />
+                  <path d="M7 13c1.5-1 4.5-1 8 0" />
+                  <path d="M7 23c1.5 1 4.5 1 8 0" />
+                  <rect x="7" y="14" width="8" height="8" rx="1" strokeWidth="1.2" />
+                  <path d="M4 12.5h1.5M4 14.5h1.5M16.5 12.5H18M16.5 14.5H18" />
+                  <line x1="7" y1="8" x2="8.5" y2="8" strokeWidth="2" />
+                  <line x1="13.5" y1="8" x2="15" y2="8" strokeWidth="2" />
+                  <line x1="7" y1="28" x2="8.5" y2="28" strokeWidth="2" />
+                  <line x1="13.5" y1="28" x2="15" y2="28" strokeWidth="2" />
+                  {/* Right: Parking P with markers */}
+                  <line x1="24" y1="8" x2="33" y2="8" />
+                  <path d="M26.5 22V13h3.5a2.5 2.5 0 0 1 0 5h-3.5" strokeWidth="1.8" />
+                  <line x1="24" y1="28" x2="33" y2="28" />
+                </svg>
+              </div>
+              <span className={`text-xs md:text-sm tracking-wider font-semibold ${
+                isDark ? 'text-neutral-200' : 'text-neutral-800'
+              }`}>
+                Dedicated Parking Space
+              </span>
+            </div>
+
+            {/* Benefit 3: Enhanced Property Value */}
+            <div className="flex flex-col items-center text-center space-y-3.5 group cursor-default">
+              <div className="flex items-center justify-center text-[#E2863B] dark:text-[#C5A059] transition-transform duration-300 group-hover:scale-110">
+                <svg className="w-11 h-11" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  {/* 3 Growth Bars */}
+                  <rect x="3" y="21" width="4" height="9" rx="1.5" />
+                  <rect x="9" y="16" width="4" height="14" rx="1.5" />
+                  <rect x="15" y="11" width="4" height="19" rx="1.5" />
+                  {/* Upward Arching Growth Arrow */}
+                  <path d="M3 17C6 11 12 7 19 6" strokeWidth="1.8" />
+                  <polyline points="15,4 20,6 18,11" strokeWidth="1.8" />
+                  {/* Circle with Rupee ₹ Symbol */}
+                  <circle cx="27" cy="22" r="7.5" strokeWidth="1.5" />
+                  <path d="M24 18.5h6" strokeWidth="1.3" />
+                  <path d="M24 21h4.5" strokeWidth="1.3" />
+                  <path d="M25.5 18.5v3.5a1.8 1.8 0 0 0 0 3.5h.5l3.5 3.5" strokeWidth="1.3" />
+                </svg>
+              </div>
+              <span className={`text-xs md:text-sm tracking-wider font-semibold ${
+                isDark ? 'text-neutral-200' : 'text-neutral-800'
+              }`}>
+                Enhanced Property Value
+              </span>
+            </div>
+
+            {/* Benefit 4: Modernized Living Spaces */}
+            <div className="flex flex-col items-center text-center space-y-3.5 group cursor-default">
+              <div className="flex items-center justify-center text-[#E2863B] dark:text-[#C5A059] transition-transform duration-300 group-hover:scale-110">
+                <svg className="w-11 h-11" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  {/* Left building */}
+                  <path d="M4 31V16l6-4v19" />
+                  <line x1="7" y1="17" x2="7" y2="28" />
+                  {/* Center tall building with angled roof */}
+                  <path d="M11 31V9l8-5v27" strokeWidth="1.6" />
+                  <line x1="13.5" y1="10" x2="16.5" y2="10" />
+                  <line x1="13.5" y1="13" x2="16.5" y2="13" />
+                  <line x1="13.5" y1="16" x2="16.5" y2="16" />
+                  <line x1="13.5" y1="19" x2="16.5" y2="19" />
+                  <line x1="13.5" y1="22" x2="16.5" y2="22" />
+                  <line x1="13.5" y1="25" x2="16.5" y2="25" />
+                  <line x1="13.5" y1="28" x2="16.5" y2="28" />
+                  {/* Right building */}
+                  <path d="M20 31V12l6 3v16" />
+                  <line x1="23" y1="18" x2="23" y2="28" />
+                  {/* Far right wing & ground */}
+                  <path d="M27 31V20l5 2v9" />
+                  <line x1="2" y1="31" x2="34" y2="31" />
+                </svg>
+              </div>
+              <span className={`text-xs md:text-sm tracking-wider font-semibold ${
+                isDark ? 'text-neutral-200' : 'text-neutral-800'
+              }`}>
+                Modernized Living Spaces
+              </span>
+            </div>
+
+            {/* Benefit 5: Upgraded Lifestyle Amenities */}
+            <div className="flex flex-col items-center text-center space-y-3.5 group cursor-default">
+              <div className="flex items-center justify-center text-[#E2863B] dark:text-[#C5A059] transition-transform duration-300 group-hover:scale-110">
+                <svg className="w-11 h-11" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  {/* Circular Cycle Arrows */}
+                  <path d="M18 4a14 14 0 0 1 13 9" strokeWidth="1.5" />
+                  <polyline points="29,7 32,13 26,13" strokeWidth="1.5" />
+                  <path d="M18 32a14 14 0 0 1-13-9" strokeWidth="1.5" />
+                  <polyline points="7,29 4,23 10,23" strokeWidth="1.5" />
+                  {/* Center House */}
+                  <path d="M11 25V17l7-5 7 5v8a1 1 0 0 1-1 1H12a1 1 0 0 1-1-1Z" strokeWidth="1.5" />
+                  <path d="M16 26v-5h4v5" strokeWidth="1.3" />
+                  <path d="M22 13v-3h2v4.5" strokeWidth="1.2" />
+                </svg>
+              </div>
+              <span className={`text-xs md:text-sm tracking-wider font-semibold ${
+                isDark ? 'text-neutral-200' : 'text-neutral-800'
+              }`}>
+                Upgraded Lifestyle Amenities
+              </span>
+            </div>
+
+            {/* Benefit 6: Community Revitalization */}
+            <div className="flex flex-col items-center text-center space-y-3.5 group cursor-default">
+              <div className="flex items-center justify-center text-[#E2863B] dark:text-[#C5A059] transition-transform duration-300 group-hover:scale-110">
+                <svg className="w-11 h-11" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  {/* Center Person */}
+                  <circle cx="18" cy="11" r="2.5" />
+                  <path d="M14 20a4 4 0 0 1 8 0" />
+                  {/* Left Person */}
+                  <circle cx="12" cy="13" r="2" />
+                  <path d="M9 20a3.5 3.5 0 0 1 5-2" />
+                  {/* Right Person */}
+                  <circle cx="24" cy="13" r="2" />
+                  <path d="M22 18a3.5 3.5 0 0 1 5 2" />
+                  {/* Radiating Dots */}
+                  <circle cx="18" cy="5" r="0.8" fill="currentColor" stroke="none" />
+                  <circle cx="14" cy="6" r="0.8" fill="currentColor" stroke="none" />
+                  <circle cx="22" cy="6" r="0.8" fill="currentColor" stroke="none" />
+                  {/* Cupping Hands */}
+                  <path d="M6 19c0 5 4 10 10 12l2-3" strokeWidth="1.5" />
+                  <path d="M8 20c1 4 4 7 8 8" strokeWidth="1.2" />
+                  <path d="M30 19c0 5-4 10-10 12l-2-3" strokeWidth="1.5" />
+                  <path d="M28 20c-1 4-4 7-8 8" strokeWidth="1.2" />
+                </svg>
+              </div>
+              <span className={`text-xs md:text-sm tracking-wider font-semibold ${
+                isDark ? 'text-neutral-200' : 'text-neutral-800'
+              }`}>
+                Community Revitalization
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. WHY SOCIETIES CHOOSE REDEVELOPMENT */}
+
       <section className="px-6 md:px-12 lg:px-16 max-w-7xl mx-auto w-full pt-8 space-y-12">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-[#C5A059] font-bold block">
-            Why societies in Navi Mumbai choose
-          </span>
-          <h2 className={`text-2xl md:text-4xl font-serif leading-snug tracking-wide uppercase ${
+        <div className="text-center max-w-4xl mx-auto space-y-4">
+          <h2 className={`text-2xl md:text-4xl lg:text-[2.5rem] font-serif leading-tight tracking-wide uppercase ${
             isDark ? 'text-white' : 'text-neutral-950'
           }`}>
-            REDEVELOPMENT?
+            Why Societies in Navi Mumbai Choose <br className="hidden md:block" />
+            <span className="text-[#E2863B] dark:text-[#C5A059]">Redevelopment?</span>
           </h2>
-          <div className="w-12 h-[1px] bg-[#C5A059] mx-auto my-3" />
-          <p className={`text-xs md:text-sm leading-relaxed font-light ${
+          <p className={`text-sm md:text-base leading-relaxed font-light max-w-3xl mx-auto pt-2 ${
             isDark ? 'text-neutral-400' : 'text-neutral-600'
           }`}>
             Redevelopment today is driven by the need for safer structures, better planning, and an upgraded quality of life. For housing societies evaluating redevelopment projects across Navi Mumbai, the benefits extend far beyond just new construction.
@@ -271,7 +500,6 @@ export const RedevelopmentPage: React.FC<RedevelopmentPageProps> = ({ theme = 'l
             }`}>
               How does Navi Mumbai Redevelopment work?
             </h2>
-            <div className="w-12 h-[1px] bg-[#C5A059] mx-auto mt-3" />
           </div>
 
           {/* Interactive vertical stepper timeline layout */}

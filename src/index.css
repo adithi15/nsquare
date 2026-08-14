@@ -3,11 +3,13 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-serif: 'Corporate A', 'Corporate S', serif;
+  --font-serif: 'Italiana', 'Playfair Display', 'Cormorant Garamond', serif;
   --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-script: 'Great Vibes', cursive;
   --font-stylish: 'Cormorant Garamond', 'Georgia', serif;
   --font-display: 'Playfair Display', 'Georgia', serif;
+  --font-italiana: 'Italiana', serif;
+  --font-cinzel: 'Cinzel Decorative', serif;
 }
 
 @utility no-scrollbar {
@@ -20,7 +22,13 @@
 
 @layer utilities {
   .serif {
-    font-family: 'Corporate A', 'Corporate S', serif;
+    font-family: 'Italiana', 'Playfair Display', 'Cormorant Garamond', serif;
+  }
+  .font-italiana {
+    font-family: 'Italiana', 'Playfair Display', serif;
+  }
+  .font-cinzel {
+    font-family: 'Cinzel Decorative', serif;
   }
   .sans {
     font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;

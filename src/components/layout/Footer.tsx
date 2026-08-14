@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeMode, NavTab } from '../../types';
 import { PhoneCall, Mail, MapPin, MessageCircle } from 'lucide-react';
-import { ONGOING_PROJECTS, CONTACT } from '../../data/nsquare';
+import { CONTACT } from '../../data/nsquare';
 
 interface FooterProps {
   theme: ThemeMode;
@@ -23,21 +23,21 @@ export const Footer: React.FC<FooterProps> = ({ theme, maharera = 'P52000000000'
         {/* top row — brand + link columns */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
           {/* Brand */}
-          <div className="lg:col-span-4 space-y-5">
+          <div className="lg:col-span-5 space-y-5">
             <img
               src="/N-Square-logo.png"
               alt="N Square logo"
               className="h-20 md:h-24 w-auto object-contain"
             />
             <p className="font-serif italic text-lg md:text-xl text-[#C5A059]">{CONTACT.tagline}</p>
-            <p className="text-[11px] text-white/55 font-light leading-relaxed max-w-xs">
+            <p className="text-[11px] text-white/55 font-light leading-relaxed max-w-sm">
               Two legacies. One vision — building landmarks across Navi Mumbai
               with an unbroken promise of quality and on-time delivery.
             </p>
           </div>
 
           {/* Quick Links */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="lg:col-span-3 space-y-4">
             <div className={COLUMN_TITLE}>Quick Links</div>
             <div className="space-y-2.5">
               <button onClick={() => onSelectTab && onSelectTab('residences')} className={LINK_ITEM}>Home</button>
@@ -48,21 +48,8 @@ export const Footer: React.FC<FooterProps> = ({ theme, maharera = 'P52000000000'
             </div>
           </div>
 
-          {/* Ongoing Projects */}
-          <div className="lg:col-span-3 space-y-4">
-            <div className={COLUMN_TITLE}>Ongoing Projects</div>
-            <div className="space-y-2.5 text-[11px] text-white/70">
-              {ONGOING_PROJECTS.slice(0, 8).map((p) => (
-                <div key={p.id} className="flex items-baseline gap-2">
-                  <span className="w-1 h-1 rounded-full bg-[#C5A059]/70 shrink-0 translate-y-[-2px]" />
-                  <span>{p.name} · {p.location}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
           {/* Reach Us */}
-          <div className="lg:col-span-3 space-y-4">
+          <div className="lg:col-span-4 space-y-4">
             <div className={COLUMN_TITLE}>Reach Us</div>
             <div className="space-y-3 text-[11px] text-white/70">
               <a href={CONTACT.phoneHref} className="flex items-center gap-2.5 hover:text-[#C5A059] transition-colors">

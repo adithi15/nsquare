@@ -2,19 +2,32 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, animate } from 'framer-motion';
 import { Building2, ChevronRight } from 'lucide-react';
 import { ThemeMode } from '../../types';
-import { ONGOING_PROJECTS } from '../../data/nsquare';
+import { ONGOING_PROJECTS, NSProject } from '../../data/nsquare';
 import { EASE, VIEWPORT } from '../ui/SectionHeading';
+import { ProjectInquiryModal, ProjectInquiryData } from '../layout/ProjectInquiryModal';
 
 interface OngoingProjectsCarouselProps {
   theme: ThemeMode;
   onViewAll?: () => void;
 }
 
-export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = ({ onViewAll }) => {
+export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = ({ theme, onViewAll }) => {
   const trackRef = useRef<HTMLDivElement>(null);
   const [activeDot, setActiveDot] = useState(0);
   const [snapType, setSnapType] = useState('x mandatory');
   const scrollAnimRef = useRef<any>(null);
+  const [selectedInquiryProject, setSelectedInquiryProject] = useState<ProjectInquiryData | null>(null);
+  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
+
+  const handleProjectClick = (p: NSProject) => {
+    setSelectedInquiryProject({
+      projectName: p.name,
+      projectLocation: `${p.location}, Navi Mumbai`,
+      projectImage: p.image,
+      projectStatus: 'Ongoing',
+    });
+    setIsInquiryOpen(true);
+  };
 
   const smoothScrollTo = (el: HTMLElement, to: number, duration = 3.2) => {
     // Temporarily disable scrollSnapType so it doesn't fight our eased scroll loop
@@ -146,7 +159,8 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
                   whileInView={{ opacity: 1 }}
                   viewport={VIEWPORT}
                   transition={{ duration: 1.2, delay: (i % 2) * 0.15, ease: EASE }}
-                  className="shrink-0 w-[76vw] sm:w-[380px] lg:w-[calc(50%-14px)] bg-white flex flex-col group"
+                  onClick={() => handleProjectClick(p)}
+                  className="shrink-0 w-[76vw] sm:w-[380px] lg:w-[calc(50%-14px)] bg-white flex flex-col group cursor-pointer hover:shadow-2xl transition-all duration-300"
                   style={{ scrollSnapAlign: 'start' }}
                 >
                   <div className="relative overflow-hidden aspect-[4/4.4]">
@@ -156,14 +170,24 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
                       loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-[2200ms] ease-out group-hover:scale-110"
                     />
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <span className="bg-[#C5A059] text-black text-[9px] font-bold uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full shadow-md">
+                        Enquire / Visit
+                      </span>
+                    </div>
                   </div>
-                  <div className="bg-white px-6 py-5">
-                    <h3 className="text-lg text-neutral-900 leading-snug">
-                      {p.name},
-                    </h3>
-                    <p className="text-sm text-neutral-500 font-light mt-1">
-                      {p.location}, Navi Mumbai
-                    </p>
+                  <div className="bg-white px-6 py-5 flex items-center justify-between">
+                    <div>
+                      <h3 className="text-lg text-neutral-900 leading-snug group-hover:text-[#A27E3B] transition-colors">
+                        {p.name}
+                      </h3>
+                      <p className="text-sm text-neutral-500 font-light mt-1">
+                        {p.location}, Navi Mumbai
+                      </p>
+                    </div>
+                    <span className="text-xs text-[#A27E3B] font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                      &rarr;
+                    </span>
                   </div>
                 </motion.article>
               ))}
@@ -219,6 +243,15 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
           ))}
         </div>
       </div>
+
+      {/* Project Inquiry Modal for Ongoing Projects Carousel */}
+      <ProjectInquiryModal
+        isOpen={isInquiryOpen}
+        onClose={() => setIsInquiryOpen(false)}
+        project={selectedInquiryProject}
+        theme={theme}
+      />
     </section>
   );
 };
+

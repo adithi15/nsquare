@@ -41,16 +41,16 @@ export const HomePage: React.FC<HomePageProps> = ({
         />
       </div>
 
+      <div id="section-legacy-world" className="m-0 p-0">
+        <PartnershipSection theme={theme} />
+      </div>
+
       <RedevelopmentHomeSection
         theme={theme}
         onNavigateToRedevelopment={onNavigateToRedevelopment}
       />
 
-      <VisionSection theme={theme} />
-
-      <div id="section-legacy-world" className="m-0 p-0">
-        <PartnershipSection />
-      </div>
+      {/* <VisionSection theme={theme} /> */}
 
       <OngoingProjectsCarousel theme={theme} onViewAll={onViewAllProjects} />
 

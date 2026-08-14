@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeMode, NavTab } from '../../types';
-import { Menu, X, Phone, ChevronDown } from 'lucide-react';
+import { Menu, X, Phone, Mail, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CONTACT } from '../../data/nsquare';
 
@@ -55,10 +55,10 @@ export const Header: React.FC<HeaderProps> = ({
 
   const navItems: { label: string; tab: NavTab; hasDropdown?: boolean }[] = [
     { label: 'HOME', tab: 'residences' },
+    { label: 'ABOUT', tab: 'legacy' },
     { label: 'PROJECTS', tab: 'projects', hasDropdown: true },
     { label: 'REDEVELOPMENT', tab: 'redevelopment' },
-    { label: 'ABOUT US', tab: 'legacy' },
-    { label: 'CONTACT US', tab: 'contact' },
+    { label: 'CONTACT', tab: 'contact' },
   ];
 
   const projectDropdownItems = [
@@ -77,24 +77,24 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-5 md:px-10 lg:px-14 shrink-0 transition-all duration-500 ease-in-out bg-black/70 backdrop-blur-xl ${isScrolled
+    <header className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center pl-5 sm:pl-8 md:pl-16 lg:pl-20 pr-5 sm:pr-8 md:pr-12 lg:pr-16 shrink-0 transition-all duration-500 ease-in-out bg-black/70 backdrop-blur-xl ${isScrolled
       ? 'border-b border-white/10 shadow-2xl py-1 md:py-1.5'
       : 'py-2 md:py-2.5'
       }`}>
-      {/* Brand Logo */}
+      {/* 1. Left: Brand Logo (Enlarged & Shifted Inward) */}
       <button
         onClick={() => { onSelectTab('residences'); closeMobileMenu(); }}
         aria-label="Go to home page"
-        className="flex items-center text-left group cursor-pointer focus-visible:ring-2 focus-visible:ring-[#C5A059] focus-visible:outline-none z-30 ml-6 md:ml-12 lg:ml-20"
+        className="flex items-center text-left group cursor-pointer focus-visible:ring-2 focus-visible:ring-[#C5A059] focus-visible:outline-none z-30 shrink-0 ml-4 sm:ml-8 md:ml-12 lg:ml-16 xl:ml-24"
       >
         <img
           src="/N-Square-logo.png"
           alt="N Square logo"
-          className="h-14 md:h-[4.5rem] lg:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+          className="h-14 sm:h-16 md:h-20 lg:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
         />
       </button>
 
-      {/* Desktop Navigation Links */}
+      {/* 2. Center: Desktop Navigation Links */}
       <nav
         className="hidden md:flex items-center space-x-6 lg:space-x-8 z-10"
         onMouseLeave={() => setHoveredTab(null)}
@@ -121,14 +121,14 @@ export const Header: React.FC<HeaderProps> = ({
                     onSelectTab(item.tab);
                     setProjectsDropdownOpen(!projectsDropdownOpen);
                   }}
-                  className={`flex items-center space-x-2.5 text-xs lg:text-[13px] tracking-[0.24em] uppercase font-semibold cursor-pointer transition-all duration-300 relative py-1.5 ${isHighlighted
+                  className={`flex items-center space-x-2 text-xs lg:text-[13px] tracking-[0.22em] uppercase font-semibold cursor-pointer transition-all duration-300 relative py-1.5 ${isHighlighted
                     ? 'text-white font-bold'
-                    : 'text-white/90 hover:text-white'
+                    : 'text-white/80 hover:text-white'
                     }`}
                 >
                   {/* Square Dot Bullet Indicator */}
-                  <div className="relative flex items-center justify-center w-3 h-3">
-                    <span className={`w-2 h-2 transition-all duration-300 relative z-10 ${isHighlighted
+                  <div className="relative flex items-center justify-center w-2.5 h-2.5">
+                    <span className={`w-1.5 h-1.5 transition-all duration-300 relative z-10 ${isHighlighted
                       ? 'bg-[#c5a059] scale-110'
                       : 'border border-[#c5a059]/50 bg-transparent'
                       }`} />
@@ -140,7 +140,7 @@ export const Header: React.FC<HeaderProps> = ({
                     animate={{ rotate: projectsDropdownOpen ? 180 : 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <ChevronDown className="w-3.5 h-3.5 text-white" />
+                    <ChevronDown className="w-3.5 h-3.5 text-white/80" />
                   </motion.span>
                 </button>
 
@@ -152,7 +152,7 @@ export const Header: React.FC<HeaderProps> = ({
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 8, scale: 0.96 }}
                       transition={{ duration: 0.2, ease: 'easeOut' }}
-                      className="absolute top-full left-0 min-w-[210px] bg-white/60 backdrop-blur-2xl border border-white/40 rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.25)] py-2 z-50 overflow-hidden text-neutral-900"
+                      className="absolute top-full left-0 min-w-[210px] bg-white/70 backdrop-blur-2xl border border-white/40 rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.25)] py-2 z-50 overflow-hidden text-neutral-900"
                     >
                       {projectDropdownItems.map((sub) => (
                         <button
@@ -176,14 +176,14 @@ export const Header: React.FC<HeaderProps> = ({
               key={item.label}
               onMouseEnter={() => setHoveredTab(item.tab)}
               onClick={() => onSelectTab(item.tab)}
-              className={`flex items-center space-x-2.5 text-xs lg:text-[13px] tracking-[0.24em] uppercase font-semibold cursor-pointer transition-all duration-300 relative py-1.5 ${isHighlighted
+              className={`flex items-center space-x-2 text-xs lg:text-[13px] tracking-[0.22em] uppercase font-semibold cursor-pointer transition-all duration-300 relative py-1.5 ${isHighlighted
                 ? 'text-white font-bold drop-shadow-sm'
-                : 'text-white/90 hover:text-white'
+                : 'text-white/80 hover:text-white'
                 }`}
             >
               {/* Square Dot Bullet Indicator */}
-              <div className="relative flex items-center justify-center w-3 h-3">
-                <span className={`w-2 h-2 transition-all duration-300 relative z-10 ${isHighlighted
+              <div className="relative flex items-center justify-center w-2.5 h-2.5">
+                <span className={`w-1.5 h-1.5 transition-all duration-300 relative z-10 ${isHighlighted
                   ? 'bg-[#c5a059] scale-110'
                   : 'border border-[#c5a059]/40 bg-transparent'
                   }`} />
@@ -192,54 +192,75 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           );
         })}
-
-        {/* Call + WhatsApp concierge pair with a slim divider */}
-        <div className="flex items-center gap-3">
-          <button
-            onClick={onOpenVisitModal}
-            aria-label="Contact Concierge"
-            className="p-2.5 rounded-full bg-white text-black hover:bg-white/90 transition-all shadow-sm hover:scale-105 cursor-pointer flex items-center justify-center"
-            title="Schedule Visit"
-          >
-            <Phone className="w-[19px] h-[19px] fill-black stroke-black" />
-          </button>
-
-          <span className="w-px h-6 bg-white/30" aria-hidden="true" />
-
-          <a
-            href={`${CONTACT.whatsappHref}?text=${encodeURIComponent('Hello N-Square! I would like to know more about your projects.')}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Chat on WhatsApp"
-            title="WhatsApp"
-            className="p-2.5 rounded-full bg-white hover:bg-white/90 transition-all shadow-sm hover:scale-105 flex items-center justify-center"
-          >
-            <WhatsAppIcon className="w-[19px] h-[19px] text-[#25D366]" />
-          </a>
-        </div>
       </nav>
 
-      {/* Mobile Controls */}
-      <div className="flex md:hidden items-center space-x-2 z-10">
-        <div className="flex items-center gap-2.5">
-          <button
-            onClick={onOpenVisitModal}
-            aria-label="Schedule a visit"
-            className="p-2.5 rounded-full bg-white text-black hover:bg-white/90 transition-all"
-          >
-            <Phone className="w-[18px] h-[18px]" />
-          </button>
+      {/* 3. Right: Contact Action Icons (Phone, Mail, WhatsApp - Big & Prominent) */}
+      <div className="hidden md:flex items-center gap-4 lg:gap-5 z-30 shrink-0">
+        <a
+          href={CONTACT.phoneHref}
+          className="text-white hover:text-[#C5A059] hover:scale-115 transition-all p-1 cursor-pointer flex items-center justify-center"
+          title={`Call Us (${CONTACT.phone})`}
+          aria-label="Call Us"
+        >
+          <Phone className="w-6 h-6 lg:w-7 lg:h-7" strokeWidth={1.75} />
+        </a>
 
-          <span className="w-px h-5 bg-white/30" aria-hidden="true" />
+        <span className="w-px h-5 bg-white/35" />
+
+        <a
+          href={`mailto:${CONTACT.email}`}
+          className="text-white hover:text-[#C5A059] hover:scale-115 transition-all p-1 cursor-pointer flex items-center justify-center"
+          title={`Email Us (${CONTACT.email})`}
+          aria-label="Email Us"
+        >
+          <Mail className="w-6 h-6 lg:w-7 lg:h-7" strokeWidth={1.75} />
+        </a>
+
+        <span className="w-px h-5 bg-white/35" />
+
+        <a
+          href={`${CONTACT.whatsappHref}?text=${encodeURIComponent('Hello N-Square Developers! I would like to know more about your projects.')}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white hover:text-[#25D366] hover:scale-115 transition-all p-1 cursor-pointer flex items-center justify-center"
+          title="WhatsApp Concierge"
+          aria-label="WhatsApp"
+        >
+          <WhatsAppIcon className="w-6 h-6 lg:w-7 lg:h-7" />
+        </a>
+      </div>
+
+      {/* Mobile Controls */}
+      <div className="flex md:hidden items-center space-x-3.5 z-10">
+        <div className="flex items-center gap-3">
+          <a
+            href={CONTACT.phoneHref}
+            aria-label="Call Us"
+            className="p-1 text-white hover:text-[#C5A059]"
+          >
+            <Phone className="w-5 h-5" strokeWidth={1.75} />
+          </a>
+
+          <span className="w-px h-4 bg-white/35" />
 
           <a
-            href={`${CONTACT.whatsappHref}?text=${encodeURIComponent('Hello N-Square! I would like to know more about your projects.')}`}
+            href={`mailto:${CONTACT.email}`}
+            aria-label="Email Us"
+            className="p-1 text-white hover:text-[#C5A059]"
+          >
+            <Mail className="w-5 h-5" strokeWidth={1.75} />
+          </a>
+
+          <span className="w-px h-4 bg-white/35" />
+
+          <a
+            href={`${CONTACT.whatsappHref}?text=${encodeURIComponent('Hello N-Square Developers! I would like to know more about your projects.')}`}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat on WhatsApp"
-            className="p-2.5 rounded-full bg-white"
+            className="p-1 text-white hover:text-[#25D366]"
           >
-            <WhatsAppIcon className="w-[18px] h-[18px] text-[#25D366]" />
+            <WhatsAppIcon className="w-5 h-5" />
           </a>
         </div>
 

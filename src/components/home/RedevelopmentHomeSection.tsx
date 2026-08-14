@@ -38,8 +38,8 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
     <section 
       className={`w-full py-16 md:py-24 px-6 md:px-12 lg:px-16 transition-colors duration-500 relative overflow-hidden ${
         isDark 
-          ? 'bg-gradient-to-b from-[#0A0A0A] via-[#14120E] to-[#0A0A0A] border-t border-b border-white/5' 
-          : 'bg-gradient-to-b from-[#FAF9F5] via-[#F4EFE6] to-[#FAF9F5] border-t border-b border-neutral-200/60'
+          ? 'bg-[#0D0D0D] border-b border-white/5' 
+          : 'bg-[#F4EFE6] border-b border-neutral-200/60'
       }`}
     >
       {/* Decorative Golden Ambient Glow for Dark Mode */}

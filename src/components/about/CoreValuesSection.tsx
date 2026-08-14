@@ -109,7 +109,7 @@ export const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({ theme }) =
                 className={imgStyle}
               />
               <div className={contentStyle}>
-                <Handshake className="w-8 h-8 text-[#C5A059] mb-3.5" strokeWidth={1.5} />
+                <Handshake className="w-8 h-8 text-[#C5A059] group-hover:text-[#e5c98d] transition-colors mb-3.5" strokeWidth={1.5} />
                 <span className="text-[11px] md:text-xs uppercase tracking-[0.25em] font-medium font-serif">
                   {VALUES_DATA.businessEthics.title}
                 </span>
@@ -131,7 +131,7 @@ export const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({ theme }) =
                 className={imgStyle}
               />
               <div className={contentStyle}>
-                <Sprout className="w-8 h-8 text-[#C5A059] mb-3.5" strokeWidth={1.5} />
+                <Sprout className="w-8 h-8 text-[#C5A059] group-hover:text-[#e5c98d] transition-colors mb-3.5" strokeWidth={1.5} />
                 <span className="text-[11px] md:text-xs uppercase tracking-[0.25em] font-medium font-serif">
                   {VALUES_DATA.humility.title}
                 </span>
@@ -158,7 +158,7 @@ export const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({ theme }) =
                 className={imgStyle}
               />
               <div className={contentStyle}>
-                <Award className="w-8 h-8 text-[#C5A059] mb-3.5" strokeWidth={1.5} />
+                <Award className="w-8 h-8 text-[#C5A059] group-hover:text-[#e5c98d] transition-colors mb-3.5" strokeWidth={1.5} />
                 <span className="text-[11px] md:text-xs uppercase tracking-[0.25em] font-medium font-serif">
                   {VALUES_DATA.quality.title}
                 </span>
@@ -183,7 +183,7 @@ export const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({ theme }) =
                   className={imgStyle}
                 />
                 <div className={contentStyle}>
-                  <ShieldAlert className="w-8 h-8 text-[#C5A059] mb-3.5" strokeWidth={1.5} />
+                  <ShieldAlert className="w-8 h-8 text-[#C5A059] group-hover:text-[#e5c98d] transition-colors mb-3.5" strokeWidth={1.5} />
                   <span className="text-[11px] md:text-xs uppercase tracking-[0.25em] font-medium font-serif">
                     {VALUES_DATA.prudence.title}
                   </span>
@@ -205,7 +205,7 @@ export const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({ theme }) =
                   className={imgStyle}
                 />
                 <div className={contentStyle}>
-                  <HeartHandshake className="w-8 h-8 text-[#C5A059] mb-3.5" strokeWidth={1.5} />
+                  <HeartHandshake className="w-8 h-8 text-[#C5A059] group-hover:text-[#e5c98d] transition-colors mb-3.5" strokeWidth={1.5} />
                   <span className="text-[11px] md:text-xs uppercase tracking-[0.25em] font-medium font-serif">
                     {VALUES_DATA.respect.title}
                   </span>
@@ -229,7 +229,7 @@ export const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({ theme }) =
                 className={imgStyle}
               />
               <div className={contentStyle}>
-                <Building2 className="w-8 h-8 text-[#C5A059] mb-3.5" strokeWidth={1.5} />
+                <Building2 className="w-8 h-8 text-[#C5A059] group-hover:text-[#e5c98d] transition-colors mb-3.5" strokeWidth={1.5} />
                 <span className="text-[11px] md:text-xs uppercase tracking-[0.25em] font-medium font-serif">
                   {VALUES_DATA.pride.title}
                 </span>
