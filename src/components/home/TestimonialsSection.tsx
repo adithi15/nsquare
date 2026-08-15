@@ -63,109 +63,50 @@ const TESTIMONIALS = [
   }
 ];
 
-export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ theme }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  const maxIndex = isMobile ? 3 : 2;
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + (maxIndex + 1)) % (maxIndex + 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % (maxIndex + 1));
-  };
+export const TestimonialsSection: React.FC<TestimonialsSectionProps> = () => {
+  // Use first 3 testimonials for the static 3-card layout
+  const displayTestimonials = TESTIMONIALS.slice(0, 3);
 
   return (
-    <section className="py-16 w-full relative overflow-hidden">
-      {/* Architectural Background Watermark */}
-      <div className="absolute right-4 bottom-4 text-[12vw] font-serif font-bold text-[#c2a26c]/[0.015] dark:text-white/[0.008] select-none pointer-events-none uppercase tracking-[0.2em] z-0 leading-none">
-        Voices
-      </div>
-      <div className="absolute left-0 top-[38%] hidden lg:block -translate-y-1/2">
-        <span className="[writing-mode:vertical-lr] rotate-180 uppercase tracking-[0.35em] text-[10px] font-semibold text-[#7e6642]">
-          TESTIMONIALS
-        </span>
-      </div>
-      <div className="max-w-7xl mx-auto px-6 md:px-20 lg:px-28">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 relative">
-        <div>
-          <h2 className="text-3xl md:text-4xl serif italic text-neutral-900 dark:text-white font-light leading-tight">
+    <section className="py-16 sm:py-20 w-full bg-[#F9F8F6] dark:bg-[#111111] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14">
+        {/* Title */}
+        <div className="mb-10 text-left">
+          <h2 className="text-2xl sm:text-3xl md:text-[32px] font-serif font-medium text-neutral-900 dark:text-white leading-tight">
             We Care About Our Customer’s Experience Too
           </h2>
-          <p className="text-xs md:text-sm text-neutral-600 dark:text-white/70 font-light mt-3 max-w-2xl">
-            Real stories from homeowners who found their sanctuary in N-Square developments.
-          </p>
         </div>
-      </div>
 
-      <div className="relative mt-8 max-w-5xl mx-auto">
-        <button
-          onClick={handlePrev}
-          className="hidden lg:block absolute -left-20 xl:-left-24 top-1/2 -translate-y-1/2 z-10 text-neutral-900 dark:text-white hover:text-[#8c7445] dark:hover:text-[#C5A059] transition-all duration-300 hover:-translate-x-1 cursor-pointer"
-          aria-label="Previous testimonial"
-        >
-          <LongArrow direction="left" className="w-16 h-auto" />
-        </button>
-        <button
-          onClick={handleNext}
-          className="hidden lg:block absolute -right-20 xl:-right-24 top-1/2 -translate-y-1/2 z-10 text-neutral-900 dark:text-white hover:text-[#8c7445] dark:hover:text-[#C5A059] transition-all duration-300 hover:translate-x-1 cursor-pointer"
-          aria-label="Next testimonial"
-        >
-          <LongArrow direction="right" className="w-16 h-auto" />
-        </button>
-        <div className="overflow-hidden px-1">
-          <motion.div
-            animate={{ x: isMobile ? `calc(-${currentIndex} * (100% + 24px))` : `calc(-${currentIndex} * (50% + 12px))` }}
-            transition={{ type: "spring", stiffness: 32, damping: 15, mass: 1.2 }}
-            className="flex flex-row gap-6 min-h-[220px]"
-          >
-            {TESTIMONIALS.map((item) => (
-              <div
-                key={item.id}
-                className="relative rounded-xl bg-gradient-to-br from-white/95 to-white/90 dark:from-[#141414] dark:to-[#0C0C0C] border border-black/[0.06] dark:border-white/5 shadow-[0_12px_30px_rgba(0,0,0,0.06)] p-6 md:p-8 flex flex-col justify-between overflow-hidden cursor-pointer w-full md:w-[calc(50%-12px)] shrink-0"
-              >
-                {/* Giant background quote watermark */}
-                <Quote className="absolute right-6 top-6 w-16 h-16 text-[#c2a26c]/[0.08] dark:text-[#c2a26c]/[0.04] pointer-events-none select-none rotate-180" />
+        {/* 3-Card Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+          {displayTestimonials.map((item) => (
+            <div
+              key={item.id}
+              className="relative rounded-xl bg-white dark:from-[#141414] dark:to-[#0C0C0C] border border-black/[0.04] dark:border-white/5 shadow-[0_10px_25px_rgba(0,0,0,0.03)] p-6 sm:p-8 flex flex-col justify-between overflow-hidden min-h-[220px] transition-all duration-300 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)]"
+            >
+              {/* Giant background quote watermark */}
+              <Quote className="absolute right-6 top-6 w-20 h-20 text-[#c2a26c]/[0.05] dark:text-[#c2a26c]/[0.02] pointer-events-none select-none rotate-180" />
 
-                <div className="space-y-4 relative z-10">
-                  <Quote className="w-6 h-6 text-[#c2a26c] mb-2 rotate-180" />
-                  <p className="text-xs md:text-sm text-neutral-700 dark:text-white/80 font-light italic leading-relaxed">
-                    “{item.quote}”
-                  </p>
-                </div>
-
-                <div className="pt-5 mt-5 border-t border-[#e5d6bf]/40 dark:border-white/5 flex items-center gap-4 relative z-10">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    loading="lazy"
-                    className="w-11 h-11 rounded-full object-cover border border-[#c2a26c]/30"
-                  />
-                  <div>
-                    <h4 className="text-xs md:text-sm font-semibold text-[#111] dark:text-white leading-none">
-                      {item.name}
-                    </h4>
-                    <p className="text-[9px] text-[#8c7445] tracking-[0.25em] uppercase mt-1.5 leading-none">
-                      {item.project}
-                    </p>
-                  </div>
-                </div>
+              <div className="space-y-4 relative z-10">
+                <Quote className="w-5 h-5 text-[#c2a26c] mb-2 rotate-180" />
+                <p className="text-xs sm:text-[13px] text-neutral-700 dark:text-white/80 font-normal leading-relaxed">
+                  “{item.quote}”
+                </p>
               </div>
-            ))}
-          </motion.div>
+
+              <div className="pt-5 mt-5 border-t border-neutral-100 dark:border-white/5 flex flex-col gap-1 relative z-10">
+                <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 dark:text-white leading-none">
+                  {item.name}
+                </h4>
+                <p className="text-[9px] sm:text-[10px] text-[#A27E3B] tracking-[0.2em] uppercase mt-1 leading-none font-semibold">
+                  {item.project}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-      </div>
-
     </section>
   );
 };
+

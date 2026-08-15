@@ -42,7 +42,7 @@ export const Footer: React.FC<FooterProps> = ({ theme, maharera = 'P52000000000'
             <div className="space-y-2.5">
               <button onClick={() => onSelectTab && onSelectTab('residences')} className={LINK_ITEM}>Home</button>
               <button onClick={() => onSelectTab && onSelectTab('projects')} className={LINK_ITEM}>Projects</button>
-              <button onClick={() => onSelectTab && onSelectTab('commercial')} className={LINK_ITEM}>Commercial</button>
+              <button onClick={() => onSelectTab && onSelectTab('redevelopment')} className={LINK_ITEM}>Redevelopment</button>
               <button onClick={() => onSelectTab && onSelectTab('legacy')} className={LINK_ITEM}>About Us</button>
               <button onClick={() => onSelectTab && onSelectTab('contact')} className={LINK_ITEM}>Contact Us</button>
             </div>
@@ -85,12 +85,17 @@ export const Footer: React.FC<FooterProps> = ({ theme, maharera = 'P52000000000'
         </div>
 
         {/* bottom bar */}
-        <div className="mt-14 pt-6 border-t border-white/10 text-[10px] text-white/45 flex flex-col md:flex-row justify-between items-center gap-3">
-          <span>Copyrights @ {new Date().getFullYear()} N-Square Developers. All rights reserved.</span>
-          <span className="flex items-center gap-2">
-            <span className="w-1 h-1 rounded-full bg-[#C5A059]/70" />
-            MahaRERA: {maharera}
+        <div className="mt-14 pt-6 border-t border-white/10 text-[10px] text-white/45 flex flex-col md:flex-row justify-between items-start gap-8">
+          <span className="shrink-0 pt-0.5 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-[#C5A059] shrink-0" />
+            Copyrights @ {new Date().getFullYear()} N-Square Developers. All rights reserved.
           </span>
+          <div className="text-[9px] text-white/35 font-light leading-relaxed text-left md:text-right max-w-2xl flex items-start gap-2 justify-start md:justify-end">
+            <span className="w-1.5 h-1.5 bg-[#C5A059] shrink-0 mt-1" />
+            <span>
+              Disclaimer: Website content does not constitute a binding offer, contract, or legal disclosure. Images and location details are purely conceptual, indicative, and subject to change; actual products may vary. No accuracy or completeness is guaranteed. Buyers must independently verify all project details and documents on the official RERA website before purchasing.
+            </span>
+          </div>
         </div>
       </div>
     </footer>

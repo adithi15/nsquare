@@ -133,7 +133,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
 
 
 
-      <div className="relative z-20 px-6 md:px-16 mt-auto mb-20 max-w-5xl">
+      <div className="relative z-20 px-5 sm:px-8 md:px-16 mt-auto mb-24 sm:mb-20 max-w-5xl">
         <div className="space-y-4">
           <div className="flex flex-col gap-4 md:gap-6">
             {/* Commented out title and subtitle as requested
@@ -172,25 +172,27 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             */}
           </div>
 
-          <div className="pt-8 flex flex-wrap gap-4">
-            <button
-              onClick={() => onOpenScheduleVisit(currentSlide)}
-              className="bg-[#c5a059] text-black px-8 py-3 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-[#D4B575] transition-all rounded-sm shadow-[0_12px_40px_rgba(0,0,0,0.25)]"
-            >
-              Schedule A Visit
-            </button>
-            <button
-              onClick={() => onOpenBrochure(currentSlide)}
-              className="border border-white/50 text-white text-[10px] uppercase tracking-[0.35em] font-bold px-8 py-3 hover:border-[#c5a059] hover:text-[#c5a059] transition-all rounded-sm bg-white/10"
-            >
-              Request Floorplans
-            </button>
+          <div className="pt-8 flex flex-wrap">
+            <div className="inline-flex flex-wrap items-center gap-3 sm:gap-4 p-2 sm:p-2.5 bg-black/60 backdrop-blur-md border border-[#F39C12] sm:border-orange-500 rounded-lg shadow-[0_12px_40px_rgba(0,0,0,0.6)]">
+              <button
+                onClick={() => onOpenScheduleVisit(currentSlide)}
+                className="bg-[#c5a059] text-black px-7 sm:px-8 py-3 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-[#D4B575] transition-all rounded-md shadow-[0_8px_25px_rgba(0,0,0,0.3)] cursor-pointer"
+              >
+                Schedule A Visit
+              </button>
+              <button
+                onClick={() => onOpenBrochure(currentSlide)}
+                className="border border-white/50 text-white text-[10px] uppercase tracking-[0.35em] font-bold px-7 sm:px-8 py-3 hover:border-[#c5a059] hover:text-[#c5a059] hover:bg-white/10 transition-all rounded-md bg-white/5 cursor-pointer"
+              >
+                Request Floorplans
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Floating Bottom-Right Disclaimer (slightly inset upward and inward) */}
-      <div className="absolute bottom-10 right-12 z-30 flex flex-col items-center space-y-2.5 pointer-events-none">
+      {/* Floating Bottom Disclaimer - centered on mobile, right on desktop */}
+      <div className="absolute bottom-6 sm:bottom-10 left-0 right-0 sm:left-auto sm:right-12 z-30 flex flex-col items-center sm:items-center space-y-2.5 pointer-events-none px-4 sm:px-0">
         <div className="w-56 h-[2px] bg-white/20 rounded-full overflow-hidden relative">
           <motion.div
             key={`progress-${currentIndex}-${currentDuration}`}

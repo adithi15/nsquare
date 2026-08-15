@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Property, ThemeMode } from '../../types';
 import { motion, AnimatePresence } from 'framer-motion';
 import { COMPLETED_PROJECTS, ONGOING_PROJECTS, UPCOMING_PROJECTS, NSProject } from '../../data/nsquare';
@@ -287,7 +288,23 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({
   initialFilter = 'ongoing',
   theme = 'dark',
 }) => {
-  const [activeTab, setActiveTab] = useState<'ongoing' | 'completed' | 'upcoming'>(initialFilter);
+  const [searchParams] = useSearchParams();
+  const urlFilter = searchParams.get('filter') || searchParams.get('tab');
+  const validUrlFilter =
+    urlFilter === 'completed' || urlFilter === 'ongoing' || urlFilter === 'upcoming'
+      ? (urlFilter as 'ongoing' | 'completed' | 'upcoming')
+      : null;
+
+  const [activeTab, setActiveTab] = useState<'ongoing' | 'completed' | 'upcoming'>(
+    validUrlFilter || initialFilter
+  );
+
+  useEffect(() => {
+    if (validUrlFilter) {
+      setActiveTab(validUrlFilter);
+    }
+  }, [validUrlFilter]);
+
   const [isInquiryModalOpen, setIsInquiryModalOpen] = useState<boolean>(false);
   const [selectedInquiryProject, setSelectedInquiryProject] = useState<ProjectInquiryData | null>(null);
 

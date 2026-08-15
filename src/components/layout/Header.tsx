@@ -77,157 +77,159 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center pl-5 sm:pl-8 md:pl-16 lg:pl-20 pr-5 sm:pr-8 md:pr-12 lg:pr-16 shrink-0 transition-all duration-500 ease-in-out bg-black/70 backdrop-blur-xl ${isScrolled
+    <header className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 sm:px-10 md:px-12 lg:px-16 shrink-0 transition-all duration-500 ease-in-out bg-black/75 backdrop-blur-xl ${isScrolled
       ? 'border-b border-white/10 shadow-2xl py-1 md:py-1.5'
       : 'py-2 md:py-2.5'
       }`}>
-      {/* 1. Left: Brand Logo (Enlarged & Shifted Inward) */}
+      {/* 1. Left: Brand Logo */}
       <button
         onClick={() => { onSelectTab('residences'); closeMobileMenu(); }}
         aria-label="Go to home page"
-        className="flex items-center text-left group cursor-pointer focus-visible:ring-2 focus-visible:ring-[#C5A059] focus-visible:outline-none z-30 shrink-0 ml-4 sm:ml-8 md:ml-12 lg:ml-16 xl:ml-24"
+        className="flex items-center text-left group cursor-pointer focus-visible:ring-2 focus-visible:ring-[#C5A059] focus-visible:outline-none z-30 shrink-0"
       >
         <img
           src="/N-Square-logo.png"
           alt="N Square logo"
-          className="h-14 sm:h-16 md:h-20 lg:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+          className="h-14 sm:h-16 md:h-18 lg:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
         />
       </button>
 
-      {/* 2. Center: Desktop Navigation Links */}
-      <nav
-        className="hidden md:flex items-center space-x-6 lg:space-x-8 z-10"
-        onMouseLeave={() => setHoveredTab(null)}
-      >
-        {navItems.map((item) => {
-          const isActive = activeTab === item.tab;
-          const isHighlighted = hoveredTab ? hoveredTab === item.tab : isActive;
+      {/* 2. Right: Desktop Navigation Links + Contact Action Icons */}
+      <div className="hidden md:flex items-center space-x-6 lg:space-x-8 xl:space-x-10 z-10">
+        <nav
+          className="flex items-center space-x-5 lg:space-x-7"
+          onMouseLeave={() => setHoveredTab(null)}
+        >
+          {navItems.map((item) => {
+            const isActive = activeTab === item.tab;
+            const isHighlighted = hoveredTab ? hoveredTab === item.tab : isActive;
 
-          if (item.hasDropdown) {
-            return (
-              <div
-                key={item.label}
-                className="relative"
-                onMouseEnter={() => {
-                  setHoveredTab(item.tab);
-                  setProjectsDropdownOpen(true);
-                }}
-                onMouseLeave={() => {
-                  setProjectsDropdownOpen(false);
-                }}
-              >
-                <button
-                  onClick={() => {
-                    onSelectTab(item.tab);
-                    setProjectsDropdownOpen(!projectsDropdownOpen);
+            if (item.hasDropdown) {
+              return (
+                <div
+                  key={item.label}
+                  className="relative"
+                  onMouseEnter={() => {
+                    setHoveredTab(item.tab);
+                    setProjectsDropdownOpen(true);
                   }}
-                  className={`flex items-center space-x-2 text-xs lg:text-[13px] tracking-[0.22em] uppercase font-semibold cursor-pointer transition-all duration-300 relative py-1.5 ${isHighlighted
-                    ? 'text-white font-bold'
-                    : 'text-white/80 hover:text-white'
-                    }`}
+                  onMouseLeave={() => {
+                    setProjectsDropdownOpen(false);
+                  }}
                 >
-                  {/* Square Dot Bullet Indicator */}
-                  <div className="relative flex items-center justify-center w-2.5 h-2.5">
-                    <span className={`w-1.5 h-1.5 transition-all duration-300 relative z-10 ${isHighlighted
-                      ? 'bg-[#c5a059] scale-110'
-                      : 'border border-[#c5a059]/50 bg-transparent'
-                      }`} />
-                  </div>
-
-                  <span>{item.label}</span>
-
-                  <motion.span
-                    animate={{ rotate: projectsDropdownOpen ? 180 : 0 }}
-                    transition={{ duration: 0.2 }}
+                  <button
+                    onClick={() => {
+                      onSelectTab(item.tab);
+                      setProjectsDropdownOpen(!projectsDropdownOpen);
+                    }}
+                    className={`flex items-center space-x-2 text-xs lg:text-[13px] tracking-[0.22em] uppercase font-semibold cursor-pointer transition-all duration-300 relative py-1.5 ${isHighlighted
+                      ? 'text-white font-bold'
+                      : 'text-white/80 hover:text-white'
+                      }`}
                   >
-                    <ChevronDown className="w-3.5 h-3.5 text-white/80" />
-                  </motion.span>
-                </button>
+                    {/* Square Dot Bullet Indicator */}
+                    <div className="relative flex items-center justify-center w-2.5 h-2.5">
+                      <span className={`w-1.5 h-1.5 transition-all duration-300 relative z-10 ${isHighlighted
+                        ? 'bg-[#c5a059] scale-110'
+                        : 'border border-[#c5a059]/50 bg-transparent'
+                        }`} />
+                    </div>
 
-                {/* Animated Dropdown Menu */}
-                <AnimatePresence>
-                  {projectsDropdownOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 12, scale: 0.96 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 8, scale: 0.96 }}
-                      transition={{ duration: 0.2, ease: 'easeOut' }}
-                      className="absolute top-full left-0 min-w-[210px] bg-white/70 backdrop-blur-2xl border border-white/40 rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.25)] py-2 z-50 overflow-hidden text-neutral-900"
+                    <span>{item.label}</span>
+
+                    <motion.span
+                      animate={{ rotate: projectsDropdownOpen ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
                     >
-                      {projectDropdownItems.map((sub) => (
-                        <button
-                          key={sub.filter}
-                          onClick={() => handleDropdownItemClick(sub.filter)}
-                          className="w-full text-left px-5 py-3 text-[11px] uppercase tracking-[0.2em] transition-all flex items-center space-x-2.5 group cursor-pointer text-neutral-700 hover:text-neutral-900 hover:bg-black/5"
-                        >
-                          <span className="w-1.5 h-1.5 bg-[#C5A059]/60 group-hover:bg-[#C5A059] group-hover:scale-125 transition-all" />
-                          <span className="font-medium">{sub.label}</span>
-                        </button>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+                      <ChevronDown className="w-3.5 h-3.5 text-white/80" />
+                    </motion.span>
+                  </button>
+
+                  {/* Animated Dropdown Menu */}
+                  <AnimatePresence>
+                    {projectsDropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 12, scale: 0.96 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                        transition={{ duration: 0.2, ease: 'easeOut' }}
+                        className="absolute top-full left-0 min-w-[210px] bg-white/70 backdrop-blur-2xl border border-white/40 rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.25)] py-2 z-50 overflow-hidden text-neutral-900"
+                      >
+                        {projectDropdownItems.map((sub) => (
+                          <button
+                            key={sub.filter}
+                            onClick={() => handleDropdownItemClick(sub.filter)}
+                            className="w-full text-left px-5 py-3 text-[11px] uppercase tracking-[0.2em] transition-all flex items-center space-x-2.5 group cursor-pointer text-neutral-700 hover:text-neutral-900 hover:bg-black/5"
+                          >
+                            <span className="w-1.5 h-1.5 bg-[#C5A059]/60 group-hover:bg-[#C5A059] group-hover:scale-125 transition-all" />
+                            <span className="font-medium">{sub.label}</span>
+                          </button>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            }
+
+            return (
+              <button
+                key={item.label}
+                onMouseEnter={() => setHoveredTab(item.tab)}
+                onClick={() => onSelectTab(item.tab)}
+                className={`flex items-center space-x-2 text-xs lg:text-[13px] tracking-[0.22em] uppercase font-semibold cursor-pointer transition-all duration-300 relative py-1.5 ${isHighlighted
+                  ? 'text-white font-bold drop-shadow-sm'
+                  : 'text-white/80 hover:text-white'
+                  }`}
+              >
+                {/* Square Dot Bullet Indicator */}
+                <div className="relative flex items-center justify-center w-2.5 h-2.5">
+                  <span className={`w-1.5 h-1.5 transition-all duration-300 relative z-10 ${isHighlighted
+                    ? 'bg-[#c5a059] scale-110'
+                    : 'border border-[#c5a059]/40 bg-transparent'
+                    }`} />
+                </div>
+                <span>{item.label}</span>
+              </button>
             );
-          }
+          })}
+        </nav>
 
-          return (
-            <button
-              key={item.label}
-              onMouseEnter={() => setHoveredTab(item.tab)}
-              onClick={() => onSelectTab(item.tab)}
-              className={`flex items-center space-x-2 text-xs lg:text-[13px] tracking-[0.22em] uppercase font-semibold cursor-pointer transition-all duration-300 relative py-1.5 ${isHighlighted
-                ? 'text-white font-bold drop-shadow-sm'
-                : 'text-white/80 hover:text-white'
-                }`}
-            >
-              {/* Square Dot Bullet Indicator */}
-              <div className="relative flex items-center justify-center w-2.5 h-2.5">
-                <span className={`w-1.5 h-1.5 transition-all duration-300 relative z-10 ${isHighlighted
-                  ? 'bg-[#c5a059] scale-110'
-                  : 'border border-[#c5a059]/40 bg-transparent'
-                  }`} />
-              </div>
-              <span>{item.label}</span>
-            </button>
-          );
-        })}
-      </nav>
+        {/* Contact Action Icons (Phone, Mail, WhatsApp) */}
+        <div className="flex items-center gap-3.5 lg:gap-4.5 shrink-0">
+          <a
+            href={CONTACT.phoneHref}
+            className="text-white hover:text-[#C5A059] hover:scale-115 transition-all p-1 cursor-pointer flex items-center justify-center"
+            title={`Call Us (${CONTACT.phone})`}
+            aria-label="Call Us"
+          >
+            <Phone className="w-5.5 h-5.5 lg:w-6 lg:h-6" strokeWidth={1.75} />
+          </a>
 
-      {/* 3. Right: Contact Action Icons (Phone, Mail, WhatsApp - Big & Prominent) */}
-      <div className="hidden md:flex items-center gap-4 lg:gap-5 z-30 shrink-0">
-        <a
-          href={CONTACT.phoneHref}
-          className="text-white hover:text-[#C5A059] hover:scale-115 transition-all p-1 cursor-pointer flex items-center justify-center"
-          title={`Call Us (${CONTACT.phone})`}
-          aria-label="Call Us"
-        >
-          <Phone className="w-6 h-6 lg:w-7 lg:h-7" strokeWidth={1.75} />
-        </a>
+          <span className="w-px h-4 bg-white/25" />
 
-        <span className="w-px h-5 bg-white/35" />
+          <a
+            href={`mailto:${CONTACT.email}`}
+            className="text-white hover:text-[#C5A059] hover:scale-115 transition-all p-1 cursor-pointer flex items-center justify-center"
+            title={`Email Us (${CONTACT.email})`}
+            aria-label="Email Us"
+          >
+            <Mail className="w-5.5 h-5.5 lg:w-6 lg:h-6" strokeWidth={1.75} />
+          </a>
 
-        <a
-          href={`mailto:${CONTACT.email}`}
-          className="text-white hover:text-[#C5A059] hover:scale-115 transition-all p-1 cursor-pointer flex items-center justify-center"
-          title={`Email Us (${CONTACT.email})`}
-          aria-label="Email Us"
-        >
-          <Mail className="w-6 h-6 lg:w-7 lg:h-7" strokeWidth={1.75} />
-        </a>
+          <span className="w-px h-4 bg-white/25" />
 
-        <span className="w-px h-5 bg-white/35" />
-
-        <a
-          href={`${CONTACT.whatsappHref}?text=${encodeURIComponent('Hello N-Square Developers! I would like to know more about your projects.')}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white hover:text-[#25D366] hover:scale-115 transition-all p-1 cursor-pointer flex items-center justify-center"
-          title="WhatsApp Concierge"
-          aria-label="WhatsApp"
-        >
-          <WhatsAppIcon className="w-6 h-6 lg:w-7 lg:h-7" />
-        </a>
+          <a
+            href={`${CONTACT.whatsappHref}?text=${encodeURIComponent('Hello N-Square Developers! I would like to know more about your projects.')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-[#25D366] hover:scale-115 transition-all p-1 cursor-pointer flex items-center justify-center"
+            title="WhatsApp Concierge"
+            aria-label="WhatsApp"
+          >
+            <WhatsAppIcon className="w-5.5 h-5.5 lg:w-6 lg:h-6" />
+          </a>
+        </div>
       </div>
 
       {/* Mobile Controls */}

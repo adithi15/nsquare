@@ -105,50 +105,46 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
   }, []);
 
   return (
-    <section className="relative py-20 md:py-24 bg-[#0C0C0C] overflow-hidden">
-      {/* faint backdrop photo */}
-      <div
-        className="absolute inset-0 opacity-[0.08] bg-cover bg-center pointer-events-none"
-        style={{ backgroundImage: 'url(/assets/branding/city-aerial.jpg)' }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#161616] via-transparent to-[#161616] pointer-events-none" />
-
-      {/* vertical side label */}
-      <div className="hidden lg:block absolute left-3 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
-        <span className="block [writing-mode:vertical-lr] rotate-180 text-[10px] uppercase tracking-[0.35em] text-white/50 whitespace-nowrap">
-          Ongoing Projects
-        </span>
-      </div>
+    <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-[#0C0C0C] overflow-hidden">
 
       <div className="relative z-10 px-5 sm:px-8 lg:px-14 xl:px-20">
-        <div className="relative flex flex-col lg:flex-row gap-10 lg:gap-12 items-stretch lg:-mr-14 xl:-mr-20">
-          {/* Left — outlined intro panel */}
+        <div className="relative flex flex-col lg:flex-row gap-10 lg:gap-12 items-stretch">
+
+          {/* Left — plain text intro panel matching the image exactly */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={VIEWPORT}
             transition={{ duration: 1.1, ease: EASE }}
-            className="shrink-0 lg:w-[360px] xl:w-[400px] border border-white/50 p-9 xl:p-11 flex flex-col justify-center"
+            className="w-full lg:w-[320px] xl:w-[360px] shrink-0 flex flex-col justify-center relative pb-6 lg:pb-0 lg:ml-8 xl:ml-14"
           >
-            <span className="text-[10px] uppercase tracking-[0.35em] text-[#C5A059] font-semibold mb-6">
-              Building Tomorrow, Starting Today
-            </span>
-            <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center mb-8">
-              <Building2 className="w-9 h-9 text-[#C5A059]" strokeWidth={1.4} />
+            {/* Dark background single quotation watermark behind text - user custom styled */}
+          <div className="absolute -left-[260px] top-10 w-[350px] h-[350px] text-white/[0.03] pointer-events-none -z-10 hidden lg:block">
+              <svg viewBox="-3.2 -3.2 38.40 38.40" fill="currentColor" className="w-full h-full scale-x-[-1]">
+                <path d="M0,4v12h8c0,4.41-3.586,8-8,8v4c6.617,0,12-5.383,12-12V4H0z"/>
+              </svg>
             </div>
-            <h2 className="font-serif text-3xl xl:text-4xl text-white leading-snug mb-6">
-              Signature Projects in the Making
+
+            <span className="text-[11px] uppercase tracking-[0.25em] text-[#C5A059] font-bold mb-1 leading-normal">
+              BUILDING TOMORROW,<br />STARTING TODAY
+            </span>
+            
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[38px] text-[#C5A059] font-medium leading-[1.2] mb-2">
+              Signature Projects<br />in the Making
             </h2>
-            <p className="text-sm text-white/75 font-light leading-relaxed">
-              Nine landmarks rising across Navi Mumbai — each one a promise of quality,
-              on-time delivery and timeless design.
+            
+            <p className="text-sm text-white/90 font-light leading-relaxed">
+              Nine landmarks rising across <br className="hidden sm:inline" />
+              Navi Mumbai — each one a promise <br className="hidden sm:inline" />
+              of quality, on-time delivery and timeless design.
             </p>
           </motion.div>
 
+          {/* Cards */}
           <div
             ref={trackRef}
             onScroll={handleScroll}
-            className="flex-1 min-w-0 overflow-x-auto no-scrollbar lg:mr-[248px] xl:mr-[272px]"
+            className="flex-1 min-w-0 overflow-x-auto no-scrollbar"
             style={{ scrollSnapType: snapType }}
           >
             <div className="flex gap-6 lg:gap-7 items-stretch pb-2">
@@ -194,31 +190,26 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
             </div>
           </div>
 
-          {/* Right — view-all card stuck to the screen edge, half off-screen */}
+          {/* Right — simple VIEW ALL PROJECTS text link matching Image 2 */}
           <motion.button
-            initial={{ opacity: 0, y: 36 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={VIEWPORT}
             transition={{ duration: 0.9, delay: 0.24, ease: EASE }}
             onClick={onViewAll}
-            className="hidden lg:flex absolute inset-y-0 right-0 z-20 w-[380px] xl:w-[420px] translate-x-[42%] overflow-hidden cursor-pointer flex-col items-center justify-center gap-8 text-center group"
+            className="hidden lg:flex shrink-0 flex-row items-center gap-2 cursor-pointer group text-[#C5A059] hover:text-[#B38D48] transition-colors"
           >
-            <img
-              src="/assets/projects/upcoming/unicorn.jpg"
-              alt=""
-              loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover opacity-25"
-            />
-            <div className="absolute inset-0 bg-[#F2EFE8]" />
-            <div className="relative w-full pr-[22%] flex justify-center">
-              <span className="font-serif text-2xl text-right xl:text-3xl uppercase tracking-wide text-neutral-900 leading-snug">
-                View<br />All<br />Projects
+            <div className="flex flex-col items-start leading-tight text-left">
+              <span className="text-[11px] sm:text-[12px] uppercase tracking-[0.12em] font-medium">
+                VIEW ALL
+              </span>
+              <span className="text-[11px] sm:text-[12px] uppercase tracking-[0.12em] font-medium">
+                PROJECTS
               </span>
             </div>
-            <span className="relative w-14 h-14 rounded-full border border-neutral-500/70 flex items-center justify-center text-neutral-800 group-hover:bg-neutral-900 group-hover:text-white transition-colors duration-500">
-              <ChevronRight className="w-5 h-5" />
-            </span>
+            <ChevronRight className="w-5 h-5 stroke-[2.5px] shrink-0" />
           </motion.button>
+
         </div>
 
         {/* mobile view-all */}

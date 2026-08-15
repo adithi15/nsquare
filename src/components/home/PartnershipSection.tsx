@@ -43,7 +43,7 @@ export const PartnershipSection: React.FC<PartnershipSectionProps> = ({ theme = 
     { value: 10, suffix: '', label: 'Ongoing\nProjects' },
     { value: 23, suffix: 'L', label: 'Sq. Ft. Developed\nSpaces' },
     { value: 3, suffix: 'K', label: 'Happy\nFamilies' },
-    { value: 29, suffix: 'L', label: 'Sq.mt\nFootprint' },
+    { value: 29, suffix: 'L', label: 'Sq.mt\nFuture Planning' },
   ];
 
   return (
@@ -53,50 +53,48 @@ export const PartnershipSection: React.FC<PartnershipSectionProps> = ({ theme = 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 space-y-10">
         
         {/* Top: Text and Logos */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
-          <div className="lg:w-3/5 text-left">
-            <h3 className={`font-serif text-xl sm:text-2xl md:text-3xl leading-relaxed tracking-wide font-normal ${
-              isDark ? 'text-white' : 'text-neutral-900'
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 xl:gap-20">
+          <div className="text-left">
+            <h3 className={`font-serif text-lg sm:text-xl md:text-[25px] leading-[1.4] font-normal ${
+              isDark ? 'text-white' : 'text-neutral-800'
             }`}>
-              N-Square Developers Is A Strategic Partnership Between <span className="text-[#A27E3B] dark:text-[#C5A059] font-medium">Neelkanth Group</span> And <span className="text-[#A27E3B] dark:text-[#C5A059] font-medium">Namastey Realty</span>, Created To Deliver Excellence In Redevelopment.
+              N-Square Developers Is A Strategic Partnership Between<br />
+              Neelkanth Group And Namastey Realty, Created To Deliver<br />
+              Excellence In Redevelopment.
             </h3>
           </div>
           
-          <div className="lg:w-2/5 flex items-center justify-center lg:justify-end gap-6 sm:gap-8 w-full">
-            {/* Logo 1: Neelkanth Group */}
-            <div className="flex-1 max-w-[170px] h-16 sm:h-20 flex items-center justify-center">
+          <div className="flex items-center justify-center gap-6 sm:gap-10 w-full lg:w-auto shrink-0">
+            {/* Logo 1: Neelkanth Group (High-Res Large View) */}
+            <div className="max-w-[260px] sm:max-w-[300px] h-24 sm:h-28 md:h-36 flex items-center justify-center">
               <img 
                 src="/assets/branding/neelkanth-logo.png" 
                 alt="Neelkanth Group" 
-                className="max-h-full max-w-full object-contain" 
+                className="max-h-full w-auto max-w-full object-contain filter drop-shadow-sm hover:scale-105 transition-transform duration-300" 
               />
             </div>
-
-            <span className={`text-lg font-light select-none ${isDark ? 'text-neutral-500' : 'text-neutral-400'}`}>
-              ✕
-            </span>
-
-            {/* Logo 2: Namastey Realty */}
-            <div className="flex-1 max-w-[170px] h-16 sm:h-20 flex items-center justify-center">
+ 
+            {/* Logo 2: Namastey Realty (High-Res Large View) */}
+            <div className="max-w-[260px] sm:max-w-[300px] h-24 sm:h-28 md:h-36 flex items-center justify-center">
               <img 
                 src="/assets/branding/namastey-logo.png" 
                 alt="Namastey Realty" 
-                className="max-h-full max-w-full object-contain" 
+                className="max-h-full w-auto max-w-full object-contain filter drop-shadow-sm hover:scale-105 transition-transform duration-300" 
               />
             </div>
           </div>
         </div>
 
         {/* Bottom: Stats */}
-        <div className="space-y-8 pt-4">
-          <div className="flex items-center gap-4">
-            <h4 className="font-serif text-lg md:text-xl text-[#A27E3B] dark:text-[#C5A059] font-semibold whitespace-nowrap">
+        <div className="space-y-10 pt-8 pb-4">
+          <div className="flex items-center gap-6">
+            <h4 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#A27E3B] dark:text-[#C5A059] font-bold whitespace-nowrap tracking-wide">
               A Legacy Measured in Trust
             </h4>
-            <div className={`flex-1 h-px ${isDark ? 'bg-white/10' : 'bg-neutral-300/80'}`} />
+            <div className={`flex-1 h-[1.5px] ${isDark ? 'bg-gradient-to-r from-[#C5A059]/40 to-transparent' : 'bg-gradient-to-r from-[#A27E3B] to-transparent'}`} />
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-4 text-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-6 lg:gap-8 text-center">
             {stats.map((stat, idx) => (
               <motion.div
                 key={idx}
@@ -104,15 +102,15 @@ export const PartnershipSection: React.FC<PartnershipSectionProps> = ({ theme = 
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className={`flex flex-col items-center space-y-2 p-3 rounded-lg transition-colors ${
-                  isDark ? 'hover:bg-white/[0.02]' : 'hover:bg-white/40'
+                className={`flex flex-col items-center space-y-3 p-4 rounded-xl transition-all duration-300 ${
+                  isDark ? 'hover:bg-white/[0.03] hover:scale-105' : 'hover:bg-white/60 hover:scale-105'
                 }`}
               >
-                <div className="font-serif text-4xl md:text-5xl text-[#C5A059] tabular-nums" style={{ fontWeight: 700 }}>
+                <div className="font-sans text-5xl sm:text-6xl md:text-6xl lg:text-7xl text-[#A27E3B] dark:text-[#C5A059] tabular-nums font-bold drop-shadow-sm tracking-tight">
                   <Counter value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className={`text-xs md:text-sm font-medium leading-snug whitespace-pre-line font-sans ${
-                  isDark ? 'text-neutral-300' : 'text-neutral-700'
+                <div className={`text-xs sm:text-sm md:text-[13px] font-medium leading-snug whitespace-pre-line font-sans tracking-wide ${
+                  isDark ? 'text-neutral-200' : 'text-[#A27E3B]/80'
                 }`}>
                   {stat.label}
                 </div>
