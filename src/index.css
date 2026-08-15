@@ -3,13 +3,13 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-serif: 'Italiana', 'Playfair Display', 'Cormorant Garamond', serif;
+  --font-serif: 'Corporate A', 'Corporate B', serif;
   --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-script: 'Great Vibes', cursive;
-  --font-stylish: 'Cormorant Garamond', 'Georgia', serif;
-  --font-display: 'Playfair Display', 'Georgia', serif;
-  --font-italiana: 'Italiana', serif;
-  --font-cinzel: 'Cinzel Decorative', serif;
+  --font-stylish: 'Cormorant Garamond', serif;
+  --font-display: 'Corporate A', 'Corporate B', serif;
+  --font-italiana: 'Corporate A', 'Corporate B', serif;
+  --font-cinzel: 'Corporate A', 'Corporate B', serif;
 }
 
 @utility no-scrollbar {
@@ -22,20 +22,20 @@
 
 @layer utilities {
   .serif {
-    font-family: 'Italiana', 'Playfair Display', 'Cormorant Garamond', serif;
+    font-family: 'Corporate A', 'Corporate B', serif;
   }
   .font-italiana {
-    font-family: 'Italiana', 'Playfair Display', serif;
+    font-family: 'Corporate A', 'Corporate B', serif;
   }
   .font-cinzel {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Corporate A', 'Corporate B', serif;
   }
   .sans {
     font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
-  .stylish {
-    font-family: 'Cormorant Garamond', 'Georgia', serif;
-    font-weight: 300;
+  .stylish, .font-stylish {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300 !important;
   }
   .accent-gold {
     color: #b88a33;

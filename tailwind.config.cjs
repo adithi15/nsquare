@@ -10,7 +10,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Outfit', 'sans-serif'],
-        serif: ['"Corporate A"', '"Corporate S"', 'serif'],
+        serif: ['"Corporate A"', '"Corporate B"', 'serif'],
         stylish: ['"Cormorant Garamond"', 'serif'],
       }
     },

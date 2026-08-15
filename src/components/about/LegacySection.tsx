@@ -106,7 +106,7 @@ export const LegacySection: React.FC<LegacySectionProps> = ({ theme = 'light' })
             <div className="flex-1 flex flex-col justify-between text-left py-0.5 max-w-xl">
               {/* Top: Headline */}
               <div>
-                <h2 className={`text-3xl sm:text-4xl md:text-[44px] lg:text-[48px] font-['Italiana',serif] font-normal leading-[0.96] tracking-wide ${
+                <h2 className={`text-3xl sm:text-4xl md:text-[44px] lg:text-[48px] font-serif font-normal leading-[0.96] tracking-wide ${
                   theme === 'dark' ? 'text-[#dcd7cf]' : 'text-neutral-900'
                 }`}>
                   Leadership That<br />Builds Lasting Value
@@ -181,7 +181,7 @@ export const LegacySection: React.FC<LegacySectionProps> = ({ theme = 'light' })
             <div className="flex-1 flex flex-col justify-between text-left py-0.5 max-w-xl">
               {/* Top: Headline */}
               <div>
-                <h2 className={`text-3xl sm:text-4xl md:text-[44px] lg:text-[48px] font-['Italiana',serif] font-normal leading-[0.96] tracking-wide ${
+                <h2 className={`text-3xl sm:text-4xl md:text-[44px] lg:text-[48px] font-serif font-normal leading-[0.96] tracking-wide ${
                   theme === 'dark' ? 'text-[#dcd7cf]' : 'text-neutral-900'
                 }`}>
                   Vision & Execution<br />Combined

@@ -47,12 +47,7 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[250px] bg-[#C5A059]/5 rounded-full blur-[120px] pointer-events-none" />
       )}
 
-      {/* Architectural Background Watermark */}
-      <div className={`absolute right-4 bottom-8 text-[12vw] font-serif font-bold select-none pointer-events-none uppercase tracking-[0.18em] z-0 leading-none transition-opacity duration-300 ${
-        isDark ? 'text-white/[0.012]' : 'text-neutral-900/[0.015]'
-      }`}>
-        Rebuild
-      </div>
+
 
       <div className="max-w-7xl mx-auto space-y-12 md:space-y-16 relative z-10">
         
@@ -69,7 +64,7 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
             <span className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-[#C5A059] font-bold block">
               Redevelopment
             </span>
-            <h2 className={`text-xl md:text-3xl font-['Corporate_A',_'Corporate_S',_serif] tracking-wide leading-tight ${
+            <h2 className={`text-xl md:text-3xl font-serif tracking-wide leading-tight ${
               isDark ? 'text-white' : 'text-neutral-900'
             }`}>
               THOUGHTFUL REDEVELOPMENT,<br />LASTING VALUE.
@@ -78,7 +73,7 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
           </div>
 
           {/* Bullet points copy */}
-          <div className="lg:col-span-7 space-y-5 text-sm md:text-base font-light leading-relaxed font-['Outfit']">
+          <div className="lg:col-span-7 space-y-5 text-sm md:text-base font-light leading-relaxed font-sans">
             <div className="flex gap-4">
               <span className="mt-2.5 w-1.5 h-1.5 bg-[#C5A059] shrink-0" />
               <p className={isDark ? 'text-neutral-300' : 'text-neutral-700'}>
@@ -109,7 +104,7 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
             <motion.h3 
               variants={fadeInUpVariants}
               style={{ color: '#c5a059' }}
-              className="font-['Cormorant_Garamond'] text-[#c5a059] text-3xl md:text-5xl italic font-light tracking-wide leading-tight"
+              className="font-stylish text-[#c5a059] text-3xl md:text-5xl italic font-light tracking-wide leading-tight"
             >
               "Where quality is a journey and not the destination"
             </motion.h3>
