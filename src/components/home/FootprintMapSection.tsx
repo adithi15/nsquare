@@ -208,12 +208,12 @@ export const FootprintMapSection: React.FC<FootprintMapSectionProps> = () => {
       <div className="relative z-10 w-full flex flex-col lg:flex-row items-stretch justify-between min-h-screen lg:min-h-[112vh]">
         
         {/* COLUMN 1: Heading & Accordion Stack */}
-        <div className="w-full lg:w-[25%] xl:w-[22%] flex flex-col justify-center pt-24 pb-4 lg:py-12 lg:min-h-[112vh] px-6 sm:px-12 lg:pl-16 lg:pr-2 z-10">
+        <div className="w-full lg:w-[32%] xl:w-[28%] flex flex-col justify-center pt-24 pb-4 lg:py-12 lg:min-h-[112vh] px-6 sm:px-12 lg:pl-16 lg:pr-2 z-10">
           {/* Main Title */}
           <div className="mb-6 lg:mb-10">
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[40px] font-semibold text-white leading-[1.2] drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
-              A Solid Footprint Across <br />
-              Navi Mumbai
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[34px] xl:text-[38px] font-semibold text-white leading-[1.2] drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
+              A Solid Footprint <br />
+              Across Navi Mumbai
             </h2>
           </div>
 
@@ -236,18 +236,28 @@ export const FootprintMapSection: React.FC<FootprintMapSectionProps> = () => {
                     <Plus className={`w-4 h-4 shrink-0 transition-transform duration-300 ${isActive ? 'rotate-45 text-[#C5A059]' : 'text-white'}`} />
                   </button>
 
-                  {/* Accordion List Body */}
+                  {/* Connected Accordion List Body with Folder Lines - Both Desktop and Mobile */}
                   {isActive && (
-                    <div className="mt-2.5 bg-[#202722]/90 backdrop-blur-md rounded-lg p-5 border border-white/10 shadow-lg space-y-4">
-                      <ul className="space-y-2 text-[12px] sm:text-[13px] text-white/90 font-light leading-relaxed">
-                        {category.projects.map((proj, idx) => (
-                          <li key={idx} className="flex items-start gap-2 hover:text-white transition-colors">
-                            <span className="text-[#C5A059] mt-1">•</span>
-                            <span>{proj}</span>
-                          </li>
-                        ))}
+                    <div className="mt-3 ml-8 relative">
+                      <ul className="space-y-1 relative">
+                        {category.projects.map((proj, idx) => {
+                          const isLast = idx === category.projects.length - 1;
+                          return (
+                            <li key={idx} className="relative pl-6 py-2 flex items-center group cursor-pointer">
+                              {/* Vertical tree line segment */}
+                              <span className={`absolute left-0 top-0 w-[1px] bg-[#C5A059]/20 group-hover:bg-[#C5A059]/40 transition-colors ${isLast ? 'h-1/2' : 'h-full'}`} />
+                              {/* Horizontal branch line segment */}
+                              <span className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-[1px] bg-[#C5A059]/20 group-hover:bg-[#C5A059]/60 transition-colors" />
+                              {/* Node indicator dot */}
+                              <span className="absolute left-4 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[#C5A059]/40 group-hover:bg-[#C5A059] group-hover:scale-110 transition-all" />
+                              {/* Item Text */}
+                              <span className="pl-3 text-[13px] text-white/80 group-hover:text-white transition-colors font-sans tracking-wide">
+                                {proj}
+                              </span>
+                            </li>
+                          );
+                        })}
                       </ul>
-
                     </div>
                   )}
                 </div>
@@ -257,14 +267,14 @@ export const FootprintMapSection: React.FC<FootprintMapSectionProps> = () => {
         </div>
 
         {/* COLUMN 2: Navi Mumbai Geographic Map with Pins */}
-        <div className="w-full lg:w-[75%] xl:w-[78%] relative flex-1 lg:min-h-[112vh] flex flex-col justify-start items-center lg:items-start p-0 z-10 overflow-hidden touch-none select-none">
-          <div className="relative w-full lg:w-auto h-[320px] sm:h-[420px] lg:h-full max-w-full max-h-full aspect-[1920/1358] flex-shrink-0 touch-none select-none">
+        <div className="w-full lg:w-[68%] xl:w-[72%] relative flex-1 lg:min-h-[112vh] flex flex-col justify-end items-end p-0 m-0 z-10 overflow-hidden touch-none select-none">
+          <div className="relative w-full lg:w-auto h-[320px] sm:h-[420px] lg:h-full aspect-[1920/1358] flex-shrink-0 touch-none select-none">
             <img
               src="/assets/branding/map-footprint.png"
               alt="Navi Mumbai Geographic Map Footprints"
               loading="lazy"
               draggable={false}
-              className="w-full h-full object-contain pointer-events-none select-none"
+              className="w-full h-full object-contain object-bottom lg:object-right pointer-events-none select-none"
             />
             {/* Interactive Pulse Indicators & Tooltips */}
             {MAP_PINS.map((pin) => {
