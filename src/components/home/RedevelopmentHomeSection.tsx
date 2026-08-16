@@ -15,9 +15,9 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
     <section className="w-full bg-[#F1DFC4] pt-0 pb-16 sm:pb-20 relative overflow-hidden">
       {/* 1. Giant Top Background Watermark Text "REDEVELOPMENT" */}
       <div className="hidden sm:block w-full text-center overflow-hidden m-0 p-0 pointer-events-none select-none">
-        <h1 
-          className="text-transparent font-black text-5xl sm:text-7xl md:text-[110px] lg:text-[145px] xl:text-[165px] tracking-[0.02em] leading-none uppercase m-0 p-0 block -mt-2 sm:-mt-3 md:-mt-5 lg:-mt-6 xl:-mt-8"
-          style={{ WebkitTextStroke: '14px rgba(255, 255, 255, 0.3)', fontWeight: 900 }}
+        <h1
+          className="text-transparent font-black text-5xl sm:text-7xl md:text-[110px] lg:text-[145px] xl:text-[165px] tracking-[0.02em] leading-none uppercase m-0 p-0 block -mt-1 sm:-mt-2 md:-mt-4 lg:-mt-5 xl:-mt-6"
+          style={{ WebkitTextStroke: '14px rgba(255, 255, 255, 1)', fontWeight: 900 }}
         >
           REDEVELOPMENT
         </h1>
@@ -26,14 +26,14 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
       {/* 2. Main Content Grid */}
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 mt-8 sm:mt-12 lg:mt-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          
+
           {/* Left Column: Quote with giant quotation mark, text and button */}
           <div className="lg:col-span-5 relative z-10 text-left">
             {/* Giant Quotation Mark Watermark - exact stroked SVG rotated 180 */}
             <div className="absolute -top-[106px] sm:-top-[140px] -left-[55px] sm:-left-[70px] w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] text-[#CEBDA7] pointer-events-none -z-10 opacity-60 hidden sm:block">
               <svg viewBox="-5.5 -5.5 43.0 43.0" fill="currentColor" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full rotate-180">
-                <path d="M0,4v12h8c0,4.41-3.586,8-8,8v4c6.617,0,12-5.383,12-12V4H0z"/>
-                <path d="M20,4v12h8c0,4.41-3.586,8-8,8v4c6.617,0,12-5.383,12-12V4H20z"/>
+                <path d="M0,4v12h8c0,4.41-3.586,8-8,8v4c6.617,0,12-5.383,12-12V4H0z" />
+                <path d="M20,4v12h8c0,4.41-3.586,8-8,8v4c6.617,0,12-5.383,12-12V4H20z" />
               </svg>
             </div>
 
