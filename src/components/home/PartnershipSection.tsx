@@ -102,9 +102,7 @@ export const PartnershipSection: React.FC<PartnershipSectionProps> = ({ theme = 
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className={`flex flex-col items-center space-y-3 p-4 rounded-xl transition-all duration-300 ${
-                  isDark ? 'hover:bg-white/[0.03] hover:scale-105' : 'hover:bg-white/60 hover:scale-105'
-                }`}
+                className="flex flex-col items-center space-y-3 p-4 rounded-xl transition-all duration-300 hover:scale-105"
               >
                 <div className="font-gilroy-bold text-5xl sm:text-6xl md:text-6xl lg:text-7xl text-[#A27E3B] dark:text-[#C5A059] tabular-nums drop-shadow-sm tracking-tight">
                   <Counter value={stat.value} suffix={stat.suffix} />
