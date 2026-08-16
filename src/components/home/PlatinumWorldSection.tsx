@@ -11,12 +11,15 @@ interface PlatinumWorldSectionProps {
 // Animated count-up number — starts the moment the stat scrolls into view
 const Counter: React.FC<{ stat: NSStat }> = ({ stat }) => {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: '-40px' });
+  const inView = useInView(ref, { once: false, margin: '-40px' });
   const [display, setDisplay] = useState(0);
   const rafRef = useRef<number>(0);
 
   useEffect(() => {
-    if (!inView) return;
+    if (!inView) {
+      setDisplay(0);
+      return;
+    }
     const duration = 2200;
     const start = performance.now();
     const tick = (now: number) => {

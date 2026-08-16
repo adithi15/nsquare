@@ -31,7 +31,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
         if (idx === currentIndex) {
           vid.currentTime = 0;
           vid.play().catch(e => console.log('Autoplay prevented', e));
-          
+
           if (vid.duration) {
             setCurrentDuration(vid.duration);
           } else {
@@ -177,7 +177,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
               onClick={() => onOpenScheduleVisit(currentSlide)}
               className="bg-[#c5a059] text-black px-7 sm:px-8 py-3 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-[#D4B575] transition-all rounded-md shadow-[0_8px_25px_rgba(0,0,0,0.3)] cursor-pointer"
             >
-              Schedule A Visit
+              Enquire Now
             </button>
           </div>
         </div>

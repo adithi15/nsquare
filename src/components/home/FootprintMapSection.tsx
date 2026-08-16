@@ -257,13 +257,14 @@ export const FootprintMapSection: React.FC<FootprintMapSectionProps> = () => {
         </div>
 
         {/* COLUMN 2: Navi Mumbai Geographic Map with Pins */}
-        <div className="w-full lg:w-[75%] xl:w-[78%] relative flex-1 lg:min-h-[112vh] flex flex-col justify-end items-center lg:items-start p-0 z-10 overflow-hidden">
-          <div className="relative w-full lg:w-auto lg:h-full aspect-[1920/1358] flex-shrink-0">
+        <div className="w-full lg:w-[75%] xl:w-[78%] relative flex-1 lg:min-h-[112vh] flex flex-col justify-start items-center lg:items-start p-0 z-10 overflow-hidden touch-none select-none">
+          <div className="relative w-full lg:w-auto h-[320px] sm:h-[420px] lg:h-full max-w-full max-h-full aspect-[1920/1358] flex-shrink-0 touch-none select-none">
             <img
               src="/assets/branding/map-footprint.png"
               alt="Navi Mumbai Geographic Map Footprints"
               loading="lazy"
-              className="w-full h-full object-contain object-bottom lg:object-left pointer-events-none"
+              draggable={false}
+              className="w-full h-full object-contain pointer-events-none select-none"
             />
             {/* Interactive Pulse Indicators & Tooltips */}
             {MAP_PINS.map((pin) => {
