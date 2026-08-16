@@ -173,20 +173,12 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
           </div>
 
           <div className="pt-8 flex flex-wrap">
-            <div className="inline-flex flex-wrap items-center gap-3 sm:gap-4 p-2 sm:p-2.5 bg-black/60 backdrop-blur-md border border-[#F39C12] sm:border-orange-500 rounded-lg shadow-[0_12px_40px_rgba(0,0,0,0.6)]">
-              <button
-                onClick={() => onOpenScheduleVisit(currentSlide)}
-                className="bg-[#c5a059] text-black px-7 sm:px-8 py-3 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-[#D4B575] transition-all rounded-md shadow-[0_8px_25px_rgba(0,0,0,0.3)] cursor-pointer"
-              >
-                Schedule A Visit
-              </button>
-              <button
-                onClick={() => onOpenBrochure(currentSlide)}
-                className="border border-white/50 text-white text-[10px] uppercase tracking-[0.35em] font-bold px-7 sm:px-8 py-3 hover:border-[#c5a059] hover:text-[#c5a059] hover:bg-white/10 transition-all rounded-md bg-white/5 cursor-pointer"
-              >
-                Request Floorplans
-              </button>
-            </div>
+            <button
+              onClick={() => onOpenScheduleVisit(currentSlide)}
+              className="bg-[#c5a059] text-black px-7 sm:px-8 py-3 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-[#D4B575] transition-all rounded-md shadow-[0_8px_25px_rgba(0,0,0,0.3)] cursor-pointer"
+            >
+              Schedule A Visit
+            </button>
           </div>
         </div>
       </div>

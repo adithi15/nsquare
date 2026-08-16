@@ -18,6 +18,7 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
   const scrollAnimRef = useRef<any>(null);
   const [selectedInquiryProject, setSelectedInquiryProject] = useState<ProjectInquiryData | null>(null);
   const [isInquiryOpen, setIsInquiryOpen] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   const handleProjectClick = (p: NSProject) => {
     setSelectedInquiryProject({
@@ -82,13 +83,16 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
     return cards[0] ? cards[0].getBoundingClientRect().width + 28 : el.clientWidth;
   };
 
-  // calm auto-scroll — one clean card stop every 4.5 seconds, loops at the end
+  // calm auto-scroll — one clean card stop every 4.5 seconds, loops at the end, pauses when user interacts
   useEffect(() => {
+    if (isPaused) return;
+
     const id = window.setInterval(() => {
       const el = trackRef.current;
       if (!el) return;
       const step = getStep(el);
       const max = el.scrollWidth - el.clientWidth;
+      if (max <= 0) return;
       const maxIndex = Math.max(1, Math.round(max / step));
       
       const nearest = Math.round(el.scrollLeft / step);
@@ -102,7 +106,7 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
         scrollAnimRef.current.stop();
       }
     };
-  }, []);
+  }, [isPaused]);
 
   return (
     <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-[#0C0C0C] overflow-hidden">
@@ -116,7 +120,7 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
             whileInView={{ opacity: 1, x: 0 }}
             viewport={VIEWPORT}
             transition={{ duration: 1.1, ease: EASE }}
-            className="w-full lg:w-[320px] xl:w-[360px] shrink-0 flex flex-col justify-center relative pb-6 lg:pb-0 lg:ml-8 xl:ml-14"
+            className="w-full lg:w-[320px] xl:w-[360px] shrink-0 flex flex-col justify-center items-center lg:items-start text-center lg:text-left relative pb-6 lg:pb-0 lg:ml-8 xl:ml-14"
           >
             {/* Dark background single quotation watermark behind text - user custom styled */}
           <div className="absolute -left-[260px] top-10 w-[350px] h-[350px] text-white/[0.03] pointer-events-none -z-10 hidden lg:block">
@@ -144,10 +148,17 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
           <div
             ref={trackRef}
             onScroll={handleScroll}
-            className="flex-1 min-w-0 overflow-x-auto no-scrollbar"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => {
+              // Delay resumption of auto-scroll for 3 seconds after swiping stops
+              setTimeout(() => setIsPaused(false), 3000);
+            }}
+            className="flex-1 min-w-0 overflow-x-auto no-scrollbar -mx-5 px-[9vw] sm:-mx-8 sm:px-8 lg:mx-0 lg:px-0"
             style={{ scrollSnapType: snapType }}
           >
-            <div className="flex gap-6 lg:gap-7 items-stretch pb-2">
+            <div className="flex gap-4 sm:gap-6 lg:gap-7 items-stretch pb-2">
               {ONGOING_PROJECTS.map((p, i) => (
                 <motion.article
                   key={p.id}
@@ -156,8 +167,7 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
                   viewport={VIEWPORT}
                   transition={{ duration: 1.2, delay: (i % 2) * 0.15, ease: EASE }}
                   onClick={() => handleProjectClick(p)}
-                  className="shrink-0 w-[76vw] sm:w-[380px] lg:w-[calc(50%-14px)] bg-white flex flex-col group cursor-pointer hover:shadow-2xl transition-all duration-300"
-                  style={{ scrollSnapAlign: 'start' }}
+                  className="shrink-0 w-[82vw] sm:w-[380px] lg:w-[calc(50%-14px)] bg-white flex flex-col group cursor-pointer hover:shadow-2xl transition-all duration-300 snap-center lg:snap-start"
                 >
                   <div className="relative overflow-hidden aspect-[4/4.4]">
                     <img
@@ -166,18 +176,14 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
                       loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-[2200ms] ease-out group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <span className="bg-[#C5A059] text-black text-[9px] font-bold uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full shadow-md">
-                        Enquire / Visit
-                      </span>
-                    </div>
+
                   </div>
-                  <div className="bg-white px-6 py-5 flex items-center justify-between">
+                  <div className="bg-white px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between">
                     <div>
-                      <h3 className="text-lg text-neutral-900 leading-snug group-hover:text-[#A27E3B] transition-colors">
+                      <h3 className="text-base sm:text-lg text-neutral-900 leading-snug group-hover:text-[#A27E3B] transition-colors">
                         {p.name}
                       </h3>
-                      <p className="text-sm text-neutral-500 font-light mt-1">
+                      <p className="text-xs sm:text-sm text-neutral-500 font-light mt-1">
                         {p.location}, Navi Mumbai
                       </p>
                     </div>

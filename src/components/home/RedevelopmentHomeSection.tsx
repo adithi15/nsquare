@@ -12,19 +12,19 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
   onNavigateToRedevelopment,
 }) => {
   return (
-    <section className="w-full bg-[#F1DFC4] pt-0 pb-16 sm:pb-20 relative overflow-hidden">
+    <section className="w-full bg-[#F1DFC4] pt-12 sm:pt-0 pb-16 sm:pb-20 relative overflow-hidden">
       {/* 1. Giant Top Background Watermark Text "REDEVELOPMENT" */}
-      <div className="w-full text-center overflow-hidden m-0 p-0 pointer-events-none select-none px-4">
+      <div className="hidden sm:block w-full text-center overflow-hidden m-0 p-0 pointer-events-none select-none">
         <h1 
-          className="text-white font-black text-5xl sm:text-7xl md:text-[110px] lg:text-[145px] xl:text-[165px] tracking-[0.02em] leading-none uppercase m-0 p-0 block -mt-2 sm:-mt-4 lg:-mt-6"
-          style={{ WebkitTextStroke: '14px white', strokeLinejoin: 'round' }}
+          className="text-transparent font-gilroy-bold text-[9.2vw] sm:text-7xl md:text-[110px] lg:text-[145px] xl:text-[165px] tracking-[0.02em] leading-none uppercase m-0 p-0 block"
+          style={{ WebkitTextStroke: '1.5px rgba(255, 255, 255, 0.45)', strokeLinejoin: 'round' }}
         >
           REDEVELOPMENT
         </h1>
       </div>
 
       {/* 2. Main Content Grid */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 mt-16 sm:mt-20 lg:mt-24">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 mt-8 sm:mt-12 lg:mt-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
           {/* Left Column: Quote with giant quotation mark, text and button */}
@@ -60,18 +60,18 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
             {/* CTA Button with Chevron */}
             <button
               onClick={onNavigateToRedevelopment}
-              className="bg-[#C5A059] hover:bg-[#B38D48] text-white font-sans text-[16px] sm:text-[17px] font-medium px-6 py-3.5 transition-all duration-300 inline-flex items-center justify-between w-full sm:w-[310px] shadow-sm rounded-none cursor-pointer"
+              className="bg-[#C5A059] hover:bg-[#B38D48] text-white font-sans text-[18px] sm:text-[19px] font-medium px-8 py-4.5 transition-all duration-300 inline-flex items-center justify-between w-full sm:w-[380px] shadow-md rounded-none cursor-pointer"
             >
               <span>Explore Redevelopment Services</span>
-              <span className="text-lg font-semibold">&gt;</span>
+              <span className="text-xl font-bold">&gt;</span>
             </button>
           </div>
 
           {/* Right Column: Exact scale model photograph */}
-          <div className="lg:col-span-7 flex justify-center lg:justify-end lg:-mr-14 xl:-mr-20">
-            <div className="w-full max-w-[620px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
+          <div className="lg:col-span-7 flex justify-center lg:justify-end lg:-mr-16 xl:-mr-24">
+            <div className="w-full max-w-[740px] overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.15)]">
               <img
-                src="/assets/img/redevelopment-planning-model.png"
+                src="/assets/img/redevelopment-planning-model.jpg"
                 alt="Old Building Existing Structure to New Development Planned Structure Redevelopment Planning"
                 className="w-full h-auto object-cover"
               />

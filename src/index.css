@@ -46,6 +46,10 @@
   .border-gold {
     border-color: #b88a33;
   }
+  .font-gilroy-bold {
+    font-family: 'Gilroy-Bold', 'Gilroy', 'Outfit', sans-serif;
+    font-weight: 800 !important;
+  }
 }
 
 body {
