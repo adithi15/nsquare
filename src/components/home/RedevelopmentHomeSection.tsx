@@ -12,12 +12,12 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
   onNavigateToRedevelopment,
 }) => {
   return (
-    <section className="w-full bg-[#F1DFC4] pt-12 sm:pt-0 pb-16 sm:pb-20 relative overflow-hidden">
+    <section className="w-full bg-[#F1DFC4] pt-0 pb-16 sm:pb-20 relative overflow-hidden">
       {/* 1. Giant Top Background Watermark Text "REDEVELOPMENT" */}
       <div className="hidden sm:block w-full text-center overflow-hidden m-0 p-0 pointer-events-none select-none">
         <h1 
-          className="text-transparent font-gilroy-bold text-[9.2vw] sm:text-7xl md:text-[110px] lg:text-[145px] xl:text-[165px] tracking-[0.02em] leading-none uppercase m-0 p-0 block"
-          style={{ WebkitTextStroke: '1.5px rgba(255, 255, 255, 0.45)', strokeLinejoin: 'round' }}
+          className="text-transparent font-black text-5xl sm:text-7xl md:text-[110px] lg:text-[145px] xl:text-[165px] tracking-[0.02em] leading-none uppercase m-0 p-0 block -mt-2 sm:-mt-3 md:-mt-5 lg:-mt-6 xl:-mt-8"
+          style={{ WebkitTextStroke: '14px rgba(255, 255, 255, 0.45)', strokeLinejoin: 'round' }}
         >
           REDEVELOPMENT
         </h1>
