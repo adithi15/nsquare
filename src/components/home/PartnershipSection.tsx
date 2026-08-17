@@ -39,7 +39,8 @@ interface PartnershipSectionProps {
 }
 
 export const PartnershipSection: React.FC<PartnershipSectionProps> = ({ theme = 'light' }) => {
-  const isDark = theme === 'dark';
+  // Force light background and high contrast dark text on the #f9f9f9ff background
+  const isDark = false;
   const stats = [
     { value: 23, suffix: '', label: 'Years of\nRich Legacy' },
     { value: 32, suffix: '', label: 'Delivered\nLandmarks' },
@@ -50,8 +51,7 @@ export const PartnershipSection: React.FC<PartnershipSectionProps> = ({ theme = 
   ];
 
   return (
-    <section className={`w-full py-12 md:py-16 transition-colors duration-500 ${isDark ? 'bg-[#0D0D0D] border-t border-white/5' : 'bg-[#F4EFE6] border-t border-neutral-200/60'
-      }`}>
+    <section className="w-full py-12 md:py-16 transition-colors duration-500 bg-[#F4F4F4] border-t border-neutral-200/60">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 space-y-10">
 
         {/* Top: Text and Logos */}
