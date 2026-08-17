@@ -106,8 +106,8 @@ export const PartnershipSection: React.FC<PartnershipSectionProps> = ({ theme = 
                 className="flex flex-col items-center space-y-3 p-4 rounded-xl transition-all duration-300 hover:scale-105"
               >
                 <div
-                  className="font-light text-5xl sm:text-6xl md:text-6xl lg:text-7xl text-[#A27E3B] dark:text-[#C5A059] tabular-nums drop-shadow-sm tracking-tight"
-                  style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
+                  className="text-3xl sm:text-6xl md:text-6xl lg:text-7xl text-[#A27E3B] dark:text-[#C5A059] tabular-nums tracking-tight"
+                  style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700 }}
                 >
                   <Counter value={stat.value} suffix={stat.suffix} />
                 </div>

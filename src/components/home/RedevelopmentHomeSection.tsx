@@ -12,18 +12,18 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
   onNavigateToRedevelopment,
 }) => {
   return (
-    <section className="w-full bg-[#f5e6d3] pt-0 pb-16 sm:pb-20 relative overflow-hidden">
+    <section className="w-full bg-[#f5e6d3] pt-0 pb-8 sm:pb-12 relative overflow-hidden">
       {/* 1. Giant Top Background Watermark Image "REDEVELOPMENT" */}
       <div className="hidden sm:block w-full text-center overflow-hidden m-0 px-6 sm:px-10 lg:px-14 pointer-events-none select-none">
         <img
           src="/assets/branding/redevelopment-watermark.png"
           alt="REDEVELOPMENT Watermark"
-          className="mx-auto h-[48px] sm:h-[72px] md:h-[110px] lg:h-[145px] xl:h-[165px] object-contain select-none pointer-events-none -mt-1 sm:-mt-2 md:-mt-4 lg:-mt-5 xl:-mt-6"
+          className="mx-auto h-[48px] sm:h-[72px] md:h-[110px] lg:h-[145px] xl:h-[165px] object-contain select-none pointer-events-none -mt-0.5 sm:-mt-1.5 md:-mt-3 lg:-mt-4 xl:-mt-5"
         />
       </div>
 
       {/* 2. Main Content Grid */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 mt-8 sm:mt-12 lg:mt-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 mt-20 sm:mt-36 lg:mt-44">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
           {/* Left Column: Quote with giant quotation mark, text and button */}

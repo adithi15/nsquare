@@ -208,12 +208,12 @@ export const FootprintMapSection: React.FC<FootprintMapSectionProps> = () => {
       <div className="relative z-10 w-full flex flex-col lg:flex-row items-stretch justify-between min-h-screen lg:min-h-[112vh]">
         
         {/* COLUMN 1: Heading & Accordion Stack */}
-        <div className="w-full lg:w-[32%] xl:w-[28%] flex flex-col justify-center pt-24 pb-4 lg:py-12 lg:min-h-[112vh] px-6 sm:px-12 lg:pl-24 xl:pl-32 lg:pr-2 z-10">
+        <div className="w-full lg:w-[38%] xl:w-[34%] flex flex-col justify-center pt-24 pb-4 lg:py-12 lg:min-h-[112vh] px-6 sm:px-12 lg:pl-56 xl:pl-80 lg:pr-2 z-10">
           {/* Main Title */}
           <div className="mb-6 lg:mb-10">
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-[34px] xl:text-[38px] font-semibold text-white leading-[1.2] drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
-              A Solid Footprint <br />
-              Across Navi Mumbai
+              <span className="whitespace-nowrap">A Solid Footprint</span> <br />
+              <span className="whitespace-nowrap">Across Navi Mumbai</span>
             </h2>
           </div>
 
@@ -226,13 +226,13 @@ export const FootprintMapSection: React.FC<FootprintMapSectionProps> = () => {
                   <button
                     id={`footprint-btn-${category.id}`}
                     onClick={() => handleSelectCategory(category.id)}
-                    className={`w-full flex items-center justify-between px-6 py-4 rounded-sm text-left transition-all duration-300 font-sans font-medium text-[15px] sm:text-[16px] shadow-[0_6px_20px_rgba(0,0,0,0.35)] hover:scale-[1.01] cursor-pointer ${
+                    className={`w-[250px] sm:w-[270px] md:w-[280px] lg:w-[290px] xl:w-[300px] flex items-center justify-between px-6 py-4 rounded-sm text-left transition-all duration-300 font-sans font-medium text-[15px] sm:text-[16px] shadow-[0_6px_20px_rgba(0,0,0,0.35)] hover:scale-[1.01] cursor-pointer ${
                       isActive 
                         ? 'bg-white text-[#101512] ring-2 ring-[#C5A059]' 
                         : 'bg-[#C5A059] hover:bg-[#B38D48] text-white'
                     }`}
                   >
-                    <span className="tracking-wide">{category.buttonLabel}</span>
+                    <span className="tracking-wide whitespace-nowrap">{category.buttonLabel}</span>
                     <Plus className={`w-4 h-4 shrink-0 transition-transform duration-300 ${isActive ? 'rotate-45 text-[#C5A059]' : 'text-white'}`} />
                   </button>
 
