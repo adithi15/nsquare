@@ -196,7 +196,7 @@ export const FootprintMapSection: React.FC<FootprintMapSectionProps> = () => {
   };
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#101512] text-white min-h-screen flex items-center">
+    <section className="relative w-full overflow-hidden bg-[#101512] text-white lg:h-screen lg:min-h-screen">
       {/* 1. Full-Width Mountain Landscape Background */}
       <img
         src="/assets/branding/footprint-bg.jpg"
@@ -205,10 +205,10 @@ export const FootprintMapSection: React.FC<FootprintMapSectionProps> = () => {
       />
 
       {/* 2. Main 2-Column Content Container */}
-      <div className="relative z-10 w-full flex flex-col lg:flex-row items-stretch justify-between min-h-screen lg:min-h-[112vh]">
+      <div className="relative z-10 w-full flex flex-col lg:flex-row items-stretch justify-between min-h-screen lg:h-full lg:min-h-0">
         
         {/* COLUMN 1: Heading & Accordion Stack */}
-        <div className="w-full lg:w-[38%] xl:w-[34%] flex flex-col justify-center pt-24 pb-4 lg:py-12 lg:min-h-[112vh] px-6 sm:px-12 lg:pl-56 xl:pl-80 lg:pr-2 z-10">
+        <div className="w-full lg:w-[32%] xl:w-[28%] flex flex-col justify-center pt-24 pb-4 lg:py-12 lg:h-full lg:min-h-0 px-6 sm:px-12 lg:pl-24 xl:pl-32 lg:pr-2 z-20">
           {/* Main Title */}
           <div className="mb-6 lg:mb-10">
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-[34px] xl:text-[38px] font-semibold text-white leading-[1.2] drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
@@ -226,13 +226,13 @@ export const FootprintMapSection: React.FC<FootprintMapSectionProps> = () => {
                   <button
                     id={`footprint-btn-${category.id}`}
                     onClick={() => handleSelectCategory(category.id)}
-                    className={`w-[250px] sm:w-[270px] md:w-[280px] lg:w-[290px] xl:w-[300px] flex items-center justify-between px-6 py-4 rounded-sm text-left transition-all duration-300 font-sans font-medium text-[15px] sm:text-[16px] shadow-[0_6px_20px_rgba(0,0,0,0.35)] hover:scale-[1.01] cursor-pointer ${
+                    className={`w-full flex items-center justify-between px-6 py-4 rounded-sm text-left transition-all duration-300 font-sans font-medium text-[15px] sm:text-[16px] shadow-[0_6px_20px_rgba(0,0,0,0.35)] hover:scale-[1.01] cursor-pointer ${
                       isActive 
                         ? 'bg-white text-[#101512] ring-2 ring-[#C5A059]' 
                         : 'bg-[#C5A059] hover:bg-[#B38D48] text-white'
                     }`}
                   >
-                    <span className="tracking-wide whitespace-nowrap">{category.buttonLabel}</span>
+                    <span className="tracking-wide">{category.buttonLabel}</span>
                     <Plus className={`w-4 h-4 shrink-0 transition-transform duration-300 ${isActive ? 'rotate-45 text-[#C5A059]' : 'text-white'}`} />
                   </button>
 
@@ -267,14 +267,14 @@ export const FootprintMapSection: React.FC<FootprintMapSectionProps> = () => {
         </div>
 
         {/* COLUMN 2: Navi Mumbai Geographic Map with Pins */}
-        <div className="w-full lg:w-[68%] xl:w-[72%] relative flex-1 lg:min-h-[112vh] flex flex-col justify-end items-end p-0 m-0 z-10 overflow-hidden touch-none select-none">
-          <div className="relative w-full lg:w-auto h-[320px] sm:h-[420px] lg:h-full aspect-[1920/1358] flex-shrink-0 touch-none select-none">
+        <div className="w-full lg:w-[68%] xl:w-[72%] relative flex-1 flex flex-col justify-center items-center lg:items-end p-0 m-0 z-10 lg:h-full lg:min-h-0 touch-none select-none">
+          <div className="relative w-full lg:w-auto h-[320px] sm:h-[420px] lg:h-full max-h-full aspect-[1920/1358] flex-shrink-0 touch-none select-none">
             <img
               src="/assets/branding/map-footprint.png"
               alt="Navi Mumbai Geographic Map Footprints"
               loading="lazy"
               draggable={false}
-              className="w-full h-full object-contain object-bottom lg:object-right pointer-events-none select-none"
+              className="w-full h-full object-contain pointer-events-none select-none"
             />
             {/* Interactive Pulse Indicators & Tooltips */}
             {MAP_PINS.map((pin) => {
