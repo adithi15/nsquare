@@ -214,7 +214,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ proj, onImageClick }) => {
         {/* Title */}
         <h3 
           onClick={() => onImageClick(proj)}
-          className="text-xl md:text-2xl font-serif text-white font-normal tracking-wide mb-2.5 leading-snug cursor-pointer hover:text-[#C5A059] transition-colors"
+          className="text-xl md:text-2xl font-serif text-white font-normal tracking-wide mb-2.5 leading-snug cursor-pointer transition-colors"
         >
           {proj.name}
         </h3>
@@ -224,7 +224,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ proj, onImageClick }) => {
           <span className="px-3.5 py-1 text-[9px] uppercase tracking-[0.15em] font-medium border border-white/40 rounded-full text-white/90">
             {proj.location}
           </span>
-          <span className="px-4 py-1 text-[9px] uppercase tracking-[0.15em] font-bold bg-white text-black rounded-full">
+          <span className="px-4 py-1 text-[9px] uppercase tracking-[0.15em] font-bold border border-white/40 text-white/90 rounded-full">
             {proj.category === 'ongoing' ? 'Ongoing' : proj.category === 'completed' ? 'Completed' : 'Upcoming'}
           </span>
         </div>

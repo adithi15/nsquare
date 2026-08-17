@@ -50,39 +50,37 @@ export const PartnershipSection: React.FC<PartnershipSectionProps> = ({ theme = 
   ];
 
   return (
-    <section className={`w-full py-12 md:py-16 transition-colors duration-500 ${
-      isDark ? 'bg-[#0D0D0D] border-t border-white/5' : 'bg-[#F4EFE6] border-t border-neutral-200/60'
-    }`}>
+    <section className={`w-full py-12 md:py-16 transition-colors duration-500 ${isDark ? 'bg-[#0D0D0D] border-t border-white/5' : 'bg-[#F4EFE6] border-t border-neutral-200/60'
+      }`}>
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 space-y-10">
-        
+
         {/* Top: Text and Logos */}
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 xl:gap-20">
           <div className="text-left">
-            <h3 className={`font-serif text-lg sm:text-xl md:text-[25px] leading-[1.4] font-normal ${
-              isDark ? 'text-white' : 'text-neutral-800'
-            }`}>
+            <h3 className={`font-serif text-lg sm:text-xl md:text-[25px] leading-[1.4] font-normal ${isDark ? 'text-white' : 'text-neutral-800'
+              }`}>
               N-Square Developers Is A Strategic Partnership Between<br />
-              Neelkanth Group And Namastey Realty, Created To Deliver<br />
-              Excellence In <span className="font-gilroy-bold">Redevelopment</span>.
+              <span className="lg:whitespace-nowrap">Neelkanth Group And Namastey Realty, Created To Deliver</span><br />
+              Excellence In Redevelopment
             </h3>
           </div>
-          
+
           <div className="flex items-center justify-center gap-6 sm:gap-10 w-full lg:w-auto shrink-0">
             {/* Logo 1: Neelkanth Group (High-Res Large View) */}
             <div className="max-w-[260px] sm:max-w-[300px] h-24 sm:h-28 md:h-36 flex items-center justify-center">
-              <img 
-                src="/assets/branding/neelkanth-logo.png" 
-                alt="Neelkanth Group" 
-                className="max-h-full w-auto max-w-full object-contain filter drop-shadow-sm hover:scale-105 transition-transform duration-300" 
+              <img
+                src="/assets/branding/neelkanth-logo.png"
+                alt="Neelkanth Group"
+                className="max-h-full w-auto max-w-full object-contain filter drop-shadow-sm hover:scale-105 transition-transform duration-300"
               />
             </div>
- 
+
             {/* Logo 2: Namastey Realty (High-Res Large View) */}
             <div className="max-w-[260px] sm:max-w-[300px] h-24 sm:h-28 md:h-36 flex items-center justify-center">
-              <img 
-                src="/assets/branding/namastey-logo.png" 
-                alt="Namastey Realty" 
-                className="max-h-full w-auto max-w-full object-contain filter drop-shadow-sm hover:scale-105 transition-transform duration-300" 
+              <img
+                src="/assets/branding/namastey-logo.png"
+                alt="Namastey Realty"
+                className="max-h-full w-auto max-w-full object-contain filter drop-shadow-sm hover:scale-105 transition-transform duration-300"
               />
             </div>
           </div>
@@ -107,19 +105,21 @@ export const PartnershipSection: React.FC<PartnershipSectionProps> = ({ theme = 
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                 className="flex flex-col items-center space-y-3 p-4 rounded-xl transition-all duration-300 hover:scale-105"
               >
-                <div className="font-gilroy-bold text-5xl sm:text-6xl md:text-6xl lg:text-7xl text-[#A27E3B] dark:text-[#C5A059] tabular-nums drop-shadow-sm tracking-tight">
+                <div
+                  className="font-light text-5xl sm:text-6xl md:text-6xl lg:text-7xl text-[#A27E3B] dark:text-[#C5A059] tabular-nums drop-shadow-sm tracking-tight"
+                  style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
+                >
                   <Counter value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className={`text-xs sm:text-sm md:text-[13px] font-medium leading-snug whitespace-pre-line font-sans tracking-wide ${
-                  isDark ? 'text-neutral-200' : 'text-[#A27E3B]/80'
-                }`}>
+                <div className={`text-xs sm:text-sm md:text-[13px] font-medium leading-snug whitespace-pre-line font-sans tracking-wide ${isDark ? 'text-neutral-200' : 'text-[#A27E3B]/80'
+                  }`}>
                   {stat.label}
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
-        
+
       </div>
     </section>
   );

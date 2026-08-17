@@ -12,15 +12,14 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
   onNavigateToRedevelopment,
 }) => {
   return (
-    <section className="w-full bg-[#F1DFC4] pt-0 pb-16 sm:pb-20 relative overflow-hidden">
-      {/* 1. Giant Top Background Watermark Text "REDEVELOPMENT" */}
-      <div className="hidden sm:block w-full text-center overflow-hidden m-0 p-0 pointer-events-none select-none">
-        <h1
-          className="text-transparent font-black text-5xl sm:text-7xl md:text-[110px] lg:text-[145px] xl:text-[165px] tracking-[0.02em] leading-none uppercase m-0 p-0 block -mt-1 sm:-mt-2 md:-mt-4 lg:-mt-5 xl:-mt-6"
-          style={{ WebkitTextStroke: '14px rgba(255, 255, 255, 1)', fontWeight: 900 }}
-        >
-          REDEVELOPMENT
-        </h1>
+    <section className="w-full bg-[#f5e6d3] pt-0 pb-16 sm:pb-20 relative overflow-hidden">
+      {/* 1. Giant Top Background Watermark Image "REDEVELOPMENT" */}
+      <div className="hidden sm:block w-full text-center overflow-hidden m-0 px-6 sm:px-10 lg:px-14 pointer-events-none select-none">
+        <img
+          src="/assets/branding/redevelopment-watermark.png"
+          alt="REDEVELOPMENT Watermark"
+          className="mx-auto h-[48px] sm:h-[72px] md:h-[110px] lg:h-[145px] xl:h-[165px] object-contain select-none pointer-events-none -mt-1 sm:-mt-2 md:-mt-4 lg:-mt-5 xl:-mt-6"
+        />
       </div>
 
       {/* 2. Main Content Grid */}
@@ -29,12 +28,13 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
 
           {/* Left Column: Quote with giant quotation mark, text and button */}
           <div className="lg:col-span-5 relative z-10 text-left">
-            {/* Giant Quotation Mark Watermark - exact stroked SVG rotated 180 */}
-            <div className="absolute -top-[106px] sm:-top-[140px] -left-[55px] sm:-left-[70px] w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] text-[#CEBDA7] pointer-events-none -z-10 opacity-60 hidden sm:block">
-              <svg viewBox="-5.5 -5.5 43.0 43.0" fill="currentColor" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full rotate-180">
-                <path d="M0,4v12h8c0,4.41-3.586,8-8,8v4c6.617,0,12-5.383,12-12V4H0z" />
-                <path d="M20,4v12h8c0,4.41-3.586,8-8,8v4c6.617,0,12-5.383,12-12V4H20z" />
-              </svg>
+            {/* Giant Quotation Mark Watermark - PNG image replacing SVG */}
+            <div className="absolute -top-[72px] sm:-top-[100px] -left-[35px] sm:-left-[50px] w-[160px] h-[160px] sm:w-[200px] sm:h-[200px] pointer-events-none -z-10 hidden sm:block">
+              <img
+                src="/assets/branding/quote-marks.png"
+                alt="Quotation Marks"
+                className="w-full h-full object-contain select-none pointer-events-none"
+              />
             </div>
 
             {/* Headline Quote in bold serif all caps */}
@@ -60,10 +60,10 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
             {/* CTA Button with Chevron */}
             <button
               onClick={onNavigateToRedevelopment}
-              className="bg-[#C5A059] hover:bg-[#B38D48] text-white font-sans text-[18px] sm:text-[19px] font-medium px-8 py-4.5 transition-all duration-300 inline-flex items-center justify-between w-full sm:w-[380px] shadow-md rounded-none cursor-pointer"
+              className="bg-[#C5A059] hover:bg-[#B38D48] text-white font-sans text-[22px] sm:text-[24px] font-normal py-2 px-4 transition-all duration-300 inline-flex items-center gap-4 w-fit shadow-md rounded-none cursor-pointer"
             >
               <span>Explore Redevelopment Services</span>
-              <span className="text-xl font-bold">&gt;</span>
+              <span className="text-2xl font-normal">&gt;</span>
             </button>
           </div>
 
@@ -80,7 +80,7 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
 
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 

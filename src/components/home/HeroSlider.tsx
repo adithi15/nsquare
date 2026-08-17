@@ -175,7 +175,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
           <div className="pt-8 flex flex-wrap">
             <button
               onClick={() => onOpenScheduleVisit(currentSlide)}
-              className="bg-[#c5a059] text-black px-7 sm:px-8 py-3 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-[#D4B575] transition-all rounded-md shadow-[0_8px_25px_rgba(0,0,0,0.3)] cursor-pointer"
+              className="bg-[#c5a059] text-black px-7 sm:px-8 py-3 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-[#D4B575] transition-all rounded-none shadow-[0_8px_25px_rgba(0,0,0,0.3)] cursor-pointer"
             >
               Enquire Now
             </button>

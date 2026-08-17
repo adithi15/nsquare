@@ -167,7 +167,7 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
                   viewport={VIEWPORT}
                   transition={{ duration: 1.2, delay: (i % 2) * 0.15, ease: EASE }}
                   onClick={() => handleProjectClick(p)}
-                  className="shrink-0 w-[82vw] sm:w-[380px] lg:w-[calc(50%-14px)] bg-white flex flex-col group cursor-pointer hover:shadow-2xl transition-all duration-300 snap-center lg:snap-start"
+                  className="shrink-0 w-[82vw] sm:w-[380px] lg:w-[calc(50%-14px)] bg-transparent flex flex-col group cursor-pointer hover:shadow-2xl transition-all duration-300 snap-center lg:snap-start"
                 >
                   <div className="relative overflow-hidden aspect-[4/4.4]">
                     <img
@@ -178,16 +178,16 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
                     />
 
                   </div>
-                  <div className="bg-white px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between">
+                  <div className="bg-transparent px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between">
                     <div>
-                      <h3 className="text-base sm:text-lg text-neutral-900 leading-snug group-hover:text-[#A27E3B] transition-colors">
+                      <h3 className="text-base sm:text-lg text-white leading-snug transition-colors">
                         {p.name}
                       </h3>
-                      <p className="text-xs sm:text-sm text-neutral-500 font-light mt-1">
+                      <p className="text-xs sm:text-sm text-white/60 font-light mt-1">
                         {p.location}, Navi Mumbai
                       </p>
                     </div>
-                    <span className="text-xs text-[#A27E3B] font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="text-xs text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                       &rarr;
                     </span>
                   </div>

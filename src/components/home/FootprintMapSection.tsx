@@ -189,7 +189,7 @@ const MAP_PINS: MapPinInfo[] = [
 
 export const FootprintMapSection: React.FC<FootprintMapSectionProps> = () => {
   const navigate = useNavigate();
-  const [activeCategory, setActiveCategory] = useState<string>('delivered');
+  const [activeCategory, setActiveCategory] = useState<string>('');
 
   const handleSelectCategory = (categoryId: string) => {
     setActiveCategory(activeCategory === categoryId ? '' : categoryId);
@@ -208,7 +208,7 @@ export const FootprintMapSection: React.FC<FootprintMapSectionProps> = () => {
       <div className="relative z-10 w-full flex flex-col lg:flex-row items-stretch justify-between min-h-screen lg:min-h-[112vh]">
         
         {/* COLUMN 1: Heading & Accordion Stack */}
-        <div className="w-full lg:w-[32%] xl:w-[28%] flex flex-col justify-center pt-24 pb-4 lg:py-12 lg:min-h-[112vh] px-6 sm:px-12 lg:pl-16 lg:pr-2 z-10">
+        <div className="w-full lg:w-[32%] xl:w-[28%] flex flex-col justify-center pt-24 pb-4 lg:py-12 lg:min-h-[112vh] px-6 sm:px-12 lg:pl-24 xl:pl-32 lg:pr-2 z-10">
           {/* Main Title */}
           <div className="mb-6 lg:mb-10">
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-[34px] xl:text-[38px] font-semibold text-white leading-[1.2] drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
