@@ -78,7 +78,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
   const lateDelay = 0.8 + chunkCount * 0.16 + 0.4;
 
   return (
-    <section className="relative w-full h-[100dvh] min-h-[100dvh] bg-black overflow-hidden flex flex-col justify-between">
+    <section className="relative w-full h-[85vh] min-h-[85vh] bg-black overflow-hidden flex flex-col justify-between">
       {/* Preload all backgrounds in DOM to prevent lag from mounting/unmounting heavy videos */}
       {slides.map((slide, index) => {
         const isActive = index === currentIndex;
@@ -133,9 +133,23 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
 
 
 
-      <div className="relative z-20 px-5 sm:px-8 md:px-16 mt-auto mb-24 sm:mb-20 max-w-5xl">
+      <div className="relative z-20 px-5 sm:px-8 md:px-16 mt-auto mb-36 sm:mb-32 max-w-5xl">
         <div className="space-y-4">
           <div className="flex flex-col gap-4 md:gap-6">
+            {/* "it's Crafted For Generations" Graphic */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+              className="max-w-[280px] sm:max-w-[420px] md:max-w-[480px] lg:max-w-[540px] pointer-events-none select-none"
+            >
+              <img
+                src="/assets/branding/crafted-for-generations.png"
+                alt="it's Crafted for Generations"
+                className="w-full h-auto object-contain bg-transparent"
+              />
+            </motion.div>
+
             {/* Commented out title and subtitle as requested
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-script leading-[1.25] text-white max-w-5xl drop-shadow-[0_2px_18px_rgba(0,0,0,0.45)]">
               {titleChunks.map((t, i) => {
@@ -172,19 +186,22 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             */}
           </div>
 
-          <div className="pt-8 flex flex-wrap">
-            <button
-              onClick={() => onOpenScheduleVisit(currentSlide)}
-              className="bg-[#c5a059] text-black px-7 sm:px-8 py-3 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-[#D4B575] transition-all rounded-none shadow-[0_8px_25px_rgba(0,0,0,0.3)] cursor-pointer"
-            >
-              Enquire Now
-            </button>
-          </div>
+
         </div>
       </div>
 
-      {/* Floating Bottom Disclaimer - centered on mobile, right on desktop */}
-      <div className="absolute bottom-6 sm:bottom-10 left-0 right-0 sm:left-auto sm:right-12 z-30 flex flex-col items-center sm:items-center space-y-2.5 pointer-events-none px-4 sm:px-0">
+      {/* Floating Bottom Disclaimer & Action Button - centered on mobile, right on desktop */}
+      <div className="absolute bottom-6 sm:bottom-10 left-0 right-0 sm:left-auto sm:right-12 z-30 flex flex-col items-center space-y-3 px-4 sm:px-0 pointer-events-none">
+        
+        {/* Enquire Now Button - placed above the line, clickable */}
+        <button
+          onClick={() => onOpenScheduleVisit(currentSlide)}
+          className="bg-[#c5a059] text-black px-7 sm:px-8 py-3 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-[#D4B575] transition-all rounded-none shadow-[0_8px_25px_rgba(0,0,0,0.3)] cursor-pointer pointer-events-auto"
+        >
+          Enquire Now
+        </button>
+
+        {/* Progress Line */}
         <div className="w-56 h-[2px] bg-white/20 rounded-full overflow-hidden relative">
           <motion.div
             key={`progress-${currentIndex}-${currentDuration}`}
@@ -197,6 +214,8 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             className="h-full bg-[#b88a33] shadow-[0_0_10px_#b88a33]"
           />
         </div>
+
+        {/* Disclaimer Text */}
         <span className="text-[9px] uppercase tracking-widest text-white/45 font-light whitespace-nowrap">
           Video Is For Representation Purpose Only
         </span>

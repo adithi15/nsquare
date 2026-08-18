@@ -1,8 +1,4 @@
 import { Property, HeroSlide } from '../types';
-
-// ============================================================
-// HERO SLIDES — real N-Square signature projects
-// ============================================================
 export const HERO_SLIDES: HeroSlide[] = [
   {
     id: 'slide-darshan',

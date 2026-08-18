@@ -4,9 +4,9 @@ import { CONTACT } from '../../data/nsquare';
 
 // Direct concierge cards — every row is a real frontend-only action (tel / wa.me / mailto)
 export const ContactInfo: React.FC = () => (
-  <div className="space-y-6">
+  <div className="space-y-6 ">
     <div className="space-y-1">
-      <span className="text-[11px] uppercase tracking-[0.25em] text-[#c2a26c] font-medium block">
+      <span className="text-[11px] uppercase tracking-[0.25em] text-[#b88e4c] font-medium block">
         DIRECT CONCIERGE
       </span>
       <p className="text-xs leading-relaxed text-neutral-600 font-light pt-1">
@@ -14,30 +14,32 @@ export const ContactInfo: React.FC = () => (
       </p>
     </div>
 
-    <div className="space-y-3 pt-2">
-      <div className="flex items-center space-x-4 p-4 bg-[#e8e2d5]">
-        <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center text-[#c2a26c] shrink-0">
+    <div className="space-y-4 pt-2">
+      <div className="flex items-center space-x-4 p-4 bg-[#e9e3d5] rounded-none">
+        <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center text-[#b88e4c] shrink-0">
           <MapPin className="w-4 h-4" />
         </div>
         <div className="space-y-0.5">
-          <h6 className="text-[10px] uppercase tracking-wider text-[#c2a26c] font-semibold">
+          <h6 className="text-[10px] uppercase tracking-wider text-[#b88e4c] font-semibold">
             CORPORATE OFFICE ADDRESS:
           </h6>
           <p className="text-[11px] text-neutral-700 leading-snug font-light">
-            {CONTACT.address}
+            Office No. 601, Above Namastey Salon, The Pacific, Sector 13
+            <br />
+            Kharghar, Navi Mumbai, Maharashtra - 410210
           </p>
         </div>
       </div>
 
       <a
         href={CONTACT.phoneHref}
-        className="flex items-center space-x-4 p-4 bg-[#e8e2d5] group transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:bg-[#e3dbc8]"
+        className="flex items-center space-x-4 p-4 bg-[#e9e3d5] rounded-none"
       >
-        <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center text-[#c2a26c] shrink-0 transition-transform group-hover:scale-110">
+        <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center text-[#b88e4c] shrink-0">
           <Phone className="w-4 h-4" />
         </div>
         <div className="space-y-0.5">
-          <h6 className="text-[10px] uppercase tracking-wider text-[#c2a26c] font-semibold">
+          <h6 className="text-[10px] uppercase tracking-wider text-[#b88e4c] font-semibold">
             CALL:
           </h6>
           <p className="text-[11px] text-neutral-700 font-light">+91 {CONTACT.phone}</p>
@@ -48,13 +50,13 @@ export const ContactInfo: React.FC = () => (
         href={`${CONTACT.whatsappHref}?text=${encodeURIComponent('Hello N-Square! I would like to know more about your projects.')}`}
         target="_blank"
         rel="noreferrer"
-        className="flex items-center space-x-4 p-4 bg-[#e8e2d5] group transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:bg-[#e3dbc8]"
+        className="flex items-center space-x-4 p-4 bg-[#e9e3d5] rounded-none"
       >
-        <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center text-[#c2a26c] shrink-0 transition-transform group-hover:scale-110">
+        <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center text-[#b88e4c] shrink-0">
           <MessageCircle className="w-4 h-4" />
         </div>
         <div className="space-y-0.5">
-          <h6 className="text-[10px] uppercase tracking-wider text-[#c2a26c] font-semibold">
+          <h6 className="text-[10px] uppercase tracking-wider text-[#b88e4c] font-semibold">
             WHATSAPP:
           </h6>
           <p className="text-[11px] text-neutral-700 font-light">
@@ -65,13 +67,13 @@ export const ContactInfo: React.FC = () => (
 
       <a
         href={`mailto:${CONTACT.email}`}
-        className="flex items-center space-x-4 p-4 bg-[#e8e2d5] group transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:bg-[#e3dbc8]"
+        className="flex items-center space-x-4 p-4 bg-[#e9e3d5] rounded-none"
       >
-        <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center text-[#c2a26c] shrink-0 transition-transform group-hover:scale-110">
+        <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center text-[#b88e4c] shrink-0">
           <Mail className="w-4 h-4" />
         </div>
         <div className="space-y-0.5">
-          <h6 className="text-[10px] uppercase tracking-wider text-[#c2a26c] font-semibold">
+          <h6 className="text-[10px] uppercase tracking-wider text-[#b88e4c] font-semibold">
             EMAIL:
           </h6>
           <p className="text-[11px] text-neutral-700 font-light">{CONTACT.email}</p>
@@ -80,3 +82,5 @@ export const ContactInfo: React.FC = () => (
     </div>
   </div>
 );
+
+

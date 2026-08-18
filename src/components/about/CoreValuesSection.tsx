@@ -1,245 +1,373 @@
+// import React from 'react';
+// import { motion } from 'framer-motion';
+// import { ThemeMode } from '../../types';
+
+// interface CoreValuesSectionProps {
+//   theme: ThemeMode;
+// }
+
+// // 1. People First Icon
+// const PeopleFirstIcon = ({ className = 'w-7 h-7 text-[#C8A165]' }: { className?: string }) => (
+//   <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
+//     <circle cx="24" cy="11" r="2.8" />
+//     <circle cx="16" cy="14.5" r="2.4" />
+//     <circle cx="32" cy="14.5" r="2.4" />
+//     <path d="M19 22c0-2.8 2.2-5 5-5s5 2.2 5 5" />
+//     <path d="M12.5 24c0-2 1.6-3.6 3.5-3.6" />
+//     <path d="M32 20.4c1.9 0 3.5 1.6 3.5 3.6" />
+//     <path d="M14 36h20a4 4 0 0 0 4-4v-1a4 4 0 0 0-4-4H22l-4 2-5-1v5a2 2 0 0 0 1 2z" />
+//     <path d="M14 30.5v5.5" />
+//   </svg>
+// );
+
+// // 2. Quality Icon
+// const QualityIcon = ({ className = 'w-7 h-7 text-[#C8A165]' }: { className?: string }) => (
+//   <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
+//     <circle cx="24" cy="18" r="6.5" />
+//     <circle cx="24" cy="18" r="3.5" strokeDasharray="2 1.5" />
+//     <path d="M21 24.5l-2 7 5-2.2 5 2.2-2-7" />
+//     <path d="M13 38c2-4 5-6 8-6m14 6c-2-4-5-6-8-6" />
+//     <path d="M13 38v4h5.5m16.5-4v4h-5.5" />
+//   </svg>
+// );
+
+// // 3. Integrity Icon
+// const IntegrityIcon = ({ className = 'w-7 h-7 text-[#C8A165]' }: { className?: string }) => (
+//   <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
+//     <path d="M24 7l11 4v9c0 8.5-5 13.5-11 15.5C18 33.5 13 28.5 13 20v-9l11-4z" />
+//     <path d="M19.5 22.5l3.5 3.5 6.5-6.5" />
+//     <path d="M16 34.5l-3 5.5 5-1.8 3 1.8v-3.5m6 0v3.5l3-1.8 5 1.8-3-5.5" />
+//   </svg>
+// );
+
+// // 4. Teamwork Icon
+// const TeamworkIcon = ({ className = 'w-7 h-7 text-[#C8A165]' }: { className?: string }) => (
+//   <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
+//     <circle cx="24" cy="14" r="5.5" />
+//     <path d="M21.5 14l2 2 3.5-3.5" />
+//     <path d="M13 28l6-3 5 3 4-2 7 5-4 4-4-2-4 3-8-4-3-3 1-3z" />
+//     <path d="M16 26l-4 3m18-3l4 3" />
+//   </svg>
+// );
+
+// // 5. Innovation Icon
+// const InnovationIcon = ({ className = 'w-7 h-7 text-[#C8A165]' }: { className?: string }) => (
+//   <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
+//     <path d="M24 9a10 10 0 0 1 7 17.2c-2 2-3 4-3 5.8h-8c0-1.8-1-3.8-3-5.8A10 10 0 0 1 24 9z" />
+//     <path d="M20 36h8m-6 3h4" />
+//     <path d="M24 17v7m-3.5-3.5c0-3.5 3.5-5 3.5-5s3.5 1.5 3.5 5" />
+//     <path d="M11 20a14.5 14.5 0 0 1 26 0" strokeDasharray="3 2" />
+//   </svg>
+// );
+
+// // 6. Customer Commitment Icon
+// const CustomerCommitmentIcon = ({ className = 'w-7 h-7 text-[#C8A165]' }: { className?: string }) => (
+//   <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
+//     <circle cx="24" cy="13.5" r="5" />
+//     <path d="M21.5 13.5l2 2 3.5-3.5" />
+//     <path d="M12.5 28.5l6-3 5 3 4-2 7.5 5-4 4-4-2-4 3-8.5-4-3-3 1-3z" />
+//     <path d="M15.5 26.5l-4 3m18-3l4 3" />
+//   </svg>
+// );
+
+// const VALUES = [
+//   {
+//     title: 'PEOPLE FIRST',
+//     icon: PeopleFirstIcon,
+//     description: (
+//       <>
+//         We place people at the heart of<br />
+//         everything we do - our employees,<br />
+//         customers, and investors.
+//       </>
+//     ),
+//   },
+//   {
+//     title: 'QUALITY',
+//     icon: QualityIcon,
+//     description: (
+//       <>
+//         We are driven by results and<br />
+//         inspired by a relentless pursuit of<br />
+//         continuous improvement.
+//       </>
+//     ),
+//   },
+//   {
+//     title: 'INTEGRITY',
+//     icon: IntegrityIcon,
+//     description: (
+//       <>
+//         We are built on honesty.<br />
+//         We are driven by transparency.<br />
+//         Defined by accountability.
+//       </>
+//     ),
+//   },
+//   {
+//     title: 'TEAMWORK',
+//     icon: TeamworkIcon,
+//     description: (
+//       <>
+//         We approach every project with<br />
+//         strong accountability and<br />
+//         dedication to deliver on our<br />
+//         commitments.
+//       </>
+//     ),
+//   },
+//   {
+//     title: 'INNOVATION',
+//     icon: InnovationIcon,
+//     description: (
+//       <>
+//         We adopt modern technology and<br />
+//         creative design approaches to<br />
+//         deliver exceptional results.
+//       </>
+//     ),
+//   },
+//   {
+//     title: 'CUSTOMER COMMITMENT',
+//     icon: CustomerCommitmentIcon,
+//     description: (
+//       <>
+//         Customer satisfaction remains the<br />
+//         heart of everything we do, from<br />
+//         planning to completion.
+//       </>
+//     ),
+//   },
+// ];
+
+// export const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({ theme }) => {
+//   const isDark = theme === 'dark';
+
+//   return (
+//     <section
+//       className={`relative w-full overflow-hidden transition-colors duration-500 ${isDark ? 'bg-[#121212]' : 'bg-[#f6eee3]'
+//         }`}
+//       style={{
+//         backgroundImage: 'url(/assets/branding/core-values-columns.png)',
+//         backgroundRepeat: 'no-repeat',
+//         backgroundPosition: 'right bottom',
+//         backgroundSize: 'contain',
+//       }}
+//     >
+//       {/* Content wrapper with fixed padding & spacing */}
+//       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 md:px-16 lg:px-20 py-20 lg:py-24 relative z-10">
+//         <div className="w-full max-w-[560px] lg:max-w-[620px]">
+
+//           {/* Header */}
+//           <motion.div
+//             initial={{ opacity: 0, y: 15 }}
+//             whileInView={{ opacity: 1, y: 0 }}
+//             viewport={{ once: true }}
+//             transition={{ duration: 0.5 }}
+//             className="mb-12 lg:mb-14"
+//           >
+//             <p className="text-sm md:text-base font-semibold uppercase tracking-[0.35em] text-black/80 mb-1 translate-x-40">
+//               OUR CORE VALUES
+//             </p>
+//             <h2
+//               className={`text-2xl sm:text-3xl md:text-[38px] leading-tight font-serif font-bold tracking-tight ${isDark ? 'text-white' : 'text-[#181818]'
+//                 }`}
+//             >
+//               A Legacy Built on Timeless Values
+//             </h2>
+//           </motion.div>
+
+//           {/* 3x2 Grid */}
+//           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 lg:gap-y-12">
+//             {VALUES.map((value, idx) => {
+//               const IconComponent = value.icon;
+//               return (
+//                 <motion.div
+//                   key={idx}
+//                   initial={{ opacity: 0, y: 15 }}
+//                   whileInView={{ opacity: 1, y: 0 }}
+//                   viewport={{ once: true }}
+//                   transition={{ duration: 0.4, delay: idx * 0.05 }}
+//                   className="flex flex-col items-start"
+//                 >
+//                   <div className="mb-3.5">
+//                     <IconComponent
+//                       className="w-7 h-7 text-[#C8A165]"
+//                     />
+//                   </div>
+
+//                   <h3 className="text-xs md:text-[13px] font-bold uppercase tracking-[0.16em] mb-2 text-[#C8A165]">
+//                     {value.title}
+//                   </h3>
+
+//                   <p
+//                     className={`text-[12px] leading-[1.6] ${isDark ? 'text-neutral-300' : 'text-[#222222]'
+//                       }`}
+//                   >
+//                     {value.description}
+//                   </p>
+//                 </motion.div>
+//               );
+//             })}
+//           </div>
+
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Handshake, 
-  Award, 
-  ShieldAlert, 
-  HeartHandshake, 
-  Building2, 
-  Sprout 
-} from 'lucide-react';
 import { ThemeMode } from '../../types';
 
 interface CoreValuesSectionProps {
   theme: ThemeMode;
 }
 
-const VALUES_DATA = {
-  businessEthics: {
-    title: 'BUSINESS ETHICS',
-    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80',
-    icon: Handshake,
+const VALUES = [
+  {
+    title: 'PEOPLE FIRST',
+    iconSrc: '/assets/icons/people-first.svg',
+    description: (
+      <>
+        We place people at the heart of<br />
+        everything we do - our employees,<br />
+        customers, and investors.
+      </>
+    ),
   },
-  humility: {
-    title: 'HUMILITY',
-    image: 'https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?auto=format&fit=crop&w=800&q=80',
-    icon: Sprout,
-  },
-  quality: {
+  {
     title: 'QUALITY',
-    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80',
-    icon: Award,
+    iconSrc: '/assets/icons/quality.svg',
+    description: (
+      <>
+        We are driven by results and<br />
+        inspired by a relentless pursuit of<br />
+        continuous improvement.
+      </>
+    ),
   },
-  prudence: {
-    title: 'PRUDENCE',
-    image: 'https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=600&q=80',
-    icon: ShieldAlert,
+  {
+    title: 'INTEGRITY',
+    iconSrc: '/assets/icons/integrity.svg',
+    description: (
+      <>
+        We are built on honesty.<br />
+        We are driven by transparency.<br />
+        Defined by accountability.
+      </>
+    ),
   },
-  respect: {
-    title: 'RESPECT',
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80',
-    icon: HeartHandshake,
+  {
+    title: 'TEAMWORK',
+    iconSrc: '/assets/icons/teamwork.svg',
+    description: (
+      <>
+        We approach every project with<br />
+        strong accountability and<br />
+        dedication to deliver on our<br />
+        commitments.
+      </>
+    ),
   },
-  pride: {
-    title: 'PRIDE',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
-    icon: Building2,
+  {
+    title: 'INNOVATION',
+    iconSrc: '/assets/icons/innovation.svg',
+    description: (
+      <>
+        We adopt modern technology and<br />
+        creative design approaches to<br />
+        deliver exceptional results.
+      </>
+    ),
   },
-};
+  {
+    title: 'CUSTOMER COMMITMENT',
+    iconSrc: '/assets/icons/customer-commitment.svg',
+    description: (
+      <>
+        Customer satisfaction remains the<br />
+        heart of everything we do, from<br />
+        planning to completion.
+      </>
+    ),
+  },
+];
 
 export const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({ theme }) => {
   const isDark = theme === 'dark';
 
-  // Animation variants
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }
-    }
-  };
-
-  const cardStyle = "relative w-full overflow-hidden group border border-white/5 shadow-md flex items-center justify-center cursor-pointer";
-  const overlayStyle = "absolute inset-0 bg-black/55 transition-colors duration-300 group-hover:bg-black/65 z-10";
-  const imgStyle = "absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 z-0";
-  const contentStyle = "relative z-20 flex flex-col items-center justify-center text-center text-white p-4";
-
   return (
-    <section className={`relative py-16 md:py-24 transition-colors duration-500 overflow-hidden ${
-      isDark ? 'bg-[#0A0A0A] border-t border-white/5' : 'bg-[#FAFAFA] border-t border-neutral-200'
-    }`}>
-      {/* Architectural Background Watermark */}
-      <div className={`absolute right-8 bottom-12 text-[12vw] font-serif font-bold select-none pointer-events-none uppercase tracking-[0.18em] z-0 leading-none ${
-        isDark ? 'text-white/[0.015]' : 'text-neutral-900/[0.018]'
-      }`}>
-        Values
-      </div>
+    <section
+      className={`relative w-full overflow-hidden transition-colors duration-500 ${isDark ? 'bg-[#121212]' : 'bg-[#f6eee3]'
+        }`}
+      style={{
+        backgroundImage: 'url(/assets/branding/core-values-columns.png)',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'right bottom',
+        backgroundSize: 'contain',
+      }}
+    >
+      {/* Content wrapper */}
+      <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 md:px-16 lg:px-20 py-20 lg:py-24 relative z-10">
+        <div className="w-full max-w-[560px] lg:max-w-[620px]">
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
-        
-        {/* Title */}
-        <div className="text-left mb-8 md:mb-12">
-          <h2 className={`text-xl md:text-2xl font-serif tracking-widest font-semibold uppercase ${
-            isDark ? 'text-white' : 'text-neutral-900'
-          }`}>
-            OUR CORE VALUES
-          </h2>
-          <div className="w-12 h-[1px] bg-[#C5A059] mt-3" />
-        </div>
-
-        {/* Outer Grid Layout matching screenshot */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
-          
-          {/* Left Column: 2 Tall/Landscape Cards Stacked Vertically */}
-          <div className="flex flex-col gap-6">
-            
-            {/* Card 1: Business Ethics */}
-            <motion.div
-              variants={itemVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className={`${cardStyle} h-[220px] sm:h-[260px] lg:h-[285px]`}
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-12 lg:mb-14"
+          >
+            <p className="text-sm md:text-base font-semibold uppercase tracking-[0.35em] text-black/80 mb-1 translate-x-40">
+              OUR CORE VALUES
+            </p>
+            <h2
+              className={`text-2xl sm:text-3xl md:text-[38px] leading-tight font-serif font-bold tracking-tight ${isDark ? 'text-white' : 'text-[#181818]'
+                }`}
             >
-              <div className={overlayStyle} />
-              <img 
-                src={VALUES_DATA.businessEthics.image} 
-                alt="Business Ethics" 
-                className={imgStyle}
-              />
-              <div className={contentStyle}>
-                <Handshake className="w-8 h-8 text-[#C5A059] group-hover:text-[#e5c98d] transition-colors mb-3.5" strokeWidth={1.5} />
-                <span className="text-[11px] md:text-xs uppercase tracking-[0.25em] font-medium font-serif">
-                  {VALUES_DATA.businessEthics.title}
-                </span>
-              </div>
-            </motion.div>
+              A Legacy Built on Timeless Values
+            </h2>
+          </motion.div>
 
-            {/* Card 2: Humility */}
-            <motion.div
-              variants={itemVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className={`${cardStyle} h-[220px] sm:h-[260px] lg:h-[285px]`}
-            >
-              <div className={overlayStyle} />
-              <img 
-                src={VALUES_DATA.humility.image} 
-                alt="Humility" 
-                className={imgStyle}
-              />
-              <div className={contentStyle}>
-                <Sprout className="w-8 h-8 text-[#C5A059] group-hover:text-[#e5c98d] transition-colors mb-3.5" strokeWidth={1.5} />
-                <span className="text-[11px] md:text-xs uppercase tracking-[0.25em] font-medium font-serif">
-                  {VALUES_DATA.humility.title}
-                </span>
-              </div>
-            </motion.div>
-
-          </div>
-
-          {/* Right Column: Top, Middle grid, Bottom */}
-          <div className="flex flex-col gap-6">
-            
-            {/* Top Card: Quality */}
-            <motion.div
-              variants={itemVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className={`${cardStyle} h-[120px] sm:h-[150px] lg:h-[180px]`}
-            >
-              <div className={overlayStyle} />
-              <img 
-                src={VALUES_DATA.quality.image} 
-                alt="Quality" 
-                className={imgStyle}
-              />
-              <div className={contentStyle}>
-                <Award className="w-8 h-8 text-[#C5A059] group-hover:text-[#e5c98d] transition-colors mb-3.5" strokeWidth={1.5} />
-                <span className="text-[11px] md:text-xs uppercase tracking-[0.25em] font-medium font-serif">
-                  {VALUES_DATA.quality.title}
-                </span>
-              </div>
-            </motion.div>
-
-            {/* Middle Row: Prudence and Respect side by side */}
-            <div className="grid grid-cols-2 gap-6">
-              
-              {/* Card 4: Prudence */}
+          {/* 3x2 Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 lg:gap-y-12">
+            {VALUES.map((value, idx) => (
               <motion.div
-                variants={itemVariants}
-                initial="hidden"
-                whileInView="visible"
+                key={idx}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className={`${cardStyle} h-[120px] sm:h-[150px] lg:h-[180px]`}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                className="flex flex-col items-start"
               >
-                <div className={overlayStyle} />
-                <img 
-                  src={VALUES_DATA.prudence.image} 
-                  alt="Prudence" 
-                  className={imgStyle}
-                />
-                <div className={contentStyle}>
-                  <ShieldAlert className="w-8 h-8 text-[#C5A059] group-hover:text-[#e5c98d] transition-colors mb-3.5" strokeWidth={1.5} />
-                  <span className="text-[11px] md:text-xs uppercase tracking-[0.25em] font-medium font-serif">
-                    {VALUES_DATA.prudence.title}
-                  </span>
+                {/* 1:1 Matching SVG Graphic */}
+                <div className="mb-3.5 h-8 flex items-center">
+                  <img
+                    src={value.iconSrc}
+                    alt={value.title}
+                    className="w-8 h-8 object-contain"
+                  />
                 </div>
+
+                <h3 className="text-xs md:text-[13px] font-bold uppercase tracking-[0.16em] mb-2 text-[#C8A165]">
+                  {value.title}
+                </h3>
+
+                <p
+                  className={`text-[12px] leading-[1.6] ${isDark ? 'text-neutral-300' : 'text-[#222222]'
+                    }`}
+                >
+                  {value.description}
+                </p>
               </motion.div>
-
-              {/* Card 5: Respect */}
-              <motion.div
-                variants={itemVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className={`${cardStyle} h-[120px] sm:h-[150px] lg:h-[180px]`}
-              >
-                <div className={overlayStyle} />
-                <img 
-                  src={VALUES_DATA.respect.image} 
-                  alt="Respect" 
-                  className={imgStyle}
-                />
-                <div className={contentStyle}>
-                  <HeartHandshake className="w-8 h-8 text-[#C5A059] group-hover:text-[#e5c98d] transition-colors mb-3.5" strokeWidth={1.5} />
-                  <span className="text-[11px] md:text-xs uppercase tracking-[0.25em] font-medium font-serif">
-                    {VALUES_DATA.respect.title}
-                  </span>
-                </div>
-              </motion.div>
-
-            </div>
-
-            {/* Bottom Card: Pride */}
-            <motion.div
-              variants={itemVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className={`${cardStyle} h-[120px] sm:h-[150px] lg:h-[180px]`}
-            >
-              <div className={overlayStyle} />
-              <img 
-                src={VALUES_DATA.pride.image} 
-                alt="Pride" 
-                className={imgStyle}
-              />
-              <div className={contentStyle}>
-                <Building2 className="w-8 h-8 text-[#C5A059] group-hover:text-[#e5c98d] transition-colors mb-3.5" strokeWidth={1.5} />
-                <span className="text-[11px] md:text-xs uppercase tracking-[0.25em] font-medium font-serif">
-                  {VALUES_DATA.pride.title}
-                </span>
-              </div>
-            </motion.div>
-
+            ))}
           </div>
 
         </div>
-
       </div>
     </section>
   );

@@ -8,21 +8,12 @@ interface LegacySectionProps {
   onOpenVisitModal?: () => void;
 }
 
-// Side Label Helper Component - Fixed positioning to align directly on screen margin
-const SideLabel = ({ text, className = "text-neutral-400" }: { text: string; className?: string }) => (
-  <div className="hidden lg:block absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 pointer-events-none">
-    <span className={`block [writing-mode:vertical-lr] rotate-180 text-[10px] uppercase tracking-[0.3em] font-light whitespace-nowrap ${className}`}>
-      {text}
-    </span>
-  </div>
-);
-
 export const LegacySection: React.FC<LegacySectionProps> = ({ theme = 'light' }) => {
   return (
-    <div className="w-full bg-[#f4efe6] text-neutral-800 font-sans pb-20">
+    <div className="w-full bg-[#f4efe6] text-neutral-800 font-sans">
 
       {/* 1. HERO BANNER WITH BACKGROUND IMAGE */}
-      <section className="relative w-full h-[60vh] min-h-[480px] max-h-[580px] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-[85vh] min-h-[480px] flex items-center justify-center overflow-hidden pt-20 lg:pt-24">
         <div className="absolute inset-0 z-0">
           <img
             src="/assets/branding/city-aerial.jpg"
@@ -30,185 +21,114 @@ export const LegacySection: React.FC<LegacySectionProps> = ({ theme = 'light' })
             decoding="async"
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/40" />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
 
-        {/* Side Label */}
-        <SideLabel text="ABOUT N-SQUARE" className="text-white/50" />
+        {/* Centered Overlay Content */}
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center text-white flex flex-col items-center justify-center space-y-6 md:space-y-8">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.0, ease: 'easeOut' }}
+            className="text-3xl md:text-4xl lg:text-5.5xl font-serif leading-tight font-medium text-[#c5a059]"
+          >
+            Two legacies. One Vision
+          </motion.h1>
 
-      </section>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.0, delay: 0.25, ease: 'easeOut' }}
+            className="space-y-4 max-w-3xl"
+          >
+            <p className="text-sm md:text-base lg:text-lg text-neutral-200 leading-relaxed font-light">
+              N-Square Developers brings together the trusted legacy of Neelkanth Group and Namastey<br />
+              Realty, with over 23 years of combined experience in Navi Mumbai,
+            </p>
+            <p className="text-sm md:text-base lg:text-lg text-neutral-200 leading-relaxed font-light">
+              Driven by quality, transparency, and thoughtful design, we create premium residential and<br />
+              commercial spaces built to deliver lasting value.
+            </p>
+            <p className="text-xs sm:text-sm md:text-base text-neutral-200 leading-relaxed font-light">
+              Built on Trust. Defined by Excellence. Designed for Generations.
+            </p>
+          </motion.div>
+        </div>
 
-      {/* 2. OVERLAPPING BEIGE HERO INTRO CARD */}
-      <section className="relative z-20 px-6 md:px-16 max-w-6xl mx-auto w-full -mt-40 md:-mt-52">
-        <div className="bg-[#f4e3ca] p-10 md:p-14 shadow-2xl border border-neutral-300/60 text-center space-y-5">
-          <div className="flex items-center gap-4 md:gap-6">
-            <span className="hidden sm:block h-[2px] flex-1 bg-[#c2a26c]/70" />
-            <h1 className="text-3xl md:text-5xl font-serif text-neutral-900 leading-snug tracking-wide text-center">
-              {ABOUT.heading}
-            </h1>
-            <span className="hidden sm:block h-[2px] flex-1 bg-[#c2a26c]/70" />
-          </div>
-          <p className="text-sm md:text-base text-neutral-700 font-light leading-relaxed max-w-4xl mx-auto">
-            {ABOUT.body1}
-          </p>
-          <p className="text-sm md:text-base text-neutral-700 font-light leading-relaxed max-w-4xl mx-auto">
-            {ABOUT.body2}
-          </p>
-          {/* @ts-ignore */}
-          {ABOUT.body3 && (
-            <p className="text-sm md:text-base text-neutral-700 font-light leading-relaxed max-w-4xl mx-auto">
-              {/* @ts-ignore */}
-              {ABOUT.body3}
-            </p>
-          )}
-          {/* @ts-ignore */}
-          {ABOUT.body4 && (
-            <p className="text-xs md:text-sm uppercase tracking-[0.25em] font-semibold text-[#c2a26c] border-t border-neutral-300/40 pt-4 max-w-4xl mx-auto mt-5">
-              {/* @ts-ignore */}
-              {ABOUT.body4}
-            </p>
-          )}
+        {/* Bottom-Left Graphic Overlay - matches homepage slider style */}
+        <div className="absolute bottom-0 left-0 z-20 px-6 sm:px-12 md:px-20 mb-16 sm:mb-14 pointer-events-none select-none">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="max-w-[220px] sm:max-w-[300px] md:max-w-[360px]"
+          >
+            <img
+              src="/assets/branding/ideas-to-legacy.png"
+              alt="Where Ideas become legacy"
+              className="w-full h-auto object-contain bg-transparent"
+            />
+          </motion.div>
         </div>
       </section>
+
+
 
       {/* 3. FOUNDERS SECTION — EXACT BROCHURE REPLICA */}
-      <section className={`relative w-full py-12 md:py-16 px-4 sm:px-6 lg:px-12 overflow-hidden transition-colors duration-500 ${
-        theme === 'dark' ? 'bg-[#0A0A0A]' : 'bg-white'
-      }`}>
-        <div className="max-w-7xl mx-auto space-y-12 md:space-y-16">
-          
-          {/* Row 1: Mr. Anil Ravriya (Aligned to Left Content Margin) */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+      <section className={`relative w-full pt-16 pb-12 md:pt-24 md:pb-16 px-6 sm:px-12 lg:px-20 overflow-hidden transition-colors duration-500 ${theme === 'dark' ? 'bg-[#0A0A0A] text-white' : 'bg-[#f3e4cf] text-neutral-900'}`}>
+
+        {/* N Logo Geometric Motif - Left Edge */}
+        <img
+          src="/assets/branding/nsquare-geometric-motif-pattern.png"
+          alt=""
+          className="absolute left-0 top-0 bottom-0 w-[30%] h-full m-0 p-0 z-0 pointer-events-none object-contain"
+          style={{ objectPosition: 'left top' }}
+        />
+
+
+
+        <div className="relative z-10 max-w-7xl mx-auto space-y-12 md:space-y-16">
+
+          {/* Row 1: Mr. Anil Ravriya */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="flex flex-col lg:flex-row items-center lg:items-stretch gap-6 sm:gap-8 lg:gap-10 max-w-4xl"
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="grid grid-cols-1 lg:grid-cols-12 items-center gap-10 lg:gap-16 w-full relative z-10"
           >
-            {/* Left: Photo with Offset Gold Backdrop Square */}
-            <div className="relative shrink-0 pt-3 pl-3">
-              {/* Gold Offset Accent Block */}
-              <div className="absolute top-0 left-0 w-14 h-14 sm:w-16 sm:h-16 bg-[#c2a26c] z-0" />
-              
-              {/* Portrait Photo */}
-              <div className="relative z-10 w-52 sm:w-60 md:w-64 aspect-[4/4.7] bg-neutral-900 overflow-hidden shadow-md">
+            {/* Left: Photo column (6 cols - 50% split) */}
+            <div className="lg:col-span-6 flex justify-center lg:justify-start z-10 w-full pl-0 lg:pl-24">
+              <div className="relative w-56 sm:w-72 md:w-80 lg:w-full lg:max-w-[340px] aspect-[4/4.7] bg-neutral-900 overflow-hidden shadow-2xl border border-neutral-300/20">
                 <img
-                  src="/assets/branding/director-anil.png"
+                  src="/assets/branding/director-anil-new.jpg"
                   alt="Mr. Anil Ravriya"
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
             </div>
 
-            {/* Right: Founder Content (Matched 1:1 to Photo Height) */}
-            <div className="flex-1 flex flex-col justify-between text-left py-0.5 max-w-xl">
-              {/* Top: Headline */}
-              <div>
-                <h2 className={`text-3xl sm:text-4xl md:text-[44px] lg:text-[48px] font-serif font-normal leading-[0.96] tracking-wide ${
-                  theme === 'dark' ? 'text-[#dcd7cf]' : 'text-neutral-900'
-                }`}>
-                  Leadership That<br />Builds Lasting Value
-                </h2>
-
-                {/* Subtitle */}
-                <p className="text-xs sm:text-[13px] font-semibold text-[#c2a26c] tracking-wide mt-3">
-                  Mr. Anil Ravriya - Founder & Director
+            {/* Right: Content column (6 cols - 50% split) */}
+            <div className="lg:col-span-6 text-left w-full py-2 z-10 lg:pl-10 xl:pl-16">
+              <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-serif font-semibold leading-none text-[#c2a26c] tracking-wide">
+                Mr. Anil Ravriya
+              </h2>
+              <p className={`text-lg sm:text-xl  tracking-wide mt-0 ${theme === 'dark' ? 'text-neutral-300' : 'text-black/80'}`}>Founder & Director</p>
+              <div className={`space-y-4 mt-6 text-lg sm:text-xl ${theme === 'dark' ? 'text-neutral-300' : 'text-black/80'}`}>
+                <p className="font-sans not-italic leading-[1.2]">
+                  “Success isn’t just about delivering projects; it’s about
+                  <br />
+                  building enduring value for our clients, partners, and
+                  <br />
+                  communities.”
                 </p>
-
-                {/* Quote */}
-                <p className={`italic text-[11px] sm:text-[11.5px] leading-relaxed mt-1 ${
-                  theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
-                }`}>
-                  "Success isn't just about delivering projects; it's about building enduring value for our clients, partners, and communities."
+                <p className="leading-[1.2] tracking-wide">
+                  As Director of NSQUARE, Anil Ravriya brings a clear <br />vision rooted in operational excellence, innovation, and long‑term value creation. His leadership combines disciplined execution with a forward‑thinking <br />approach, ensuring that every project meets the <br />highest standards of quality and integrity.
                 </p>
-              </div>
-
-              {/* Bottom: Bio Paragraphs */}
-              <div className={`text-[11px] sm:text-[11.5px] leading-[1.55] font-light space-y-2 mt-2 ${
-                theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'
-              }`}>
-                <p>
-                  As Director of NSQUARE, Anil Ravriya brings a clear vision rooted in operational excellence, innovation, and long-term value creation. His leadership combines disciplined execution with a forward-thinking approach, ensuring that every project meets the highest standards of quality and integrity.
-                </p>
-                <p>
-                  With a strong emphasis on quality execution, ethical practices, and continuous innovation, Mr. Ravriya continues to shape NSQUARE's growth while upholding the values, trust, and legacy that define the brand.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-
-          {/* Row 2: Mr. Jignesh Patel (Motif Starts at Left Margin -> Touches Photo -> Text on Right) */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="flex flex-col lg:flex-row items-center lg:items-stretch gap-0 lg:gap-8 w-full"
-          >
-            {/* Left Group: Motif sticking directly against the Photo */}
-            <div className="relative flex items-center shrink-0">
-              {/* Exact Geometric Motif attached to the left of photo */}
-              <div className="hidden lg:flex items-center justify-end shrink-0 w-80 lg:w-[380px] xl:w-[460px] select-none pointer-events-none -mr-1 relative z-0">
-                <img
-                  src="/assets/branding/nsquare-geometric-motif.png"
-                  alt="N-Square Geometric Motif"
-                  className="w-full h-auto object-contain opacity-90 translate-y-1"
-                />
-              </div>
-
-              {/* Photo with Offset Gold Backdrop Square */}
-              <div className="relative shrink-0 pt-3 pl-3 z-10">
-                {/* Gold Offset Accent Block */}
-                <div className="absolute top-0 left-0 w-14 h-14 sm:w-16 sm:h-16 bg-[#c2a26c] z-0" />
-                
-                {/* Portrait Photo */}
-                <div className="relative z-10 w-52 sm:w-60 md:w-64 aspect-[4/4.7] bg-neutral-900 overflow-hidden shadow-md">
-                  <img
-                    src="/assets/branding/director-jignesh.png"
-                    alt="Mr. Jignesh Patel"
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Founder Content (Matched 1:1 to Photo Height) */}
-            <div className="flex-1 flex flex-col justify-between text-left py-0.5 max-w-xl">
-              {/* Top: Headline */}
-              <div>
-                <h2 className={`text-3xl sm:text-4xl md:text-[44px] lg:text-[48px] font-serif font-normal leading-[0.96] tracking-wide ${
-                  theme === 'dark' ? 'text-[#dcd7cf]' : 'text-neutral-900'
-                }`}>
-                  Vision & Execution<br />Combined
-                </h2>
-
-                {/* Subtitle */}
-                <p className="text-xs sm:text-[13px] font-semibold text-[#c2a26c] tracking-wide mt-3">
-                  Mr. Jignesh Patel - Founder & Director
-                </p>
-
-                {/* Quote */}
-                <p className={`italic text-[11px] sm:text-[11.5px] leading-relaxed mt-1 ${
-                  theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
-                }`}>
-                  "Success isn't just about delivering projects; it's about building enduring value for our clients, partners, and communities."
-                </p>
-              </div>
-
-              {/* Bottom: Bio Paragraphs */}
-              <div className={`text-[11px] sm:text-[11.5px] leading-[1.55] font-light space-y-2 mt-2 ${
-                theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'
-              }`}>
-                <p>
-                  As Director of NSQUARE, Jignesh Patel brings a clear vision rooted in operational excellence, innovation, and long-term value creation. His leadership combines disciplined execution with a forward-thinking approach, ensuring that every project meets the highest standards of quality and integrity.
-                </p>
-                <p>
-                  With a strong emphasis on quality execution, ethical practices, and continuous innovation, Mr. Patel continues to shape NSQUARE's growth while upholding the values, trust, and legacy that define the brand.
+                <p className="leading-[1.2] tracking-wide">
+                  With a strong emphasis on quality execution, ethical practices, and continuous innovation, Mr. Ravriya continues to shape NSQUARE’s growth while upholding<br /> the values, trust, and legacy that define the brand.
                 </p>
               </div>
             </div>
