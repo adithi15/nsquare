@@ -51,43 +51,43 @@ export const MILESTONES: NSStat[] = [
 // Completed Projects — pages 11–18
 // ------------------------------------------------------------
 export const COMPLETED_PROJECTS: NSProject[] = [
-  { id: 'exotica', name: 'Neelkanth Exotica', location: 'Dronagiri', floors: 'G+16', year: '2026', image: '/assets/projects/completed/exotica.jpg', status: 'completed' },
-  { id: 'avenue', name: 'Neelkanth Avenue', location: 'Kharghar', floors: 'G+22', year: '2026', image: '/assets/projects/completed/avenue.jpg', status: 'completed' },
-  { id: 'luxuria', name: 'Neelkanth Luxuria', location: 'Taloja', floors: 'G+26', year: '2024', image: '/assets/projects/completed/luxuria.jpg', status: 'completed', tag: 'Flagship Tower' },
-  { id: 'majestic', name: 'Neelkanth Majestic', location: 'Ulwe', floors: 'G+14', year: '2023', image: '/assets/projects/completed/majestic.jpg', status: 'completed' },
-  { id: 'bliss', name: 'Neelkanth Bliss', location: 'Roadpali', floors: 'G+7', year: '2023', image: '/assets/projects/completed/bliss.jpg', status: 'completed' },
-  { id: 'green', name: 'Neelkanth Green', location: 'Kamothe', floors: 'G+7', year: '2022', image: '/assets/projects/completed/green.jpg', status: 'completed' },
-  { id: 'goodluck-heights', name: 'Goodluck Heights', location: 'Taloja', floors: 'G+14', year: '2021', image: '/assets/projects/completed/goodluck-heights.jpg', status: 'completed' },
-  { id: 'classic', name: 'Neelkanth Classic', location: 'Kharghar', floors: 'G+6', year: '2021', image: '/assets/projects/completed/classic.jpg', status: 'completed' },
-  { id: 'prism-heights', name: 'Prism Heights', location: 'Taloja', floors: 'G+14', year: '2021', image: '/assets/projects/completed/prism-heights.jpg', status: 'completed' },
-  { id: 'pride', name: 'Neelkanth Pride', location: 'Ulwe', floors: 'G+13', year: '2019', image: '/assets/projects/completed/pride.jpg', status: 'completed' },
-  { id: 'greystone-heights', name: 'Greystone Heights', location: 'Kamothe', floors: 'G+13', year: '2019', image: '/assets/projects/completed/greystone-heights.jpg', status: 'completed' },
-  { id: 'panchanand-heights', name: 'Panchanand Heights', location: 'Taloja', floors: 'G+12', year: '2018', image: '/assets/projects/completed/panchanand-heights.jpg', status: 'completed' },
-  { id: 'tulsi-heights', name: 'Tulsi Heights', location: 'Kamothe', floors: 'G+13', year: '2012', image: '/assets/projects/completed/tulsi-heights.jpg', status: 'completed' },
+  { id: 'exotica', name: 'Neelkanth Exotica', location: 'Dronagiri - Sector 47', floors: 'G+16', year: '2026', image: '/assets/projects/completed/exotica.jpg', status: 'completed' },
+  { id: 'avenue', name: 'Neelkanth Avenue', location: 'Kharghar - Sector 10', floors: 'G+22', year: '2026', image: '/assets/projects/completed/avenue.jpg', status: 'completed' },
+  { id: 'luxuria', name: 'Neelkanth Luxuria', location: 'Taloja - Sector 26', floors: 'G+26', year: '2024', image: '/assets/projects/completed/luxuria.jpg', status: 'completed', tag: 'Flagship Tower' },
+  { id: 'majestic', name: 'Neelkanth Majestic', location: 'Ulwe - Sector 19', floors: 'G+14', year: '2023', image: '/assets/projects/completed/majestic.jpg', status: 'completed' },
+  { id: 'bliss', name: 'Neelkanth Bliss', location: 'Roadpali - Sector 17', floors: 'G+7', year: '2023', image: '/assets/projects/completed/bliss.jpg', status: 'completed' },
+  { id: 'green', name: 'Neelkanth Green', location: 'Kamothe - Sector 6A', floors: 'G+7', year: '2022', image: '/assets/projects/completed/green.jpg', status: 'completed' },
+  { id: 'goodluck-heights', name: 'Goodluck Heights', location: 'Taloja - Phase 1', floors: 'G+14', year: '2021', image: '/assets/projects/completed/goodluck-heights.jpg', status: 'completed' },
+  { id: 'classic', name: 'Neelkanth Classic', location: 'Kharghar - Sector 35D', floors: 'G+6', year: '2021', image: '/assets/projects/completed/classic.jpg', status: 'completed' },
+  { id: 'prism-heights', name: 'Prism Heights', location: 'Taloja - Sector 14', floors: 'G+14', year: '2021', image: '/assets/projects/completed/prism-heights.jpg', status: 'completed' },
+  { id: 'pride', name: 'Neelkanth Pride', location: 'Ulwe - Sector 18', floors: 'G+13', year: '2019', image: '/assets/projects/completed/pride.jpg', status: 'completed' },
+  { id: 'greystone-heights', name: 'Greystone Heights', location: 'Kamothe - Sector 36', floors: 'G+13', year: '2019', image: '/assets/projects/completed/greystone-heights.jpg', status: 'completed' },
+  { id: 'panchanand-heights', name: 'Panchanand Heights', location: 'Taloja - Sector 2', floors: 'G+12', year: '2018', image: '/assets/projects/completed/panchanand-heights.jpg', status: 'completed' },
+  { id: 'tulsi-heights', name: 'Tulsi Heights', location: 'Kamothe - Sector 21', floors: 'G+13', year: '2012', image: '/assets/projects/completed/tulsi-heights.jpg', status: 'completed' },
 ];
 
 // ------------------------------------------------------------
 // Ongoing Projects — pages 19–33
 // ------------------------------------------------------------
 export const ONGOING_PROJECTS: NSProject[] = [
-  { id: 'darshan', name: 'Neelkanth Darshan', location: 'Kharghar', floors: 'G+30', year: '2027', image: '/assets/projects/ongoing/darshan.jpg', status: 'ongoing', tag: 'Signature Tower' },
-  { id: 'corner', name: 'Neelkanth Corner', location: 'Pushpak Nagar', floors: 'G+7', year: '2029', image: '/assets/projects/ongoing/corner.jpg', status: 'ongoing' },
-  { id: 'shreeji', name: 'Neelkanth Shreeji', location: 'Pushpak Nagar', floors: 'G+14', year: '2027', image: '/assets/projects/ongoing/shreeji.jpg', status: 'ongoing' },
-  { id: 'dham', name: 'Neelkanth Dham', location: 'Roadpali', floors: 'G+22', year: '2029', image: '/assets/projects/ongoing/dham.jpg', status: 'ongoing' },
-  { id: 'rudra', name: 'Neelkanth Rudra', location: 'Ulwe', floors: 'G+7', year: '2027', image: '/assets/projects/ongoing/rudra.jpg', status: 'ongoing' },
+  { id: 'darshan', name: 'Neelkanth Darshan', location: 'Kharghar - Sector 34B', floors: 'G+30', year: '2027', image: '/assets/projects/ongoing/darshan.jpg', status: 'ongoing', tag: 'Signature Tower' },
+  { id: 'corner', name: 'Neelkanth Corner', location: 'Kharghar - Sector 15', floors: 'G+7', year: '2029', image: '/assets/projects/ongoing/corner.jpg', status: 'ongoing' },
+  { id: 'shreeji', name: 'Neelkanth Shreeji', location: 'Pushpak Nagar - Sector 24', floors: 'G+14', year: '2027', image: '/assets/projects/ongoing/shreeji.jpg', status: 'ongoing' },
+  { id: 'dham', name: 'Neelkanth Dham', location: 'Roadpali - Sector 20', floors: 'G+22', year: '2029', image: '/assets/projects/ongoing/dham.jpg', status: 'ongoing' },
+  { id: 'rudra', name: 'Neelkanth Rudra', location: 'Ulwe - Sector 21', floors: 'G+7', year: '2027', image: '/assets/projects/ongoing/rudra.jpg', status: 'ongoing' },
   { id: 'complex', name: 'Neelkanth Complex', location: 'Old Panvel', floors: 'G+7', year: '2028', image: '/assets/projects/ongoing/complex.jpg', status: 'ongoing' },
-  { id: 'shiv', name: 'Neelkanth Shiv', location: 'Kamothe', floors: 'G+14', year: '2029', image: '/assets/projects/ongoing/shiv.jpg', status: 'ongoing' },
-  { id: 'laxmi', name: 'Neelkanth Laxmi', location: 'Panvel', floors: 'G+14', year: '2027', image: '/assets/projects/ongoing/laxmi.jpg', status: 'ongoing' },
-  { id: 'patel-park', name: 'Patel Park', location: 'Ulwe', floors: 'G+7', year: '2027', image: '/assets/projects/ongoing/patel-park.jpg', status: 'ongoing' },
+  { id: 'shiv', name: 'Neelkanth Shiv', location: 'Kamothe - Sector 22', floors: 'G+14', year: '2029', image: '/assets/projects/ongoing/shiv.jpg', status: 'ongoing' },
+  { id: 'laxmi', name: 'Neelkanth Laxmi', location: 'Panvel - Sector 11', floors: 'G+14', year: '2027', image: '/assets/projects/ongoing/laxmi.jpg', status: 'ongoing' },
+  { id: 'patel-park', name: 'Patel Park', location: 'Ulwe - Sector 9', floors: 'G+7', year: '2027', image: '/assets/projects/ongoing/patel-park.jpg', status: 'ongoing' },
 ];
 
 // ------------------------------------------------------------
 // Upcoming Projects — pages 43, 44
 // ------------------------------------------------------------
 export const UPCOMING_PROJECTS: NSProject[] = [
-  { id: 'unicorn', name: 'Neelkanth Unicorn', location: 'Rabale', floors: 'G+33', year: '2030', image: '/assets/projects/upcoming/unicorn.jpg', status: 'upcoming', tag: 'Commercial Icon' },
-  { id: 's7-24', name: 'Neelkanth S7-24', location: 'Pushpak Nagar', floors: 'G+14', year: '2030', image: '/assets/projects/upcoming/s7-24.jpg', status: 'upcoming' },
-  { id: 'space', name: 'Neelkanth Space', location: 'Ulwe', floors: 'G+14', year: '2032', image: '/assets/projects/upcoming/space.jpg', status: 'upcoming' },
+  { id: 'unicorn', name: 'Neelkanth Unicorn', location: 'Rabale - Sector 8', floors: 'G+33', year: '2030', image: '/assets/projects/upcoming/unicorn.jpg', status: 'upcoming', tag: 'Commercial Icon' },
+  { id: 's7-24', name: 'Neelkanth S7-24', location: 'Pushpak Nagar - Sector 24', floors: 'G+14', year: '2030', image: '/assets/projects/upcoming/s7-24.jpg', status: 'upcoming' },
+  { id: 'space', name: 'Neelkanth Space', location: 'Ulwe - Sector 23', floors: 'G+14', year: '2032', image: '/assets/projects/upcoming/space.jpg', status: 'upcoming' },
 ];
 
 // ------------------------------------------------------------
