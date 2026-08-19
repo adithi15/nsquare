@@ -284,7 +284,7 @@ const VALUES = [
     ),
   },
   {
-    title: 'CUSTOMERCOMMITMENT',
+    title: 'CUSTOMER COMMITMENT',
     iconSrc: '/assets/icons/customer-commitment.svg',
     description: (
       <>
@@ -312,7 +312,7 @@ export const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({ theme }) =
     >
       {/* Content wrapper */}
       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 md:px-16 lg:px-20 py-20 lg:py-24 relative z-10">
-        <div className="w-full max-w-[560px] lg:max-w-[620px]">
+        <div className="w-full max-w-[560px] lg:max-w-[620px] md:ml-6 lg:ml-12 xl:ml-16">
 
           {/* Header */}
           <motion.div
@@ -353,7 +353,7 @@ export const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({ theme }) =
                   />
                 </div>
 
-                <h3 className="text-xs md:text-[13px] font-bold uppercase tracking-[0.16em] mb-2 text-[#C8A165]">
+                <h3 className="text-xs md:text-[13px] font-bold uppercase tracking-[0.16em] mb-2 text-[#C8A165] whitespace-nowrap">
                   {value.title}
                 </h3>
 
