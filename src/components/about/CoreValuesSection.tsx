@@ -229,7 +229,7 @@ interface CoreValuesSectionProps {
 const VALUES = [
   {
     title: 'PEOPLE FIRST',
-    iconSrc: '/assets/icons/people-first.svg',
+    iconSrc: '/assets/icons/people-first.png',
     description: (
       <>
         We place people at the heart of<br />
@@ -240,7 +240,7 @@ const VALUES = [
   },
   {
     title: 'QUALITY',
-    iconSrc: '/assets/icons/quality.svg',
+    iconSrc: '/assets/icons/quality.png',
     description: (
       <>
         We are driven by results and<br />
@@ -251,7 +251,7 @@ const VALUES = [
   },
   {
     title: 'INTEGRITY',
-    iconSrc: '/assets/icons/integrity.svg',
+    iconSrc: '/assets/icons/integrity.png',
     description: (
       <>
         We are built on honesty.<br />
@@ -262,7 +262,7 @@ const VALUES = [
   },
   {
     title: 'TEAMWORK',
-    iconSrc: '/assets/icons/teamwork.svg',
+    iconSrc: '/assets/icons/teamwork.png',
     description: (
       <>
         We approach every project with<br />
@@ -274,7 +274,7 @@ const VALUES = [
   },
   {
     title: 'INNOVATION',
-    iconSrc: '/assets/icons/innovation.svg',
+    iconSrc: '/assets/icons/innovation.png',
     description: (
       <>
         We adopt modern technology and<br />
@@ -285,7 +285,7 @@ const VALUES = [
   },
   {
     title: 'CUSTOMER COMMITMENT',
-    iconSrc: '/assets/icons/customer-commitment.svg',
+    iconSrc: '/assets/icons/customer-commitment.png',
     description: (
       <>
         Customer satisfaction remains the<br />
@@ -345,11 +345,11 @@ export const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({ theme }) =
                 className="flex flex-col items-start"
               >
                 {/* 1:1 Matching SVG Graphic */}
-                <div className="mb-3.5 h-8 flex items-center">
+                <div className="mb-5 h-12 flex items-center">
                   <img
                     src={value.iconSrc}
                     alt={value.title}
-                    className="w-8 h-8 object-contain"
+                    className="w-12 h-12 object-contain ml-5"
                   />
                 </div>
 
