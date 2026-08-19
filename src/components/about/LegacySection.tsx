@@ -32,7 +32,7 @@ export const LegacySection: React.FC<LegacySectionProps> = ({ theme = 'light' })
             transition={{ duration: 1.0, ease: 'easeOut' }}
             className="text-3xl md:text-4xl lg:text-5.5xl font-serif leading-tight font-medium text-[#c5a059]"
           >
-            Two legacies. One Vision
+            Two Legacies. One Vision
           </motion.h1>
 
           <motion.div

@@ -15,8 +15,6 @@ const LINK_ITEM = 'block text-left text-[11px] text-white/70 hover:text-[#C5A059
 export const Footer: React.FC<FooterProps> = ({ theme, maharera = 'P52000000000', onSelectTab }) => {
   return (
     <footer className="relative w-full bg-[#0b0b0b] text-white pt-20 pb-8 overflow-hidden">
-      {/* faint gold glow decor at the top edge */}
-      <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059]/70 to-transparent" />
       <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[640px] h-[320px] rounded-full bg-[#C5A059]/[0.05] blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-12">

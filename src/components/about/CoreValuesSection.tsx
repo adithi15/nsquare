@@ -284,7 +284,7 @@ const VALUES = [
     ),
   },
   {
-    title: 'CUSTOMER COMMITMENT',
+    title: 'CUSTOMERCOMMITMENT',
     iconSrc: '/assets/icons/customer-commitment.svg',
     description: (
       <>
@@ -301,7 +301,7 @@ export const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({ theme }) =
 
   return (
     <section
-      className={`relative w-full overflow-hidden transition-colors duration-500 ${isDark ? 'bg-[#121212]' : 'bg-[#f6eee3]'
+      className={`relative w-full overflow-hidden transition-colors duration-500 ${isDark ? 'bg-[#0A0A0A]' : 'bg-[#f3e4cf]'
         }`}
       style={{
         backgroundImage: 'url(/assets/branding/core-values-columns.png)',
