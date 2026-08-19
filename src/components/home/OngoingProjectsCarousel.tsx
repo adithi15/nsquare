@@ -356,7 +356,7 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
               </svg>
             </div>
 
-            <span className="text-[11px] uppercase tracking-[0.25em] text-[#C5A059] font-bold mb-1 leading-normal">
+            <span className="text-[14px] uppercase tracking-[0.25em] text-[#C5A059] font-bold mb-1 leading-normal">
               BUILDING TOMORROW,<br />STARTING TODAY
             </span>
 
@@ -364,10 +364,10 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
               Signature Projects<br />in the Making
             </h2>
 
-            <p className="text-sm text-white/90 font-light leading-relaxed">
+            <p className="text-[18px] text-white/90 font-light leading-relaxed">
               Nine landmarks rising across <br className="hidden sm:inline" />
               Navi Mumbai — each one a promise <br className="hidden sm:inline" />
-              of quality, on-time delivery and timeless design.
+              of quality, on-time delivery <br /> and timeless design.
             </p>
           </motion.div>
 
@@ -407,7 +407,7 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
                       <h3 className="text-base sm:text-lg text-white leading-snug transition-colors">
                         {p.name}
                       </h3>
-                      <p className="text-xs sm:text-sm text-white/60 font-light mt-0.5">
+                      <p className="text-[12px] sm:text-sm text-white/60 font-light mt-0.5">
                         {p.location}, Navi Mumbai
                       </p>
                     </div>

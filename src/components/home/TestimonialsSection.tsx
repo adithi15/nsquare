@@ -148,15 +148,15 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = () => {
   return (
     <section className="py-16 sm:py-20 w-full bg-[#F9F8F6] dark:bg-[#111111] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14">
-        
+
         {/* Header Block: Title & Navigation Arrows */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-5 gap-4">
           <h2 className="text-2xl sm:text-3xl md:text-[32px] font-serif font-medium text-neutral-900 dark:text-white leading-tight">
             We Care About Our Customer’s Experience Too
           </h2>
-          
+
           {/* Loop navigation buttons */}
-          <div className="flex items-center gap-3 self-end sm:self-auto">
+          <div className="flex items-center gap-3 text-[14px] self-end sm:self-auto">
             <button
               onClick={handlePrev}
               className="p-2 sm:p-2.5 rounded-full border border-neutral-300 dark:border-white/10 text-neutral-800 dark:text-white hover:bg-neutral-200/50 dark:hover:bg-white/5 transition-all cursor-pointer shadow-sm active:scale-95 flex items-center justify-center bg-white dark:bg-[#181818]"
@@ -189,9 +189,8 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = () => {
             {extendedTestimonials.map((item, idx) => (
               <div
                 key={`testi-${item.id}-${idx}`}
-                className={`${
-                  cardsPerPage === 3 ? 'w-1/3' : cardsPerPage === 2 ? 'w-1/2' : 'w-full'
-                } flex-shrink-0 px-3 sm:px-4`}
+                className={`${cardsPerPage === 3 ? 'w-1/3' : cardsPerPage === 2 ? 'w-1/2' : 'w-full'
+                  } flex-shrink-0 px-3 sm:px-4`}
               >
                 <div className="relative rounded-xl bg-white dark:bg-gradient-to-br dark:from-[#141414] dark:to-[#0C0C0C] border border-black/[0.04] dark:border-white/5 shadow-[0_10px_25px_rgba(0,0,0,0.03)] p-6 sm:p-8 flex flex-col justify-between overflow-hidden min-h-[240px] h-full transition-all duration-300 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)]">
                   {/* Giant background quote watermark */}
@@ -199,16 +198,16 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = () => {
 
                   <div className="space-y-4 relative z-10">
                     <Quote className="w-5 h-5 text-[#c2a26c] mb-2 rotate-180" />
-                    <p className="text-xs sm:text-[13px] text-neutral-700 dark:text-white/80 font-normal leading-relaxed">
+                    <p className="text-sm sm:text-[14px] text-neutral-700 dark:text-white/80 font-normal leading-relaxed">
                       “{item.quote}”
                     </p>
                   </div>
 
                   <div className="pt-5 mt-5 border-t border-neutral-100 dark:border-white/5 flex flex-col gap-1 relative z-10">
-                    <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 dark:text-white leading-none">
+                    <h4 className="text-[18px] sm:text-[14px] font-bold text-neutral-900 dark:text-white leading-none">
                       {item.name}
                     </h4>
-                    <p className="text-[9px] sm:text-[10px] text-[#A27E3B] tracking-[0.2em] uppercase mt-1 leading-none font-semibold">
+                    <p className="text-[9px] sm:text-[12px] text-[#A27E3B] tracking-[0.2em] uppercase mt-1 leading-none font-semibold">
                       {item.project}
                     </p>
                   </div>

@@ -548,9 +548,9 @@ export const FootprintMapSection: React.FC<FootprintMapSectionProps> = () => {
                   <button
                     id={`footprint-btn-${category.id}`}
                     onClick={() => handleSelectCategory(category.id)}
-                    className={`w-full flex items-center justify-between px-6 py-4 rounded-sm text-left transition-all duration-300 font-sans font-medium text-[15px] sm:text-[16px] shadow-[0_6px_20px_rgba(0,0,0,0.35)] hover:scale-[1.01] cursor-pointer ${isActive
-                        ? 'bg-white text-[#101512] ring-2 ring-[#C5A059]'
-                        : 'bg-[#C5A059] hover:bg-[#B38D48] text-white'
+                    className={`w-full flex items-center justify-between px-6 py-4 rounded-sm text-left transition-all duration-300 font-sans font-light text-[15px] sm:text-[16px] shadow-[0_6px_20px_rgba(0,0,0,0.35)] hover:scale-[1.01] cursor-pointer ${isActive
+                      ? 'bg-white text-[#101512] ring-2 ring-[#C5A059]'
+                      : 'bg-[#C5A059] hover:bg-[#B38D48] text-white'
                       }`}
                   >
                     <span className="tracking-wide">{category.buttonLabel}</span>

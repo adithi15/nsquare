@@ -196,7 +196,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
         {/* Enquire Now Button - placed above the line, clickable */}
         <button
           onClick={() => onOpenScheduleVisit(currentSlide)}
-          className="bg-[#c5a059] text-black px-7 sm:px-8 py-3 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-[#D4B575] transition-all rounded-none shadow-[0_8px_25px_rgba(0,0,0,0.3)] cursor-pointer pointer-events-auto"
+          className="bg-[#c5a059] text-black px-7 sm:px-8 py-3 text-[14px] uppercase tracking-[0.35em] font-bold hover:bg-[#D4B575] transition-all rounded-none shadow-[0_8px_25px_rgba(0,0,0,0.3)] cursor-pointer pointer-events-auto"
         >
           Enquire Now
         </button>

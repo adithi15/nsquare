@@ -59,9 +59,9 @@ export const PartnershipSection: React.FC<PartnershipSectionProps> = ({ theme = 
           <div className="text-left">
             <h3 className={`font-serif text-lg sm:text-xl md:text-[25px] leading-[1.4] font-normal ${isDark ? 'text-white' : 'text-neutral-800'
               }`}>
-              N-Square Developers Is A Strategic Partnership Between<br />
-              <span className="lg:whitespace-nowrap">Neelkanth Group And Namastey Realty, Created To Deliver</span><br />
-              Excellence In Redevelopment
+              N-Square Developers is a Strategic Partnership between<br />
+              <span className="lg:whitespace-nowrap">Neelkanth Group and Namastey Realty, Created to Deliver</span><br />
+              Excellence in Redevelopment
             </h3>
           </div>
 
@@ -111,7 +111,7 @@ export const PartnershipSection: React.FC<PartnershipSectionProps> = ({ theme = 
                 >
                   <Counter value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className={`text-xs sm:text-sm md:text-[13px] font-medium leading-snug whitespace-pre-line font-sans tracking-wide ${isDark ? 'text-neutral-200' : 'text-[#A27E3B]/80'
+                <div className={`text-xs sm:text-sm md:text-[18px] font-medium leading-snug whitespace-pre-line font-sans tracking-wide ${isDark ? 'text-neutral-200' : 'text-[#A27E3B]/80'
                   }`}>
                   {stat.label}
                 </div>

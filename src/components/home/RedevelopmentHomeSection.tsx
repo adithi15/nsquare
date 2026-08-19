@@ -48,7 +48,7 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
             </h3>
 
             {/* Description Paragraphs */}
-            <div className="space-y-4 text-neutral-800 text-[15px] sm:text-[16px] font-sans font-normal leading-relaxed mb-8 max-w-lg">
+            <div className="space-y-4 text-neutral-800 text-[18px] sm:text-[18px] font-sans font-normal leading-relaxed mb-8 max-w-lg">
               <p>
                 Redevelopment at N-Square is a carefully planned process that transforms aging structures into modern, safe, and future-ready developments.
               </p>
@@ -60,9 +60,9 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
             {/* CTA Button with Chevron */}
             <button
               onClick={onNavigateToRedevelopment}
-              className="bg-[#C5A059] hover:bg-[#B38D48] text-white font-sans text-[22px] sm:text-[24px] font-normal py-2 px-4 transition-all duration-300 inline-flex items-center gap-4 w-fit shadow-md rounded-none cursor-pointer"
+              className="bg-[#c5a059] text-black px-7 sm:px-8 py-3 text-[14px] uppercase tracking-[0.35em] font-bold hover:bg-[#D4B575] transition-all rounded-none shadow-[0_8px_25px_rgba(0,0,0,0.3)] cursor-pointer pointer-events-auto"
             >
-              <span>Explore Redevelopment Services</span>
+              <span>Explore Redevelopment</span>
               <span className="text-2xl font-normal">&gt;</span>
             </button>
           </div>

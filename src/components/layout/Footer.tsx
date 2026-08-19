@@ -10,7 +10,7 @@ interface FooterProps {
 }
 
 const COLUMN_TITLE = 'text-[10px] uppercase tracking-[0.35em] text-[#C5A059] font-semibold';
-const LINK_ITEM = 'block text-left text-[11px] text-white/70 hover:text-[#C5A059] hover:translate-x-1 transition-all duration-300 cursor-pointer';
+const LINK_ITEM = 'block text-left text-[14px] text-white/70 hover:text-[#C5A059] hover:translate-x-1 transition-all duration-300 cursor-pointer';
 
 export const Footer: React.FC<FooterProps> = ({ theme, maharera = 'P52000000000', onSelectTab }) => {
   return (
@@ -27,8 +27,8 @@ export const Footer: React.FC<FooterProps> = ({ theme, maharera = 'P52000000000'
               alt="N Square logo"
               className="h-20 md:h-24 w-auto object-contain"
             />
-            <p className="font-serif italic text-lg md:text-xl text-[#C5A059]">{CONTACT.tagline}</p>
-            <p className="text-[11px] text-white/55 font-light leading-relaxed max-w-sm">
+            {/* <p className="font-serif italic text-lg md:text-xl text-[#C5A059]">{CONTACT.tagline}</p> */}
+            <p className="text-[14px] text-white/55 font-light leading-relaxed max-w-sm">
               Two legacies. One vision — building landmarks across Navi Mumbai
               with an unbroken promise of quality and on-time delivery.
             </p>
@@ -36,8 +36,8 @@ export const Footer: React.FC<FooterProps> = ({ theme, maharera = 'P52000000000'
 
           {/* Quick Links */}
           <div className="lg:col-span-3 space-y-4">
-            <div className={COLUMN_TITLE}>Quick Links</div>
-            <div className="space-y-2.5">
+            <div className={COLUMN_TITLE} style={{ fontSize: '12px' }}>Quick Links</div>
+            <div className="space-y-2.5 text-[14px]">
               <button onClick={() => onSelectTab && onSelectTab('residences')} className={LINK_ITEM}>Home</button>
               <button onClick={() => onSelectTab && onSelectTab('projects')} className={LINK_ITEM}>Projects</button>
               <button onClick={() => onSelectTab && onSelectTab('redevelopment')} className={LINK_ITEM}>Redevelopment</button>
@@ -48,8 +48,8 @@ export const Footer: React.FC<FooterProps> = ({ theme, maharera = 'P52000000000'
 
           {/* Reach Us */}
           <div className="lg:col-span-4 space-y-4">
-            <div className={COLUMN_TITLE}>Reach Us</div>
-            <div className="space-y-3 text-[11px] text-white/70">
+            <div className={COLUMN_TITLE} style={{ fontSize: '12px' }}>Reach Us</div>
+            <div className="space-y-3 text-[14px] text-white/70">
               <a href={CONTACT.phoneHref} className="flex items-center gap-2.5 hover:text-[#C5A059] transition-colors">
                 <PhoneCall className="w-3.5 h-3.5 text-[#C5A059] shrink-0" /> {CONTACT.phone}
               </a>
