@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export const ContactHero: React.FC = () => (
-  <section className="relative w-full h-[85vh] min-h-[480px] flex items-center justify-center overflow-hidden">
+  <section className="relative w-full h-[75vh] min-h-[75vh] flex items-center justify-center overflow-hidden">
     <motion.div
       initial={{ scale: 1.05, opacity: 0.8 }}
       animate={{ scale: 1, opacity: 1 }}

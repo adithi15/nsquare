@@ -244,10 +244,10 @@ export const TeamCraftingLegaciesSection: React.FC<SectionProps> = () => {
             alt="Crafting Legacies"
             className="absolute inset-0 w-full h-full object-cover object-center"
           />
-          {/* "Shot At One Platinum" label bottom-left */}
+          {/* "Shot At Nsquare" label bottom-left */}
           <span className="absolute bottom-4 left-4 z-10 text-white/80"
             style={{ fontSize: '9px', letterSpacing: '0.3em', textTransform: 'uppercase' }}>
-            Shot At One Platinum
+            Shot At Nsquare
           </span>
         </div>
 
@@ -299,7 +299,7 @@ export const PlatinumPresenceSection: React.FC<SectionProps> = () => {
   ];
 
   const COMPLETED_LIST = [
-    { name: 'One Platinum', location: 'C.B.D. Belapur, Navi Mumbai', key: 'belapur' },
+    { name: 'Nsquare', location: 'C.B.D. Belapur, Navi Mumbai', key: 'belapur' },
     { name: 'Platinum Crescenzo', location: 'Seawoods, Navi Mumbai', key: 'seawoods' },
     { name: 'Platinum Emporius', location: 'Ulwe, Navi Mumbai', key: 'ulwe' },
     { name: 'Platinum Experio', location: 'Roadpali, Navi Mumbai', key: 'roadpali' },

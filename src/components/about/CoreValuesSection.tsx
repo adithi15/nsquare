@@ -353,7 +353,7 @@ export const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({ theme }) =
                   />
                 </div>
 
-                <h3 className="text-xs md:text-[13px] font-bold uppercase tracking-[0.16em] mb-2 text-[#C8A165] whitespace-nowrap">
+                <h3 className="text-xs md:text-[13px] font-bold uppercase tracking-[0.16em] mb-2 mt-1 text-[#C8A165] whitespace-nowrap">
                   {value.title}
                 </h3>
 

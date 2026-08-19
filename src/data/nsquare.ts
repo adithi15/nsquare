@@ -139,7 +139,7 @@ export const CONTACT = {
   phoneHref: 'tel:+918858858835',
   whatsappHref: 'https://wa.me/918858858835',
   email: 'info@nsquaredevelopers.com',
-  address: 'Office No. 601, Above Namastey Salon, The Pacific, Sector 13, Kharghar, Navi Mumbai, Maharashtra - 410210',
+  address: 'Office no.601, The Pacific, Sector.13, Kharghar, Navi Mumbai - 410210',
   tagline: 'The Epitome of Extravagance',
 };
 

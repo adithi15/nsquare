@@ -78,7 +78,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
   const lateDelay = 0.8 + chunkCount * 0.16 + 0.4;
 
   return (
-    <section className="relative w-full h-[85vh] min-h-[85vh] bg-black overflow-hidden flex flex-col justify-between">
+    <section className="relative w-full h-[75vh] min-h-[75vh] bg-black overflow-hidden flex flex-col justify-between">
       {/* Preload all backgrounds in DOM to prevent lag from mounting/unmounting heavy videos */}
       {slides.map((slide, index) => {
         const isActive = index === currentIndex;
@@ -192,7 +192,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
 
       {/* Floating Bottom Disclaimer & Action Button - centered on mobile, right on desktop */}
       <div className="absolute bottom-6 sm:bottom-10 left-0 right-0 sm:left-auto sm:right-12 z-30 flex flex-col items-center space-y-3 px-4 sm:px-0 pointer-events-none">
-        
+
         {/* Enquire Now Button - placed above the line, clickable */}
         <button
           onClick={() => onOpenScheduleVisit(currentSlide)}

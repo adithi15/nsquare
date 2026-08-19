@@ -13,7 +13,7 @@ export const LegacySection: React.FC<LegacySectionProps> = ({ theme = 'light' })
     <div className="w-full bg-[#f4efe6] text-neutral-800 font-sans">
 
       {/* 1. HERO BANNER WITH BACKGROUND IMAGE */}
-      <section className="relative w-full h-[85vh] min-h-[480px] flex items-center justify-center overflow-hidden pt-20 lg:pt-24">
+      <section className="relative w-full h-[75vh] min-h-[75vh] flex items-center justify-center overflow-hidden pt-20 lg:pt-24">
         <div className="absolute inset-0 z-0">
           <img
             src="/assets/branding/city-aerial.jpg"
