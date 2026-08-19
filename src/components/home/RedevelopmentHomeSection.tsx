@@ -18,7 +18,7 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
         <img
           src="/assets/branding/redevelopment-watermark.png"
           alt="REDEVELOPMENT Watermark"
-          className="mx-auto h-[48px] sm:h-[72px] md:h-[110px] lg:h-[145px] xl:h-[165px] object-contain select-none pointer-events-none -mt-0.5 sm:-mt-1.5 md:-mt-3 lg:-mt-4 xl:-mt-5"
+          className="mx-auto h-[48px] sm:h-[72px] md:h-[110px] lg:h-[145px] xl:h-[165px] object-contain object-top select-none pointer-events-none -mt-0.5 sm:-mt-1 md:-mt-1.5 lg:-mt-2 xl:-mt-2.5"
         />
       </div>
 
