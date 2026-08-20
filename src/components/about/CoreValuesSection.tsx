@@ -232,8 +232,9 @@ const VALUES = [
     iconSrc: '/assets/icons/people-first.png',
     description: (
       <>
-        We place people at the heart of<br />
-        everything we do - our employees,<br />
+        We place people at the <br />
+        heart of everything we <br />
+        do - our employees, <br />
         customers, and investors.
       </>
     ),
@@ -243,8 +244,9 @@ const VALUES = [
     iconSrc: '/assets/icons/quality.png',
     description: (
       <>
-        We are driven by results and<br />
-        inspired by a relentless pursuit of<br />
+        We are driven by results <br />
+        and inspired by a <br />
+        relentless pursuit of <br />
         continuous improvement.
       </>
     ),
@@ -254,8 +256,9 @@ const VALUES = [
     iconSrc: '/assets/icons/integrity.png',
     description: (
       <>
-        We are built on honesty.<br />
-        We are driven by transparency.<br />
+        We are built on honesty. <br />
+        We are driven <br />
+        by transparency. <br />
         Defined by accountability.
       </>
     ),
@@ -265,9 +268,9 @@ const VALUES = [
     iconSrc: '/assets/icons/teamwork.png',
     description: (
       <>
-        We approach every project with<br />
-        strong accountability and<br />
-        dedication to deliver on our<br />
+        We approach every project with <br />
+        strong accountability and <br />
+        dedication to deliver on our <br />
         commitments.
       </>
     ),
@@ -277,9 +280,10 @@ const VALUES = [
     iconSrc: '/assets/icons/innovation.png',
     description: (
       <>
-        We adopt modern technology and<br />
-        creative design approaches to<br />
-        deliver exceptional results.
+        We adopt modern technology <br />
+        and creative design <br />
+        approaches to deliver <br />
+        exceptional results.
       </>
     ),
   },
@@ -288,8 +292,9 @@ const VALUES = [
     iconSrc: '/assets/icons/customer-commitment.png',
     description: (
       <>
-        Customer satisfaction remains the<br />
-        heart of everything we do, from<br />
+        Customer satisfaction <br />
+        remains the heart of <br />
+        everything we do, from <br />
         planning to completion.
       </>
     ),
@@ -312,7 +317,7 @@ export const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({ theme }) =
     >
       {/* Content wrapper */}
       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 md:px-16 lg:px-20 py-20 lg:py-24 relative z-10">
-        <div className="w-full max-w-[560px] lg:max-w-[620px] md:ml-6 lg:ml-12 xl:ml-16">
+        <div className="w-full max-w-[560px] lg:max-w-[620px] md:ml-4 lg:ml-8 xl:ml-10">
 
           {/* Header */}
           <motion.div
@@ -322,7 +327,7 @@ export const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({ theme }) =
             transition={{ duration: 0.5 }}
             className="mb-12 lg:mb-14"
           >
-            <p className="text-sm md:text-base font-semibold uppercase tracking-[0.35em] text-black/80 mb-1 translate-x-40">
+            <p className="text-sm md:text-base font-semibold uppercase tracking-[0.35em] text-black/80 mb-1">
               OUR CORE VALUES
             </p>
             <h2
@@ -349,7 +354,7 @@ export const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({ theme }) =
                   <img
                     src={value.iconSrc}
                     alt={value.title}
-                    className="w-12 h-12 object-contain ml-5"
+                    className="w-12 h-12 object-contain ml-2"
                   />
                 </div>
 
@@ -358,7 +363,7 @@ export const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({ theme }) =
                 </h3>
 
                 <p
-                  className={`text-[12px] leading-[1.6] ${isDark ? 'text-neutral-300' : 'text-[#222222]'
+                  className={`text-[14px] leading-[1.6] ${isDark ? 'text-neutral-300' : 'text-[#222222]'
                     }`}
                 >
                   {value.description}

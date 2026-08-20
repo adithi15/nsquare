@@ -101,7 +101,7 @@ export const OngoingProjectsCarousel: React.FC<SectionProps> = () => {
   useEffect(() => {
     const timer = window.setInterval(() => {
       setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
-    }, 4000);
+    }, 5000);
     return () => window.clearInterval(timer);
   }, [maxIndex]);
 

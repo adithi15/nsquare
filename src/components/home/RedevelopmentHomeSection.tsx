@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ThemeMode } from '../../types';
-import { Quote } from 'lucide-react';
+import { Quote, ChevronRight } from 'lucide-react';
 
 interface RedevelopmentHomeSectionProps {
   theme: ThemeMode;
@@ -60,10 +60,10 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
             {/* CTA Button with Chevron */}
             <button
               onClick={onNavigateToRedevelopment}
-              className="bg-[#c5a059] text-black px-7 sm:px-8 py-3 text-[14px] uppercase tracking-[0.35em] font-bold hover:bg-[#D4B575] transition-all rounded-none shadow-[0_8px_25px_rgba(0,0,0,0.3)] cursor-pointer pointer-events-auto"
+              className="group bg-[#c5a059] text-black px-7 sm:px-8 py-3 text-[14px] uppercase tracking-[0.35em] font-bold hover:bg-[#D4B575] transition-all rounded-none shadow-[0_8px_25px_rgba(0,0,0,0.3)] cursor-pointer pointer-events-auto flex items-center justify-center gap-2"
             >
               <span>Explore Redevelopment</span>
-              <span className="text-2xl font-normal">&gt;</span>
+              <ChevronRight className="w-5 h-5 text-black group-hover:translate-x-1 transition-transform stroke-[2.5px]" />
             </button>
           </div>
 

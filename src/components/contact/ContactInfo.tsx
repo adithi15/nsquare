@@ -6,11 +6,11 @@ import { CONTACT } from '../../data/nsquare';
 export const ContactInfo: React.FC = () => (
   <div className="space-y-6 ">
     <div className="space-y-1">
-      <span className="text-[11px] uppercase tracking-[0.25em] text-[#b88e4c] font-medium block">
+      <span className="text-[12px] uppercase tracking-[0.25em] text-[#b88e4c] font-medium block">
         DIRECT CONCIERGE
       </span>
-      <p className="text-xs leading-relaxed text-neutral-600 font-light pt-1">
-        Solution to all your queries is just a tap away — call, WhatsApp or email us directly.
+      <p className="text-[14px] leading-relaxed text-neutral-600 font-light pt-1">
+        Solution to all your queries is just a tap away <br />— call, WhatsApp or email us directly.
       </p>
     </div>
 
@@ -20,13 +20,13 @@ export const ContactInfo: React.FC = () => (
           <MapPin className="w-4 h-4" />
         </div>
         <div className="space-y-0.5">
-          <h6 className="text-[10px] uppercase tracking-wider text-[#b88e4c] font-semibold">
+          <h6 className="text-[12px] uppercase tracking-wider text-[#b88e4c] font-semibold">
             CORPORATE OFFICE ADDRESS:
           </h6>
-          <p className="text-[11px] text-neutral-700 leading-snug font-light">
-            Office No. 601, Above Namastey Salon, The Pacific, Sector 13
+          <p className="text-[14px] text-neutral-700 leading-snug font-light">
+            Office No. 601, Above Namastey Salon, <br />The Pacific, Sector 13 Kharghar,
             <br />
-            Kharghar, Navi Mumbai, Maharashtra - 410210
+            Navi Mumbai, Maharashtra - 410210
           </p>
         </div>
       </div>
@@ -39,10 +39,10 @@ export const ContactInfo: React.FC = () => (
           <Phone className="w-4 h-4" />
         </div>
         <div className="space-y-0.5">
-          <h6 className="text-[10px] uppercase tracking-wider text-[#b88e4c] font-semibold">
+          <h6 className="text-[12px] uppercase tracking-wider text-[#b88e4c] font-semibold">
             CALL:
           </h6>
-          <p className="text-[11px] text-neutral-700 font-light">+91 {CONTACT.phone}</p>
+          <p className="text-[14px] text-neutral-700 font-light">+91 {CONTACT.phone}</p>
         </div>
       </a>
 
@@ -56,10 +56,10 @@ export const ContactInfo: React.FC = () => (
           <MessageCircle className="w-4 h-4" />
         </div>
         <div className="space-y-0.5">
-          <h6 className="text-[10px] uppercase tracking-wider text-[#b88e4c] font-semibold">
+          <h6 className="text-[12px] uppercase tracking-wider text-[#b88e4c] font-semibold">
             WHATSAPP:
           </h6>
-          <p className="text-[11px] text-neutral-700 font-light">
+          <p className="text-[14px] text-neutral-700 font-light">
             +91 {CONTACT.phone} — chat with our concierge
           </p>
         </div>
@@ -73,10 +73,10 @@ export const ContactInfo: React.FC = () => (
           <Mail className="w-4 h-4" />
         </div>
         <div className="space-y-0.5">
-          <h6 className="text-[10px] uppercase tracking-wider text-[#b88e4c] font-semibold">
+          <h6 className="text-[12px] uppercase tracking-wider text-[#b88e4c] font-semibold">
             EMAIL:
           </h6>
-          <p className="text-[11px] text-neutral-700 font-light">{CONTACT.email}</p>
+          <p className="text-[14px] text-neutral-700 font-light">{CONTACT.email}</p>
         </div>
       </a>
     </div>

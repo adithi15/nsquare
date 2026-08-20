@@ -671,7 +671,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ proj, onImageClick }) => {
           <h3 className="text-[13px] md:text-sm font-semibold tracking-wide text-neutral-900 uppercase font-sans">
             {proj.name}
           </h3>
-          <p className="text-[11px] text-neutral-500 font-light font-sans">
+          <p className="text-[14px] text-neutral-500 font-light font-sans">
             {proj.location}
           </p>
         </div>

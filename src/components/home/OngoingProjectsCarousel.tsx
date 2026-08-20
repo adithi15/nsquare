@@ -325,7 +325,7 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
       const nearest = Math.round(el.scrollLeft / step);
       const nextIndex = nearest >= maxIndex ? 0 : nearest + 1;
       smoothScrollTo(el, Math.min(max, nextIndex * step));
-    }, 4500);
+    }, 5000);
 
     return () => {
       window.clearInterval(id);

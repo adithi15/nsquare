@@ -43,6 +43,7 @@ export const Footer: React.FC<FooterProps> = ({ theme, maharera = 'P52000000000'
               <button onClick={() => onSelectTab && onSelectTab('redevelopment')} className={LINK_ITEM}>Redevelopment</button>
               <button onClick={() => onSelectTab && onSelectTab('legacy')} className={LINK_ITEM}>About Us</button>
               <button onClick={() => onSelectTab && onSelectTab('contact')} className={LINK_ITEM}>Contact Us</button>
+              <a href="#" className={LINK_ITEM}>Privacy Policy</a>
             </div>
           </div>
 
@@ -59,9 +60,14 @@ export const Footer: React.FC<FooterProps> = ({ theme, maharera = 'P52000000000'
               <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-2.5 hover:text-[#C5A059] transition-colors">
                 <Mail className="w-3.5 h-3.5 text-[#C5A059] shrink-0" /> {CONTACT.email}
               </a>
-              <p className="flex items-start gap-2.5 leading-relaxed">
-                <MapPin className="w-3.5 h-3.5 text-[#C5A059] mt-0.5 shrink-0" /> {CONTACT.address}
-              </p>
+              <div className="flex items-start gap-2.5 leading-relaxed">
+                <MapPin className="w-3.5 h-3.5 text-[#C5A059] mt-1 shrink-0" />
+                <div>
+                  Office no.601, The Pacific, Sector.13,
+                  <br />
+                  Kharghar, Navi Mumbai - 410210
+                </div>
+              </div>
             </div>
 
             {/* Socials */}

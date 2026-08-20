@@ -121,7 +121,7 @@ export const LegacySection2: React.FC<LegacySection2Props> = ({ theme = 'light' 
         >
           {/* Left: Photo column (6 cols - 50% split) */}
           <div className="lg:col-span-6 lg:order-2 flex justify-center lg:justify-start z-10 w-full pl-0 lg:pl-8">
-            <div className="relative w-56 sm:w-72 md:w-80 lg:w-full lg:max-w-[340px] aspect-[4/4.7] bg-neutral-900 overflow-hidden shadow-2xl border border-neutral-300/20">
+            <div className="relative w-56 sm:w-72 md:w-80 lg:w-full lg:max-w-[340px] aspect-[4/4.7] bg-neutral-900 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-neutral-300/20">
               <img
                 src="/assets/branding/director-jignesh-new.jpg"
                 alt="Mr. Jignesh Patel"
@@ -142,12 +142,12 @@ export const LegacySection2: React.FC<LegacySection2Props> = ({ theme = 'light' 
               Founder & Director
             </p>
 
-            <div className={`space-y-6 mt-6 text-lg sm:text-xl ${theme === 'dark' ? 'text-neutral-300' : 'text-black/80'}`}>
-              <p className="font-sans not-italic leading-[1.2]">
-                “True leadership is built on trust, consistency,<br /> and getting things done right.”
+            <div className={`space-y-6 mt-6 text-[18px] sm:text-xl ${theme === 'dark' ? 'text-neutral-300' : 'text-black/80'}`}>
+              <p className="font-sans not-italic leading-[1.2] text-justify">
+                “True leadership is built on trust, consistency, and getting things done right.”
               </p>
-              <p className="leading-[1.2] tracking-wide">
-                As Director of Namastey, Jignesh Patel brings <br /> a strategic vision and hands-on approach to leadership, with a strong focus on quality, operational excellence, and long-term value creation. His practical, results-driven mindset combines disciplined execution with a <br />commitment to building lasting relationships <br />with clients, partners, and stakeholders. Under<br /> his leadership, Namastey continues to grow <br />with confidence while staying rooted in <br />integrity, reliability, and quality.
+              <p className="leading-[1.2] tracking-wide text-justify">
+                As Director of Namastey, Jignesh Patel brings a strategic vision and hands-on approach to leadership, with a strong focus on quality, operational excellence, and long-term value creation. His practical, results-driven mindset combines disciplined execution with a commitment to building lasting relationships with clients, partners, and stakeholders. Under his leadership, Namastey continues to grow with confidence while staying rooted in integrity, reliability, and quality.
               </p>
             </div>
           </div>

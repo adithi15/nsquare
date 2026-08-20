@@ -172,7 +172,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
 
                   {/* Message */}
                   <div className="pt-1">
-                    <label className="block text-xs text-[#b88080808e4c] font-medium mb-1.5" htmlFor="message">
+                    <label className="block text-xs text-[#808080] font-medium mb-1.5" htmlFor="message">
                       Message
                     </label>
                     <textarea
@@ -193,7 +193,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="bg-[#9c8770] hover:bg-[#85725d] text-white px-8 py-3.5 text-xs uppercase tracking-widest font-semibold transition-all duration-300 shadow-md cursor-pointer hover:shadow-lg active:scale-95 rounded-none"
+                      className="bg-[#c5a059] text-black px-7 sm:px-8 py-3 text-[12px] uppercase tracking-[0.35em] font-bold hover:bg-[#D4B575] transition-all rounded-none shadow-[0_8px_25px_rgba(0,0,0,0.3)] cursor-pointer pointer-events-auto"
                     >
                       Send Message
                     </button>

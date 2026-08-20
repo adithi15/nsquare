@@ -77,9 +77,9 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 sm:px-10 md:px-12 lg:px-16 shrink-0 transition-all duration-500 ease-in-out bg-black/75 backdrop-blur-xl ${isScrolled
-      ? 'border-b border-white/10 shadow-2xl py-1 md:py-1.5'
-      : 'py-2 md:py-2.5'
+    <header className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 sm:px-10 md:px-12 lg:px-16 shrink-0 transition-all duration-500 ease-in-out ${isScrolled || mobileMenuOpen
+      ? 'bg-black/35 backdrop-blur-xl border-b border-white/10 shadow-2xl py-1 md:py-1.5'
+      : 'bg-transparent backdrop-blur-none py-2 md:py-2.5'
       }`}>
       {/* 1. Left: Brand Logo */}
       <button

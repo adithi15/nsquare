@@ -98,8 +98,8 @@ export const LegacySection: React.FC<LegacySectionProps> = ({ theme = 'light' })
             className="grid grid-cols-1 lg:grid-cols-12 items-center gap-10 lg:gap-16 w-full relative z-10"
           >
             {/* Left: Photo column (6 cols - 50% split) */}
-            <div className="lg:col-span-6 flex justify-center lg:justify-start z-10 w-full pl-0 lg:pl-24">
-              <div className="relative w-56 sm:w-72 md:w-80 lg:w-full lg:max-w-[340px] aspect-[4/4.7] bg-neutral-900 overflow-hidden shadow-2xl border border-neutral-300/20">
+            <div className="lg:col-span-6 flex justify-center lg:justify-end z-10 w-full pr-0 lg:pr-4">
+              <div className="relative w-56 sm:w-72 md:w-80 lg:w-full lg:max-w-[340px] aspect-[4/4.7] bg-neutral-900 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-neutral-300/20">
                 <img
                   src="/assets/branding/director-anil-new.jpg"
                   alt="Mr. Anil Ravriya"
@@ -111,24 +111,20 @@ export const LegacySection: React.FC<LegacySectionProps> = ({ theme = 'light' })
             </div>
 
             {/* Right: Content column (6 cols - 50% split) */}
-            <div className="lg:col-span-6 text-left w-full py-2 z-10 lg:pl-10 xl:pl-16">
+            <div className="lg:col-span-6 text-left w-full py-2 z-10 lg:pl-4">
               <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-serif font-semibold leading-none text-[#c2a26c] tracking-wide">
                 Mr. Anil Ravriya
               </h2>
-              <p className={`text-lg sm:text-xl  tracking-wide mt-0 ${theme === 'dark' ? 'text-neutral-300' : 'text-black/80'}`}>Founder & Director</p>
+              <p className={`text-[18px] sm:text-xl  tracking-wide mt-0 ${theme === 'dark' ? 'text-neutral-300' : 'text-black/80'}`}>Founder & Director</p>
               <div className={`space-y-4 mt-6 text-lg sm:text-xl ${theme === 'dark' ? 'text-neutral-300' : 'text-black/80'}`}>
-                <p className="font-sans not-italic leading-[1.2]">
-                  “Success isn’t just about delivering projects; it’s about
-                  <br />
-                  building enduring value for our clients, partners, and
-                  <br />
-                  communities.”
+                <p className="font-sans not-italic leading-[1.2] text-justify">
+                  “Success isn’t just about delivering projects; it’s about building enduring value for our clients, partners, and communities.”
                 </p>
-                <p className="leading-[1.2] tracking-wide">
-                  As Director of NSQUARE, Anil Ravriya brings a clear <br />vision rooted in operational excellence, innovation, and long‑term value creation. His leadership combines disciplined execution with a forward‑thinking <br />approach, ensuring that every project meets the <br />highest standards of quality and integrity.
+                <p className="leading-[1.2] tracking-wide text-justify">
+                  As Director of NSQUARE, Anil Ravriya brings a clear vision rooted in operational excellence, innovation, and long‑term value creation. His leadership combines disciplined execution with a forward‑thinking approach, ensuring that every project meets the highest standards of quality and integrity.
                 </p>
-                <p className="leading-[1.2] tracking-wide">
-                  With a strong emphasis on quality execution, ethical practices, and continuous innovation, Mr. Ravriya continues to shape NSQUARE’s growth while upholding<br /> the values, trust, and legacy that define the brand.
+                <p className="leading-[1.2] tracking-wide text-justify">
+                  With a strong emphasis on quality execution, ethical practices, and continuous innovation, Mr. Ravriya continues to shape NSQUARE’s growth while upholding the values, trust, and legacy that define the brand.
                 </p>
               </div>
             </div>

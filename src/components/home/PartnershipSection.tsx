@@ -55,8 +55,8 @@ export const PartnershipSection: React.FC<PartnershipSectionProps> = ({ theme = 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 space-y-10">
 
         {/* Top: Text and Logos */}
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 xl:gap-20">
-          <div className="text-left">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 lg:gap-12 w-full">
+          <div className="text-left max-w-3xl">
             <h3 className={`font-serif text-lg sm:text-xl md:text-[25px] leading-[1.4] font-normal ${isDark ? 'text-white' : 'text-neutral-800'
               }`}>
               N-Square Developers is a Strategic Partnership between<br />
@@ -65,7 +65,7 @@ export const PartnershipSection: React.FC<PartnershipSectionProps> = ({ theme = 
             </h3>
           </div>
 
-          <div className="flex items-center justify-center gap-6 sm:gap-10 w-full lg:w-auto shrink-0">
+          <div className="flex items-center justify-start lg:justify-end gap-6 sm:gap-10 w-full lg:w-auto shrink-0">
             {/* Logo 1: Neelkanth Group (High-Res Large View) */}
             <div className="max-w-[260px] sm:max-w-[300px] h-24 sm:h-28 md:h-36 flex items-center justify-center">
               <img
