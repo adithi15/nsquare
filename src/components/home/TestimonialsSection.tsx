@@ -177,7 +177,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = () => {
         {/* Sliding Carousel Viewport */}
         <div className="overflow-hidden relative w-full px-1 pt-1 pb-4">
           <motion.div
-            className="flex"
+            className="flex -mx-4 sm:-mx-5"
             animate={{ x: `-${currentIndex * (100 / cardsPerPage)}%` }}
             transition={
               isTransitioning

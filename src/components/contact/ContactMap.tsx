@@ -7,7 +7,7 @@ export const ContactMap: React.FC = () => (
     <div className="w-full h-[calc(100%+120px)] -mt-[56px] overflow-hidden">
       <iframe
         title="N-Square Developers Location Map"
-        src="https://maps.google.com/maps?q=Office+no.601,+The+Pacific,+Sector.13,+Kharghar,+Navi+Mumbai+-+410210&z=16&output=embed"
+        src="https://maps.google.com/maps?q=The+Pacific,+Sector+13,+Kharghar,+Navi+Mumbai&z=16&output=embed"
         width="100%"
         height="100%"
         className="border-0 block w-full h-full scale-[1.02]"

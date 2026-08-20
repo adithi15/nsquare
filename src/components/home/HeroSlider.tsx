@@ -63,19 +63,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
 
 
 
-  const titleChunks: { text: string; space: boolean }[] = [];
-  currentSlide.title
-    .toLowerCase()
-    .split(' ')
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .forEach((word, wi, arr) => {
-      for (let i = 0; i < word.length; i += 2) {
-        titleChunks.push({ text: word.slice(i, i + 2), space: false });
-      }
-      if (wi < arr.length - 1) titleChunks.push({ text: ' ', space: true });
-    });
-  const chunkCount = titleChunks.filter((t) => !t.space).length;
-  const lateDelay = 0.8 + chunkCount * 0.16 + 0.4;
+
 
   return (
     <section className="relative w-full h-[75vh] min-h-[75vh] bg-black overflow-hidden flex flex-col justify-between">
@@ -138,9 +126,10 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
           <div className="flex flex-col gap-4 md:gap-6">
             {/* "it's Crafted For Generations" Graphic */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+              key={currentIndex}
+              initial={{ opacity: 0, y: 35, filter: 'blur(8px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-[280px] sm:max-w-[420px] md:max-w-[480px] lg:max-w-[540px] pointer-events-none select-none"
             >
               <img
@@ -149,41 +138,6 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
                 className="w-full h-auto object-contain bg-transparent"
               />
             </motion.div>
-
-            {/* Commented out title and subtitle as requested
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-script leading-[1.25] text-white max-w-5xl drop-shadow-[0_2px_18px_rgba(0,0,0,0.45)]">
-              {titleChunks.map((t, i) => {
-                if (t.space) return <span key={`${currentSlide.id}-sp${i}`}> </span>;
-                const ci = titleChunks.slice(0, i).filter((x) => !x.space).length;
-                return (
-                  <motion.span
-                    key={`${currentSlide.id}-c${i}`}
-                    initial={{ opacity: 0, y: 22, filter: 'blur(10px)' }}
-                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                    transition={{
-                      duration: 1.0,
-                      delay: 0.5 + ci * 0.16,
-                      ease: [0.22, 1, 0.36, 1] as const,
-                    }}
-                    className="inline-block"
-                  >
-                    {t.text}
-                  </motion.span>
-                );
-              })}
-            </h1>
-
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.1, delay: lateDelay, ease: [0.22, 1, 0.36, 1] as const }}
-              className="flex flex-col sm:flex-row sm:items-center sm:gap-8 gap-3"
-            >
-              <p className="text-[11px] uppercase tracking-[0.35em] text-white/70 border-l-2 border-white/40 pl-4">
-                {currentSlide.subtitle}
-              </p>
-            </motion.div>
-            */}
           </div>
 
 
