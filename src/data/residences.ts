@@ -12,8 +12,8 @@ export const HERO_SLIDES: HeroSlide[] = [
   {
     id: 'slide-hero-2',
     code: 'SIGNATURE 02',
-    title: 'REFINED LIVING',
-    subtitle: 'CURATED FOR YOU',
+    title: 'CELEBRATE LIFE',
+    subtitle: 'CURATED LUXURY NIGHTS',
     location: 'Navi Mumbai',
     image: '/assets/hero/hero_img_2.jpg',
     propertyId: 'neelkanth-unicorn',
@@ -22,7 +22,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     id: 'slide-hero-3',
     code: 'SIGNATURE 03',
     title: 'AESTHETIC BRILLIANCE',
-    subtitle: 'TIMELESS DESIGN',
+    subtitle: 'TIMELESS ELEGANCE',
     location: 'Navi Mumbai',
     image: '/assets/hero/hero_img_3.jpg',
     propertyId: 'neelkanth-space',
@@ -30,7 +30,7 @@ export const HERO_SLIDES: HeroSlide[] = [
   {
     id: 'slide-hero-4',
     code: 'SIGNATURE 04',
-    title: 'PEAK EXCELLENCE',
+    title: 'ARCHITECTURAL MASTERY',
     subtitle: 'THE ULTIMATE LIFESTYLE',
     location: 'Navi Mumbai',
     image: '/assets/hero/hero_img_4.jpg',
@@ -39,7 +39,7 @@ export const HERO_SLIDES: HeroSlide[] = [
   {
     id: 'slide-hero-5',
     code: 'SIGNATURE 05',
-    title: 'GLOBAL STANDARDS',
+    title: 'GRAND ARRIVALS',
     subtitle: 'ELEVATING CITYSCAPES',
     location: 'Navi Mumbai',
     image: '/assets/hero/hero_img_5.jpg',
@@ -49,7 +49,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     id: 'slide-hero-6',
     code: 'SIGNATURE 06',
     title: 'EVENING GLORY',
-    subtitle: 'PANORAMIC VIEWS',
+    subtitle: 'PANORAMIC PENTHOUSE VIEWS',
     location: 'Navi Mumbai',
     image: '/assets/hero/hero_img_6.jpg',
     propertyId: 'neelkanth-shiv',
@@ -66,11 +66,20 @@ export const HERO_SLIDES: HeroSlide[] = [
   {
     id: 'slide-hero-8',
     code: 'SIGNATURE 08',
-    title: 'BESPOKE INTERIORS',
+    title: 'PRIVATE CLUB LOUNGE',
     subtitle: 'CRAFTED TO PERFECTION',
     location: 'Navi Mumbai',
     image: '/assets/hero/hero_img_8.jpg',
     propertyId: 'neelkanth-unicorn',
+  },
+  {
+    id: 'slide-hero-9',
+    code: 'SIGNATURE 09',
+    title: 'ROOFTOP PROMENADE',
+    subtitle: 'ELEVATED SKYLINE LIVING',
+    location: 'Navi Mumbai',
+    image: '/assets/hero/hero_img_9.jpg',
+    propertyId: 'neelkanth-space',
   },
 ];
 
