@@ -100,12 +100,12 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
                 src={slide.image}
                 alt={slide.title}
                 initial={{ scale: 1 }}
-                animate={{ scale: isActive ? 1.08 : 1 }}
+                animate={{ scale: isActive ? 1.05 : 1 }}
                 transition={{ duration: 6.5, ease: 'easeOut' }}
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full object-cover object-top sm:object-center"
               />
             )}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/35 to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-black/20 z-10 pointer-events-none" />
           </motion.div>
         );
       })}
