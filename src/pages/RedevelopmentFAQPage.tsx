@@ -147,12 +147,14 @@ export const RedevelopmentFAQPage: React.FC<RedevelopmentFAQPageProps> = ({ them
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35, ease: 'easeInOut' }}
-                      className={`overflow-hidden font-sans border-t border-[#C5A059]/20 px-6 py-5 text-sm leading-relaxed ${
-                        isDark ? 'bg-white/[0.02] text-neutral-300' : 'bg-black/[0.01] text-neutral-700'
-                      }`}
+                      transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+                      className="overflow-hidden font-sans"
                     >
-                      {item.answer}
+                      <div className={`border-t border-[#C5A059]/20 px-6 py-5 text-sm leading-relaxed ${
+                        isDark ? 'bg-white/[0.02] text-neutral-300' : 'bg-black/[0.01] text-neutral-700'
+                      }`}>
+                        {item.answer}
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>

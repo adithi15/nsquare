@@ -63,10 +63,12 @@ export const RedevelopmentFAQ: React.FC<RedevelopmentFAQProps> = ({ isDark }) =>
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: 'easeInOut' }}
-                      className="overflow-hidden bg-[#FDFBF7] dark:bg-neutral-900/30 border-x border-b border-[#C5A059]/30 px-6 py-4.5 text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed font-light font-sans"
+                      transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+                      className="overflow-hidden"
                     >
-                      {item.answer}
+                      <div className="bg-[#FDFBF7] dark:bg-neutral-900/30 border-x border-b border-[#C5A059]/30 px-6 py-5 text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed font-light font-sans">
+                        {item.answer}
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>

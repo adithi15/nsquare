@@ -130,23 +130,25 @@ export const LegacySection2: React.FC<LegacySection2Props> = ({ theme = 'light' 
             </div>
           </div>
 
-          {/* Right: Content column - Shifted more to the right */}
-          <div className="lg:col-span-6 lg:order-1 text-left w-full py-2 z-10 lg:pl-10 xl:pl-16 lg:pr-12 xl:pr-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-serif font-semibold leading-none text-[#c2a26c] tracking-wide">
-              Mr. Jignesh Patel
-            </h2>
-            <p className={`text-[18px] sm:text-xl tracking-wide mt-0 ${theme === 'dark' ? 'text-neutral-300' : 'text-black/80'
-              }`}>
-              Founder & Director
-            </p>
+          {/* Right: Content column - Aligned to right edge of col 1-6 so gap to photo is identical */}
+          <div className="lg:col-span-6 lg:order-1 w-full py-2 z-10 lg:pr-4 flex flex-col lg:items-end">
+            <div className="max-w-[480px] w-full text-left">
+              <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-serif font-semibold leading-none text-[#c2a26c] tracking-wide">
+                Mr. Jignesh Patel
+              </h2>
+              <p className={`text-[18px] sm:text-xl tracking-wide mt-0 ${theme === 'dark' ? 'text-neutral-300' : 'text-black/80'
+                }`}>
+                Founder & Director
+              </p>
 
-            <div className={`space-y-4 mt-6 text-lg sm:text-xl ${theme === 'dark' ? 'text-neutral-300' : 'text-black/80'}`}>
-              <p className="font-sans not-italic leading-[1.2] text-justify max-w-[480px]">
-                “True leadership is built on trust, consistency, and getting things done right.”
-              </p>
-              <p className="leading-[1.3] tracking-wide text-justify max-w-[480px]">
-                As Director of NSQUARE, Jignesh Patel brings a strategic vision and hands-on approach to leadership, with a strong focus on quality, operational excellence, and long-term value creation. His practical, results-driven mindset combines disciplined execution with a commitment to building lasting relationships with clients, partners, and stakeholders. Under his leadership, NSQUARE continues to grow with confidence while staying rooted in integrity, reliability, and quality.
-              </p>
+              <div className={`space-y-4 mt-6 text-lg sm:text-xl ${theme === 'dark' ? 'text-neutral-300' : 'text-black/80'}`}>
+                <p className="font-sans not-italic leading-[1.2] text-justify">
+                  “True leadership is built on trust, consistency, and getting things done right.”
+                </p>
+                <p className="leading-[1.3] tracking-wide text-justify">
+                  As Director of NSQUARE, Jignesh Patel brings a strategic vision and hands-on approach to leadership, with a strong focus on quality, operational excellence, and long-term value creation. His practical, results-driven mindset combines disciplined execution with a commitment to building lasting relationships with clients, partners, and stakeholders. Under his leadership, NSQUARE continues to grow with confidence while staying rooted in integrity, reliability, and quality.
+                </p>
+              </div>
             </div>
           </div>
         </motion.div>
