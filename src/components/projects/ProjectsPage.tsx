@@ -757,10 +757,10 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({
       <section className="relative w-full h-[75vh] min-h-[75vh] flex flex-col justify-end px-6 md:px-16 pb-20 pt-16 overflow-hidden">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
-            src="/assets/section-titles/legacy-title.jpg"
+            src="/assets/section-titles/projects-hero.jpg"
             alt=""
             decoding="async"
-            className="absolute left-1/2 -translate-x-1/2 top-[-34%] h-[340%] w-auto max-w-none animate-pulse-slow"
+            className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/55" />
         </div>

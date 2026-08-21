@@ -5,7 +5,7 @@ export const RedevelopmentHero: React.FC = () => {
     <section className="relative w-full h-[75vh] min-h-[75vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
-          src="/assets/branding/city-aerial.jpg"
+          src="/assets/branding/redevelopment-hero.jpg"
           alt="Navi Mumbai Skyline"
           decoding="async"
           className="w-full h-full object-cover object-center"

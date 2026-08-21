@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { ThemeMode } from '../types';
-import { ChevronDown, Check } from 'lucide-react';
+import { ChevronDown, Check, Loader2 } from 'lucide-react';
 import { ContactHero, ContactInfo, ContactMap } from '../components/contact';
+import emailjs from '@emailjs/browser';
+import {
+  EMAILJS_PUBLIC_KEY,
+  EMAILJS_SERVICE_ID,
+  EMAILJS_CONTACT_TEMPLATE_ID
+} from '../lib/emailjs';
 
 interface ContactPageProps {
   theme?: ThemeMode;
@@ -23,33 +29,49 @@ const CONNECTIONS = [
 export const ContactPage: React.FC<ContactPageProps> = () => {
   const [formValues, setFormValues] = useState({
     fullName: '',
-    connection: 'Redevelopment Enquiry',
+    connection: '',
     phoneNumber: '',
     emailId: '',
     message: ''
   });
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [sendError, setSendError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate submission
-    setIsSubmitted(true);
-    // Reset form except connection
-    setFormValues({
-      fullName: '',
-      connection: 'Redevelopment Enquiry',
-      phoneNumber: '',
-      emailId: '',
-      message: ''
-    });
+    setIsSending(true);
+    setSendError('');
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_CONTACT_TEMPLATE_ID,
+        {
+          from_name:    formValues.fullName,
+          phone:        formValues.phoneNumber,
+          email:        formValues.emailId,
+          connection:   formValues.connection || 'Not specified',
+          message:      formValues.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      setIsSubmitted(true);
+      setFormValues({ fullName: '', connection: '', phoneNumber: '', emailId: '', message: '' });
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      setSendError('Something went wrong. Please try again or contact us directly.');
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
     <div className="w-full flex flex-col pb-0 bg-[#f8f6f0] text-neutral-800 font-sans overflow-hidden">
       <ContactHero />
 
-      <section className="relative z-20 px-4 md:px-8 max-w-[1320px] mx-auto w-full -mt-20 md:-mt-28 mb-16 md:mb-20 ">
+      <section className="relative z-20 px-4 md:px-8 max-w-[1320px] mx-auto w-full -mt-6 md:-mt-8 mb-16 md:mb-20 ">
         <div className="p-6 md:p-10 bg-[#f3e8db] shadow-none border-none">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch lg:ml-8">
             <div className="lg:col-span-5 bg-[#faf6ee] p-5 md:p-7 rounded-none ">
@@ -89,7 +111,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                     {/* Full Name */}
                     <div>
                       <label className="block text-xs text-[#808080] font-medium mb-1.5" htmlFor="fullName">
-                        Full Name*
+                        Full Name<span className="text-red-500">*</span>
                       </label>
                       <input
                         type="text"
@@ -111,7 +133,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                         className="w-full bg-white border border-[#808080] px-3 py-2.5 text-xs text-neutral-800 focus:outline-none focus:border-[#b88e4c] flex items-center justify-between text-left cursor-pointer transition-colors rounded-none"
                       >
-                        <span className="truncate">{formValues.connection}</span>
+                        <span className="truncate">{formValues.connection || "Select"}</span>
                         <ChevronDown className="w-4 h-4 text-[#808080] shrink-0" />
                       </button>
 
@@ -143,7 +165,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                     {/* Phone Number */}
                     <div>
                       <label className="block text-xs text-[#808080] font-medium mb-1.5" htmlFor="phoneNumber">
-                        Phone Number*
+                        Phone Number<span className="text-red-500">*</span>
                       </label>
                       <input
                         type="tel"
@@ -186,16 +208,29 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
 
                   {/* Disclaimer */}
                   <p className="text-[10px] leading-relaxed text-neutral-600 font-light mt-4">
-                    "I authorise Platinum Group (Archstone Ventures) & its representatives to contact me with updates and notifications via Email/SMS/WhatsApp/Call. This will override DND/NDNC."
+                    "I authorise N Square Developers & its representatives to contact me with updates and notifications via Email/SMS/WhatsApp/Call. This will override DND/NDNC."
                   </p>
+
+                  {/* Error Message */}
+                  {sendError && (
+                    <p className="text-[11px] text-red-600 bg-red-50 border border-red-200 px-3 py-2 mt-2 leading-relaxed">
+                      {sendError}
+                    </p>
+                  )}
 
                   {/* Submit Button */}
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="bg-[#c5a059] text-black px-7 sm:px-8 py-3 text-[12px] uppercase tracking-[0.35em] font-bold hover:bg-[#D4B575] transition-all rounded-none shadow-[0_8px_25px_rgba(0,0,0,0.3)] cursor-pointer pointer-events-auto"
+                      disabled={isSending}
+                      className="bg-[#c5a059] text-black px-7 sm:px-8 py-3 text-[12px] uppercase tracking-[0.35em] font-bold hover:bg-[#D4B575] transition-all rounded-none shadow-[0_8px_25px_rgba(0,0,0,0.3)] cursor-pointer pointer-events-auto disabled:opacity-60 disabled:cursor-not-allowed flex items-center gap-2"
                     >
-                      Send Message
+                      {isSending ? (
+                        <>
+                          <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                          Sending...
+                        </>
+                      ) : 'Send Message'}
                     </button>
                   </div>
                 </form>

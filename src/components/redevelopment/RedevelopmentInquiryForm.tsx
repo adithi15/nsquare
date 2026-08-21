@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import {
+  EMAILJS_PUBLIC_KEY,
+  EMAILJS_SERVICE_ID,
+  EMAILJS_REDEVELOPMENT_TEMPLATE_ID
+} from '../../lib/emailjs';
 
 interface RedevelopmentInquiryFormProps {
   isDark: boolean;
@@ -42,10 +48,29 @@ export const RedevelopmentInquiryForm: React.FC<RedevelopmentInquiryFormProps> =
     }
 
     setIsSubmitting(true);
-    // Simulate network latency
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setFormSubmitted(true);
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_REDEVELOPMENT_TEMPLATE_ID,
+        {
+          name:             formData.name,
+          email:            formData.email,
+          phone:            formData.phone,
+          society_name:     formData.societyName,
+          area:             formData.area,
+          society_address:  formData.societyAddress,
+          message:          formData.message || 'No message provided.',
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      setFormSubmitted(true);
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      setErrorMessage('Failed to send. Please try again or contact us directly at info@nsquaredevelopers.com');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleResetForm = () => {
@@ -65,30 +90,26 @@ export const RedevelopmentInquiryForm: React.FC<RedevelopmentInquiryFormProps> =
   };
 
   return (
-    <section className="relative w-full py-10 sm:py-14 md:py-18 overflow-hidden flex items-center justify-center border-t border-neutral-300/10 dark:border-white/5">
+    <section className="relative w-full py-6 sm:py-8 md:py-10 overflow-hidden flex items-center justify-center border-t border-neutral-300/10 dark:border-white/5">
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/assets/branding/city-aerial.jpg"
+          src="/assets/branding/redevelopment-contact.jpg"
           alt="Navi Mumbai skyline"
           className="w-full h-full object-cover object-center"
         />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-        
+
         {/* Left Column: Dark Translucent Card with description */}
         <div className="lg:col-span-5 w-full">
           <div className="bg-black/60 backdrop-blur-md border border-white/10 p-8 sm:p-10 md:p-12 text-white/95 rounded-none shadow-2xl">
-            <p className="text-xs sm:text-sm md:text-base leading-relaxed font-light font-sans tracking-wide">
-              Projects that provide free content exist in several
-              areas of interest, such as software, academic
-              literature, general literature, music, images, video,
-              and engineering. Technology has reduced the cost
-              of publication and reduced the entry barrier
-              sufficiently to allow for the production of widely
-              disseminated materials by individuals or small
-              groups.
+            <p className="text-xs sm:text-sm md:text-base leading-snug font-light font-sans tracking-wide text-left">
+              By choosing N Square as your redevelopment partner, you can move forward with confidence, knowing that your society is in capable hands. We are committed to transparent dealings, quality construction, timely execution, and creating lasting value for every member.
+            </p>
+            <p className="text-xs sm:text-sm md:text-base leading-snug font-medium font-sans tracking-wide mt-2 text-[#C5A059]">
+              A trusted partner for a better tomorrow.
             </p>
           </div>
         </div>

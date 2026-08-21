@@ -350,7 +350,7 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
             className="w-full lg:w-[320px] xl:w-[360px] shrink-0 flex flex-col justify-center items-center lg:items-start text-center lg:text-left relative pb-2 lg:pb-0 lg:ml-6 xl:ml-10"
           >
             {/* Watermark Quote Icon */}
-            <div className="absolute -left-[260px] top-4 w-[320px] h-[320px] text-white/[0.03] pointer-events-none -z-10 hidden lg:block">
+            <div className="absolute -left-[225px] top-2 w-[320px] h-[320px] text-white/[0.04] pointer-events-none -z-10 hidden lg:block">
               <svg viewBox="-3.2 -3.2 38.40 38.40" fill="currentColor" className="w-full h-full scale-x-[-1]">
                 <path d="M0,4v12h8c0,4.41-3.586,8-8,8v4c6.617,0,12-5.383,12-12V4H0z" />
               </svg>
@@ -408,7 +408,7 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
                         {p.name}
                       </h3>
                       <p className="text-[12px] sm:text-sm text-white/60 font-light mt-0.5">
-                        {p.location}, Navi Mumbai
+                        {p.location}
                       </p>
                     </div>
                   </div>

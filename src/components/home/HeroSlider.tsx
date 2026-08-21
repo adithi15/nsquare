@@ -75,7 +75,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             key={slide.id}
             initial={false}
             animate={{ opacity: isActive ? 1 : 0, zIndex: isActive ? 10 : 0 }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.5, ease: 'easeInOut' }}
             className="absolute inset-0 overflow-hidden"
           >
             {slide.video ? (
@@ -96,40 +96,31 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
                 }}
               />
             ) : (
-              <img
+              <motion.img
                 src={slide.image}
                 alt={slide.title}
+                initial={{ scale: 1 }}
+                animate={{ scale: isActive ? 1.08 : 1 }}
+                transition={{ duration: 6.5, ease: 'easeOut' }}
                 className="w-full h-full object-cover object-center"
-                style={{
-                  transition: 'transform 6.5s ease-out',
-                  transform: isActive ? 'scale(1.08)' : 'scale(1)',
-                }}
               />
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/35 to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.08),_transparent_30%)] opacity-80 pointer-events-none" />
           </motion.div>
         );
       })}
 
-      {/* <div className="absolute top-24 sm:top-28 md:top-32 right-6 sm:right-12 md:right-20 z-20 pointer-events-none">
-        <div className="flex items-center space-x-1.5 text-white/90 text-[10px] tracking-[0.2em] uppercase bg-black/40 px-3.5 py-1.5 rounded-full backdrop-blur-md border border-white/20 shadow-lg">
-          <MapPin className="w-3 h-3 text-[#b88a33]" />
-          <span>{currentSlide.location}</span>
-        </div>
-      </div> */}
 
 
-
-      <div className="relative z-20 px-5 sm:px-8 md:px-16 mt-auto mb-36 sm:mb-32 max-w-5xl">
+      <div className="relative z-20 px-5 sm:px-8 md:px-16 mt-auto mb-24 sm:mb-20 max-w-5xl">
         <div className="space-y-4">
           <div className="flex flex-col gap-4 md:gap-6">
             {/* "it's Crafted For Generations" Graphic */}
             <motion.div
               key={currentIndex}
-              initial={{ opacity: 0, y: 35, filter: 'blur(8px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ clipPath: 'inset(0 100% 0 0)', opacity: 0 }}
+              animate={{ clipPath: 'inset(0 0% 0 0)', opacity: 1 }}
+              transition={{ duration: 2.0, ease: 'easeInOut', delay: 0.4 }}
               className="max-w-[280px] sm:max-w-[420px] md:max-w-[480px] lg:max-w-[540px] pointer-events-none select-none"
             >
               <img
@@ -139,8 +130,6 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
               />
             </motion.div>
           </div>
-
-
         </div>
       </div>
 
@@ -171,7 +160,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
 
         {/* Disclaimer Text */}
         <span className="text-[9px] uppercase tracking-widest text-white/45 font-light whitespace-nowrap">
-          Video Is For Representation Purpose Only
+          Image Is For Representation Purpose Only
         </span>
       </div>
     </section>

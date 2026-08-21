@@ -54,7 +54,7 @@ const TESTIMONIALS = [
     name: 'Mrs. Kavita Nair',
     project: 'Neelkanth Bliss, Roadpali',
     image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80',
-    quote: 'From the first site visit to possession, every promise was honoured. Our society could not be happier.'
+    quote: 'From the first site visit to possession, every promise was honoured. Our society is delighted with the outcome.'
   },
   {
     id: '5',
@@ -144,6 +144,17 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = () => {
       return () => cancelAnimationFrame(raf);
     }
   }, [isTransitioning]);
+
+  // Auto-slide every 5 seconds
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      if (isTransitioning) {
+        setCurrentIndex((prev) => prev + 1);
+      }
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, [isTransitioning, currentIndex]);
 
   return (
     <section className="py-16 sm:py-20 w-full bg-[#F9F8F6] dark:bg-[#111111] relative overflow-hidden">

@@ -230,74 +230,32 @@ const VALUES = [
   {
     title: 'PEOPLE FIRST',
     iconSrc: '/assets/icons/people-first.png',
-    description: (
-      <>
-        We place people at the <br />
-        heart of everything we <br />
-        do - our employees, <br />
-        customers, and investors.
-      </>
-    ),
+    description: 'We place people at the heart of everything we do - our employees, customers, and investors.',
   },
   {
     title: 'QUALITY',
     iconSrc: '/assets/icons/quality.png',
-    description: (
-      <>
-        We are driven by results <br />
-        and inspired by a <br />
-        relentless pursuit of <br />
-        continuous improvement.
-      </>
-    ),
+    description: 'We are driven by results and inspired by a relentless pursuit of continuous improvement.',
   },
   {
     title: 'INTEGRITY',
     iconSrc: '/assets/icons/integrity.png',
-    description: (
-      <>
-        We are built on honesty. <br />
-        We are driven <br />
-        by transparency. <br />
-        Defined by accountability.
-      </>
-    ),
+    description: 'We are built on honesty. We are driven by transparency. Defined by accountability.',
   },
   {
     title: 'TEAMWORK',
     iconSrc: '/assets/icons/teamwork.png',
-    description: (
-      <>
-        We approach every project with <br />
-        strong accountability and <br />
-        dedication to deliver on our <br />
-        commitments.
-      </>
-    ),
+    description: 'We approach every project with strong accountability and dedication to deliver on our commitments.',
   },
   {
     title: 'INNOVATION',
     iconSrc: '/assets/icons/innovation.png',
-    description: (
-      <>
-        We adopt modern technology <br />
-        and creative design <br />
-        approaches to deliver <br />
-        exceptional results.
-      </>
-    ),
+    description: 'We adopt modern technology and creative design approaches to deliver exceptional results.',
   },
   {
     title: 'CUSTOMER COMMITMENT',
     iconSrc: '/assets/icons/customer-commitment.png',
-    description: (
-      <>
-        Customer satisfaction <br />
-        remains the heart of <br />
-        everything we do, from <br />
-        planning to completion.
-      </>
-    ),
+    description: 'Customer satisfaction remains the heart of everything we do, from planning to completion.',
   },
 ];
 
@@ -354,7 +312,7 @@ export const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({ theme }) =
                   <img
                     src={value.iconSrc}
                     alt={value.title}
-                    className="w-12 h-12 object-contain ml-2"
+                    className="w-12 h-12 object-contain"
                   />
                 </div>
 
@@ -363,7 +321,7 @@ export const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({ theme }) =
                 </h3>
 
                 <p
-                  className={`text-[14px] leading-[1.6] ${isDark ? 'text-neutral-300' : 'text-[#222222]'
+                  className={`text-[14px] leading-[1.6] max-w-[220px] text-left ${isDark ? 'text-neutral-300' : 'text-[#222222]'
                     }`}
                 >
                   {value.description}

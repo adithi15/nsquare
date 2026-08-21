@@ -25,51 +25,37 @@ export const LegacySection: React.FC<LegacySectionProps> = ({ theme = 'light' })
         </div>
 
         {/* Centered Overlay Content */}
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center text-white flex flex-col items-center justify-center space-y-6 md:space-y-8">
-          <motion.h1
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center text-white flex flex-col items-center justify-center space-y-4 md:space-y-5">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0, ease: 'easeOut' }}
-            className="text-3xl md:text-4xl lg:text-5.5xl font-serif leading-tight font-medium text-[#c5a059]"
+            className="w-full max-w-[280px] sm:max-w-[380px] md:max-w-[480px] mx-auto flex justify-center"
           >
-            Two Legacies. One Vision
-          </motion.h1>
+            <img 
+              src="/assets/branding/two-legacies.png" 
+              alt="Two Legacies. One Vision" 
+              className="w-full h-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
+            />
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0, delay: 0.25, ease: 'easeOut' }}
-            className="space-y-4 max-w-3xl"
+            className="space-y-1 max-w-3xl"
           >
-            <p className="text-sm md:text-base lg:text-lg text-neutral-200 leading-relaxed font-light">
+            <p className="text-sm md:text-base lg:text-lg text-neutral-200 leading-snug font-light">
               N-Square Developers brings together the trusted legacy of Neelkanth Group and Namastey<br />
               Realty, with over 23 years of combined experience in Navi Mumbai,
             </p>
-            <p className="text-sm md:text-base lg:text-lg text-neutral-200 leading-relaxed font-light">
-              Driven by quality, transparency, and thoughtful design, we create premium residential and<br />
-              commercial spaces built to deliver lasting value.
-            </p>
-            <p className="text-xs sm:text-sm md:text-base text-neutral-200 leading-relaxed font-light">
+
+            <p className="text-xs sm:text-sm md:text-base text-neutral-200 leading-snug font-light">
               Built on Trust. Defined by Excellence. Designed for Generations.
             </p>
           </motion.div>
         </div>
 
-        {/* Bottom-Left Graphic Overlay - matches homepage slider style */}
-        <div className="absolute bottom-0 left-0 z-20 px-6 sm:px-12 md:px-20 mb-16 sm:mb-14 pointer-events-none select-none">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-[220px] sm:max-w-[300px] md:max-w-[360px]"
-          >
-            <img
-              src="/assets/branding/ideas-to-legacy.png"
-              alt="Where Ideas become legacy"
-              className="w-full h-auto object-contain bg-transparent"
-            />
-          </motion.div>
-        </div>
       </section>
 
 
@@ -78,11 +64,19 @@ export const LegacySection: React.FC<LegacySectionProps> = ({ theme = 'light' })
       <section className={`relative w-full pt-16 pb-12 md:pt-24 md:pb-16 px-6 sm:px-12 lg:px-20 overflow-hidden transition-colors duration-500 ${theme === 'dark' ? 'bg-[#0A0A0A] text-white' : 'bg-[#f3e4cf] text-neutral-900'}`}>
 
         {/* N Logo Geometric Motif - Left Edge */}
-        <img
-          src="/assets/branding/nsquare-geometric-motif-pattern.png"
-          alt=""
-          className="absolute left-0 top-0 bottom-0 w-[30%] h-full m-0 p-0 z-0 pointer-events-none object-contain"
-          style={{ objectPosition: 'left top' }}
+        <div
+          className="absolute left-0 -top-[7.5%] h-[115%] w-[65%] m-0 p-0 z-0 pointer-events-none select-none opacity-80"
+          style={{
+            backgroundColor: theme === 'dark' ? '#ffffff' : '#FAF9F5',
+            WebkitMaskImage: "url('/assets/branding/nsquare-geometric-motif-pattern.png')",
+            maskImage: "url('/assets/branding/nsquare-geometric-motif-pattern.png')",
+            WebkitMaskSize: 'auto 100%',
+            maskSize: 'auto 100%',
+            WebkitMaskRepeat: 'no-repeat',
+            maskRepeat: 'no-repeat',
+            WebkitMaskPosition: 'left center',
+            maskPosition: 'left center',
+          }}
         />
 
 
@@ -117,14 +111,11 @@ export const LegacySection: React.FC<LegacySectionProps> = ({ theme = 'light' })
               </h2>
               <p className={`text-[18px] sm:text-xl  tracking-wide mt-0 ${theme === 'dark' ? 'text-neutral-300' : 'text-black/80'}`}>Founder & Director</p>
               <div className={`space-y-4 mt-6 text-lg sm:text-xl ${theme === 'dark' ? 'text-neutral-300' : 'text-black/80'}`}>
-                <p className="font-sans not-italic leading-[1.2] text-justify">
-                  “Success isn’t just about delivering projects; it’s about building enduring value for our clients, partners, and communities.”
+                <p className="font-sans not-italic leading-[1.2] text-justify max-w-[480px]">
+                  “Success isn’t just about delivering projects; it’s about creating lasting value.”
                 </p>
-                <p className="leading-[1.2] tracking-wide text-justify">
-                  As Director of NSQUARE, Anil Ravriya brings a clear vision rooted in operational excellence, innovation, and long‑term value creation. His leadership combines disciplined execution with a forward‑thinking approach, ensuring that every project meets the highest standards of quality and integrity.
-                </p>
-                <p className="leading-[1.2] tracking-wide text-justify">
-                  With a strong emphasis on quality execution, ethical practices, and continuous innovation, Mr. Ravriya continues to shape NSQUARE’s growth while upholding the values, trust, and legacy that define the brand.
+                <p className="leading-[1.3] tracking-wide text-justify max-w-[480px]">
+                  As Director of NSQUARE, Anil Ravriya leads with a vision focused on excellence, innovation, and integrity. Committed to quality execution and ethical practices, he continues to drive the company’s growth while strengthening the trust and legacy that define the brand. His leadership inspires progress, builds strong partnerships, and ensures every project delivers meaningful value for clients and communities.
                 </p>
               </div>
             </div>

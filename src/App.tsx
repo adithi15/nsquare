@@ -12,6 +12,9 @@ import { LegacyPage } from './pages/LegacyPage';
 import { ContactPage } from './pages/ContactPage';
 import { CommercialPage } from './pages/CommercialPage';
 import { RedevelopmentPage } from './pages/RedevelopmentPage';
+import { RedevelopmentFAQPage } from './pages/RedevelopmentFAQPage';
+import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
+import { TermsPage } from './pages/TermsPage';
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function App() {
@@ -244,6 +247,54 @@ export default function App() {
                 className="flex-1"
               >
                 <RedevelopmentPage theme={theme} />
+              </motion.div>
+            }
+          />
+
+          <Route
+            path="/redevelopment-faq"
+            element={
+              <motion.div
+                key="redevelopment-faq-view"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className="flex-1"
+              >
+                <RedevelopmentFAQPage theme={theme} />
+              </motion.div>
+            }
+          />
+
+          <Route
+            path="/privacy-policy"
+            element={
+              <motion.div
+                key="privacy-policy-view"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className="flex-1"
+              >
+                <PrivacyPolicyPage theme={theme} />
+              </motion.div>
+            }
+          />
+
+          <Route
+            path="/terms"
+            element={
+              <motion.div
+                key="terms-view"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className="flex-1"
+              >
+                <TermsPage theme={theme} />
               </motion.div>
             }
           />

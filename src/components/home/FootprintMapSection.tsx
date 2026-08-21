@@ -362,11 +362,9 @@ const CATEGORIES: ProjectCategory[] = [
       'Neelkanth Darshan – Kharghar',
       'Neelkanth Corner – Puspak Nagar',
       'Neelkanth Shreeji – Puspak Nagar',
-      'Neelkanth Rudra – Ulwe',
       'Neelkanth Shiv – Kamothe',
       'Neelkanth Laxmi – Panvel',
       'Neelkanth Dham – Roadpali',
-      'Neelkanth Complex – Old Panvel',
       'Patel Park – Ulwe',
     ],
   },
@@ -471,7 +469,7 @@ const MAP_PINS: MapPinInfo[] = [
     label: 'Panvel',
     x: '94.8%',
     y: '81.7%',
-    projects: ['Neelkanth Laxmi', 'Neelkanth Complex (Old Panvel)'],
+    projects: ['Neelkanth Laxmi'],
     categories: ['ongoing']
   },
   {
@@ -479,7 +477,7 @@ const MAP_PINS: MapPinInfo[] = [
     label: 'Ulwe',
     x: '70.8%',
     y: '80.3%',
-    projects: ['Neelkanth Pride', 'Neelkanth Majestic', 'Neelkanth Rudra', 'Patel Park', 'Neelkanth Space'],
+    projects: ['Neelkanth Pride', 'Neelkanth Majestic', 'Patel Park', 'Neelkanth Space'],
     categories: ['delivered', 'ongoing', 'upcoming']
   },
   {
@@ -537,6 +535,11 @@ export const FootprintMapSection: React.FC<FootprintMapSectionProps> = () => {
               <span className="whitespace-nowrap">A Solid Footprint</span> <br />
               <span className="whitespace-nowrap">Across Navi Mumbai</span>
             </h2>
+            <p className="mt-2 text-[15px] sm:text-[16px] text-white/90 font-sans font-light leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              <span className="whitespace-nowrap">We have a wide presence across</span> <br />
+              <span className="whitespace-nowrap">Navi Mumbai’s key locations like Seawoods,</span> <br />
+              <span className="whitespace-nowrap">Nerul, Kharghar, and Ulwe among others.</span>
+            </p>
           </div>
 
           {/* Accordion Stack */}

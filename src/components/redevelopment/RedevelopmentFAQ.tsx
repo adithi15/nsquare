@@ -10,7 +10,7 @@ export const RedevelopmentFAQ: React.FC<RedevelopmentFAQProps> = ({ isDark }) =>
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   return (
-    <section className="px-6 md:px-12 lg:px-16 max-w-4xl mx-auto w-full mt-10 mb-14">
+    <section className="px-6 md:px-12 lg:px-16 max-w-4xl mx-auto w-full mt-10 mb-6">
       <div className="w-full space-y-10">
         {/* Section Heading */}
         <div className="text-center">

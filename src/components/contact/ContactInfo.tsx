@@ -10,13 +10,13 @@ export const ContactInfo: React.FC = () => (
         DIRECT CONCIERGE
       </span>
       <p className="text-[14px] leading-relaxed text-neutral-600 font-light pt-1">
-        Solution to all your queries is just a tap away <br />— call, WhatsApp or email us directly.
+        Solution to all your queries is just a tap away <br />— Call, WhatsApp or Email us directly.
       </p>
     </div>
 
     <div className="space-y-4 pt-2">
       <div className="flex items-center space-x-4 p-4 bg-[#e9e3d5] rounded-none">
-        <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center text-[#b88e4c] shrink-0">
+        <div className="w-10 h-10 rounded-full bg-[#b88e4c] flex items-center justify-center text-neutral-900 shrink-0">
           <MapPin className="w-4 h-4" />
         </div>
         <div className="space-y-0.5">
@@ -35,7 +35,7 @@ export const ContactInfo: React.FC = () => (
         href={CONTACT.phoneHref}
         className="flex items-center space-x-4 p-4 bg-[#e9e3d5] rounded-none"
       >
-        <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center text-[#b88e4c] shrink-0">
+        <div className="w-10 h-10 rounded-full bg-[#b88e4c] flex items-center justify-center text-neutral-900 shrink-0">
           <Phone className="w-4 h-4" />
         </div>
         <div className="space-y-0.5">
@@ -52,7 +52,7 @@ export const ContactInfo: React.FC = () => (
         rel="noreferrer"
         className="flex items-center space-x-4 p-4 bg-[#e9e3d5] rounded-none"
       >
-        <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center text-[#b88e4c] shrink-0">
+        <div className="w-10 h-10 rounded-full bg-[#b88e4c] flex items-center justify-center text-neutral-900 shrink-0">
           <MessageCircle className="w-4 h-4" />
         </div>
         <div className="space-y-0.5">
@@ -69,7 +69,7 @@ export const ContactInfo: React.FC = () => (
         href={`mailto:${CONTACT.email}`}
         className="flex items-center space-x-4 p-4 bg-[#e9e3d5] rounded-none"
       >
-        <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center text-[#b88e4c] shrink-0">
+        <div className="w-10 h-10 rounded-full bg-[#b88e4c] flex items-center justify-center text-neutral-900 shrink-0">
           <Mail className="w-4 h-4" />
         </div>
         <div className="space-y-0.5">

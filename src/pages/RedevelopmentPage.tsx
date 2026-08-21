@@ -16,7 +16,7 @@ export const RedevelopmentPage: React.FC<RedevelopmentPageProps> = ({ theme = 'l
   const isDark = theme === 'dark';
 
   return (
-    <div className={`w-full flex flex-col pb-24 transition-colors duration-500 ${
+    <div className={`w-full flex flex-col pb-8 transition-colors duration-500 ${
       isDark ? 'bg-[#0A0A0A] text-neutral-200' : 'bg-[#f8f6f0] text-neutral-800'
     } font-sans overflow-hidden`}>
       <RedevelopmentHero />

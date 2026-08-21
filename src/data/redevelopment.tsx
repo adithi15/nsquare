@@ -21,7 +21,7 @@ export const BENEFITS_CAROUSEL = [
   {
     id: '1',
     imageSrc: '/assets/icons/benefits/larger_better_homes.png',
-    bgImage: '/assets/branding/why_choose_nsquare_bg.jpg',
+    bgImage: '/assets/branding/why_choose_lifestyle.jpg',
     title: 'Larger & Better Homes',
     description: (
       <>
@@ -34,7 +34,7 @@ export const BENEFITS_CAROUSEL = [
   {
     id: '2',
     imageSrc: '/assets/icons/benefits/improved_safety.png',
-    bgImage: '/assets/branding/why_choose_nsquare_bg.jpg',
+    bgImage: '/assets/branding/why_choose_safety.jpg',
     title: 'Improved Safety',
     description: (
       <>
@@ -47,7 +47,7 @@ export const BENEFITS_CAROUSEL = [
   {
     id: '3',
     imageSrc: '/assets/icons/benefits/better_parking_facilities.png',
-    bgImage: '/assets/branding/why_choose_nsquare_bg.jpg',
+    bgImage: '/assets/branding/why_choose_parking.jpg',
     title: 'Better Parking Facilities',
     description: (
       <>
@@ -60,7 +60,7 @@ export const BENEFITS_CAROUSEL = [
   {
     id: '4',
     imageSrc: '/assets/icons/benefits/modern_amenities.png',
-    bgImage: '/assets/branding/why_choose_nsquare_bg.jpg',
+    bgImage: '/assets/branding/why_choose_amenities.jpg',
     title: 'Modern Amenities',
     description: (
       <>
@@ -73,7 +73,7 @@ export const BENEFITS_CAROUSEL = [
   {
     id: '5',
     imageSrc: '/assets/icons/benefits/increase_property_value.png',
-    bgImage: '/assets/branding/why_choose_nsquare_bg.jpg',
+    bgImage: '/assets/branding/why_choose_property_value.jpg',
     title: 'Increase in Property Value',
     description: (
       <>
@@ -86,7 +86,7 @@ export const BENEFITS_CAROUSEL = [
   {
     id: '6',
     imageSrc: '/assets/icons/benefits/improved_safety.png', 
-    bgImage: '/assets/branding/why_choose_nsquare_bg.jpg',
+    bgImage: '/assets/branding/why_choose_fire_safety.jpg',
     title: 'Improved Fire Safety',
     description: (
       <>
@@ -99,7 +99,7 @@ export const BENEFITS_CAROUSEL = [
   {
     id: '7',
     imageSrc: '/assets/icons/benefits/enhanced_security.png',
-    bgImage: '/assets/branding/why_choose_nsquare_bg.jpg',
+    bgImage: '/assets/branding/why_choose_security.jpg',
     title: 'Enhanced Security',
     description: (
       <>
@@ -112,7 +112,7 @@ export const BENEFITS_CAROUSEL = [
   {
     id: '8',
     imageSrc: '/assets/icons/benefits/better_lifestyle_families.png',
-    bgImage: '/assets/branding/why_choose_nsquare_bg.jpg',
+    bgImage: '/assets/branding/why_choose_family.jpg',
     title: 'Better Lifestyle for Families',
     description: (
       <>
@@ -125,7 +125,7 @@ export const BENEFITS_CAROUSEL = [
   {
     id: '9',
     imageSrc: '/assets/icons/benefits/low_maintenance_repairs.png',
-    bgImage: '/assets/branding/why_choose_nsquare_bg.jpg',
+    bgImage: '/assets/branding/why_choose_repairs.jpg',
     title: 'Low Maintenance & Repairs',
     description: (
       <>

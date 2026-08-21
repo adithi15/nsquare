@@ -90,23 +90,21 @@ interface LegacySection2Props {
 
 export const LegacySection2: React.FC<LegacySection2Props> = ({ theme = 'light' }) => {
   return (
-    <section className={`relative w-full pt-20 pb-16 md:pt-24 md:pb-24 px-6 sm:px-12 lg:px-20 overflow-hidden transition-colors duration-500 ${theme === 'dark' ? 'bg-[#0A0A0A] text-white' : 'bg-[#FAF9F5] text-neutral-900'}`}>
+    <section className={`relative w-full pt-16 pb-12 md:pt-24 md:pb-16 px-6 sm:px-12 lg:px-20 overflow-hidden transition-colors duration-500 ${theme === 'dark' ? 'bg-[#0A0A0A] text-white' : 'bg-[#FAF9F5] text-neutral-900'}`}>
 
-      {/* N Logo Geometric Motif - Shifted slightly left */}
+      {/* N Logo Geometric Motif - Right Edge */}
       <div
-        className="absolute right-[-5%] lg:right-[4%] top-0 bottom-0 w-[48%] h-full m-0 p-0 z-0 pointer-events-none select-none"
+        className="absolute right-0 -top-[7.5%] h-[115%] w-[65%] m-0 p-0 z-0 pointer-events-none select-none opacity-80"
         style={{
           backgroundColor: theme === 'dark' ? '#ffffff' : '#f3e4cf',
-          opacity: theme === 'dark' ? 0.15 : 0.9,
           WebkitMaskImage: "url('/assets/branding/nsquare-geometric-motif-pattern.png')",
           maskImage: "url('/assets/branding/nsquare-geometric-motif-pattern.png')",
-          WebkitMaskSize: 'contain',
-          maskSize: 'contain',
+          WebkitMaskSize: 'auto 100%',
+          maskSize: 'auto 100%',
           WebkitMaskRepeat: 'no-repeat',
           maskRepeat: 'no-repeat',
-          WebkitMaskPosition: 'left top',
-          maskPosition: 'left top',
-          transform: 'scaleX(-1.2)'
+          WebkitMaskPosition: 'right center',
+          maskPosition: 'right center',
         }}
       />
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -133,21 +131,21 @@ export const LegacySection2: React.FC<LegacySection2Props> = ({ theme = 'light' 
           </div>
 
           {/* Right: Content column - Shifted more to the right */}
-          <div className="lg:col-span-6 lg:order-1 text-left w-full pt-8 pb-2 z-10 lg:pl-10 xl:pl-16 lg:pr-12 xl:pr-16">
+          <div className="lg:col-span-6 lg:order-1 text-left w-full py-2 z-10 lg:pl-10 xl:pl-16 lg:pr-12 xl:pr-16">
             <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-serif font-semibold leading-none text-[#c2a26c] tracking-wide">
               Mr. Jignesh Patel
             </h2>
-            <p className={`text-lg sm:text-xl font-semibold tracking-wide mt-0 ${theme === 'dark' ? 'text-neutral-300' : 'text-black/80'
+            <p className={`text-[18px] sm:text-xl tracking-wide mt-0 ${theme === 'dark' ? 'text-neutral-300' : 'text-black/80'
               }`}>
               Founder & Director
             </p>
 
-            <div className={`space-y-6 mt-6 text-[18px] sm:text-xl ${theme === 'dark' ? 'text-neutral-300' : 'text-black/80'}`}>
-              <p className="font-sans not-italic leading-[1.2] text-justify">
+            <div className={`space-y-4 mt-6 text-lg sm:text-xl ${theme === 'dark' ? 'text-neutral-300' : 'text-black/80'}`}>
+              <p className="font-sans not-italic leading-[1.2] text-justify max-w-[480px]">
                 “True leadership is built on trust, consistency, and getting things done right.”
               </p>
-              <p className="leading-[1.2] tracking-wide text-justify">
-                As Director of Namastey, Jignesh Patel brings a strategic vision and hands-on approach to leadership, with a strong focus on quality, operational excellence, and long-term value creation. His practical, results-driven mindset combines disciplined execution with a commitment to building lasting relationships with clients, partners, and stakeholders. Under his leadership, Namastey continues to grow with confidence while staying rooted in integrity, reliability, and quality.
+              <p className="leading-[1.3] tracking-wide text-justify max-w-[480px]">
+                As Director of NSQUARE, Jignesh Patel brings a strategic vision and hands-on approach to leadership, with a strong focus on quality, operational excellence, and long-term value creation. His practical, results-driven mindset combines disciplined execution with a commitment to building lasting relationships with clients, partners, and stakeholders. Under his leadership, NSQUARE continues to grow with confidence while staying rooted in integrity, reliability, and quality.
               </p>
             </div>
           </div>
