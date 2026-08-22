@@ -100,8 +100,8 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
                 src={slide.image}
                 alt={slide.title}
                 initial={{ scale: 1 }}
-                animate={{ scale: isActive ? 1.05 : 1 }}
-                transition={{ duration: 6.5, ease: 'easeOut' }}
+                animate={{ scale: isActive ? 1.12 : 1 }}
+                transition={{ duration: 6.5, ease: 'linear' }}
                 className="w-full h-full object-cover object-top sm:object-center"
               />
             )}

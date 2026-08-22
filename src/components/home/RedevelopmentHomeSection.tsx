@@ -23,7 +23,7 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
       </div>
 
       {/* 2. Main Content Grid */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 mt-20 sm:mt-36 lg:mt-44">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 mt-12 sm:mt-20 lg:mt-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
           {/* Left Column: Quote with giant quotation mark, text and button */}
@@ -43,7 +43,7 @@ export const RedevelopmentHomeSection: React.FC<RedevelopmentHomeSectionProps> =
             </h2>
 
             {/* Subtitle */}
-            <h3 className="font-sans font-black text-[20px] sm:text-[22px] text-neutral-900 mt-8 mb-2">
+            <h3 className="font-sans font-black text-[20px] sm:text-[22px] text-neutral-900 mt-3 mb-2">
               Redevelopment
             </h3>
 

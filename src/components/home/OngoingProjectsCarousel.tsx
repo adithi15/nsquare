@@ -253,7 +253,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, animate } from 'framer-motion';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { ThemeMode } from '../../types';
 import { ONGOING_PROJECTS, NSProject } from '../../data/nsquare';
 import { EASE, VIEWPORT } from '../ui/SectionHeading';
@@ -268,19 +268,12 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
   const trackRef = useRef<HTMLDivElement>(null);
   const [snapType, setSnapType] = useState('x mandatory');
   const scrollAnimRef = useRef<any>(null);
-  const [selectedInquiryProject, setSelectedInquiryProject] = useState<ProjectInquiryData | null>(null);
-  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
 
-  const handleProjectClick = (p: NSProject) => {
-    setSelectedInquiryProject({
-      projectName: p.name,
-      projectLocation: `${p.location}, Navi Mumbai`,
-      projectImage: p.image,
-      projectStatus: 'Ongoing',
-    });
-    setIsInquiryOpen(true);
-  };
+  const extendedProjects = [
+    ...ONGOING_PROJECTS, ...ONGOING_PROJECTS, ...ONGOING_PROJECTS,
+    ...ONGOING_PROJECTS, ...ONGOING_PROJECTS, ...ONGOING_PROJECTS
+  ];
+  const originalLength = ONGOING_PROJECTS.length;
 
   const smoothScrollTo = (el: HTMLElement, to: number, duration = 3.2) => {
     setSnapType('none');
@@ -311,20 +304,64 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
     return cards[0] ? cards[0].getBoundingClientRect().width + 28 : el.clientWidth;
   };
 
+  const handleSilentReset = (el: HTMLElement, step: number, nearest: number) => {
+    // If we've scrolled past the 4th copy, jump back to 1st copy
+    if (nearest >= originalLength * 4) {
+      if (scrollAnimRef.current) scrollAnimRef.current.stop();
+      setSnapType('none');
+      el.style.scrollSnapType = 'none';
+      el.scrollLeft = (nearest - originalLength * 3) * step;
+      return nearest - originalLength * 3;
+    }
+    // If we scrolled backwards to the start, jump forward
+    if (nearest <= 0) {
+      if (scrollAnimRef.current) scrollAnimRef.current.stop();
+      setSnapType('none');
+      el.style.scrollSnapType = 'none';
+      el.scrollLeft = (nearest + originalLength * 3) * step;
+      return nearest + originalLength * 3;
+    }
+    return nearest;
+  };
+
+  const handleNext = () => {
+    const el = trackRef.current;
+    if (!el) return;
+    const step = getStep(el);
+    let current = Math.round(el.scrollLeft / step);
+    current = handleSilentReset(el, step, current);
+    const target = current + 1;
+    smoothScrollTo(el, target * step, 0.8);
+  };
+
+  const handlePrev = () => {
+    const el = trackRef.current;
+    if (!el) return;
+    const step = getStep(el);
+    let current = Math.round(el.scrollLeft / step);
+    current = handleSilentReset(el, step, current);
+    const target = current - 1;
+    smoothScrollTo(el, target * step, 0.8);
+  };
+
   useEffect(() => {
-    if (isPaused) return;
+    // Set initial position to the second block so backward scrolling works instantly
+    if (trackRef.current) {
+      const step = getStep(trackRef.current);
+      if (step > 0 && trackRef.current.scrollLeft === 0) {
+         trackRef.current.scrollLeft = originalLength * step;
+      }
+    }
 
     const id = window.setInterval(() => {
       const el = trackRef.current;
       if (!el) return;
       const step = getStep(el);
-      const max = el.scrollWidth - el.clientWidth;
-      if (max <= 0) return;
-      const maxIndex = Math.max(1, Math.round(max / step));
+      if (step <= 0) return;
 
-      const nearest = Math.round(el.scrollLeft / step);
-      const nextIndex = nearest >= maxIndex ? 0 : nearest + 1;
-      smoothScrollTo(el, Math.min(max, nextIndex * step));
+      let nearest = Math.round(el.scrollLeft / step);
+      nearest = handleSilentReset(el, step, nearest);
+      smoothScrollTo(el, (nearest + 1) * step);
     }, 5000);
 
     return () => {
@@ -333,7 +370,7 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
         scrollAnimRef.current.stop();
       }
     };
-  }, [isPaused]);
+  }, [originalLength]);
 
   return (
     <section className="relative py-8 sm:py-10 md:py-12 lg:py-14 bg-[#0C0C0C] overflow-hidden">
@@ -350,7 +387,7 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
             className="w-full lg:w-[320px] xl:w-[360px] shrink-0 flex flex-col justify-center items-center lg:items-start text-center lg:text-left relative pb-2 lg:pb-0 lg:ml-6 xl:ml-10"
           >
             {/* Watermark Quote Icon */}
-            <div className="absolute -left-[225px] top-2 w-[320px] h-[320px] text-white/[0.04] pointer-events-none -z-10 hidden lg:block">
+            <div className="absolute -left-[225px] top-8 w-[320px] h-[320px] text-white/[0.04] pointer-events-none -z-10 hidden lg:block">
               <svg viewBox="-3.2 -3.2 38.40 38.40" fill="currentColor" className="w-full h-full scale-x-[-1]">
                 <path d="M0,4v12h8c0,4.41-3.586,8-8,8v4c6.617,0,12-5.383,12-12V4H0z" />
               </svg>
@@ -371,27 +408,22 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
             </p>
           </motion.div>
 
-          {/* Cards Carousel */}
-          <div
-            ref={trackRef}
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            onTouchStart={() => setIsPaused(true)}
-            onTouchEnd={() => {
-              setTimeout(() => setIsPaused(false), 3000);
-            }}
-            className="flex-1 min-w-0 overflow-x-auto no-scrollbar -mx-5 px-[9vw] sm:-mx-8 sm:px-8 lg:mx-0 lg:px-0"
-            style={{ scrollSnapType: snapType }}
-          >
+          {/* Cards Carousel Wrapper */}
+          <div className="flex-1 flex flex-col min-w-0">
+            <div
+              ref={trackRef}
+              className="overflow-x-auto no-scrollbar -mx-5 px-[9vw] sm:-mx-8 sm:px-8 lg:mx-0 lg:px-0 pb-2"
+              style={{ scrollSnapType: snapType }}
+            >
             <div className="flex gap-4 sm:gap-6 lg:gap-7 items-stretch">
-              {ONGOING_PROJECTS.map((p, i) => (
+              {extendedProjects.map((p, i) => (
                 <motion.article
-                  key={p.id}
+                  key={`${p.id}-${i}`}
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={VIEWPORT}
                   transition={{ duration: 1.2, delay: (i % 2) * 0.15, ease: EASE }}
-                  onClick={() => handleProjectClick(p)}
+                  onClick={onViewAll}
                   className="shrink-0 w-[82vw] sm:w-[380px] lg:w-[calc(50%-14px)] bg-transparent flex flex-col group cursor-pointer hover:shadow-2xl transition-all duration-300 snap-center lg:snap-start"
                 >
                   <div className="relative overflow-hidden aspect-[4/4.4]">
@@ -416,6 +448,25 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
               ))}
             </div>
           </div>
+
+          {/* Fixed Navigation Arrows under the cards, aligned right */}
+          <div className="relative z-10 flex items-center justify-end gap-3 -mt-10 lg:-mt-16 pr-5 sm:pr-8 lg:pr-0 pointer-events-none">
+            <button
+              onClick={handlePrev}
+              className="p-2 rounded-full border border-white/20 text-white hover:bg-white/10 transition-all cursor-pointer shadow-sm active:scale-95 flex items-center justify-center bg-black/40 backdrop-blur-sm pointer-events-auto"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={handleNext}
+              className="p-2 rounded-full border border-white/20 text-white hover:bg-white/10 transition-all cursor-pointer shadow-sm active:scale-95 flex items-center justify-center bg-black/40 backdrop-blur-sm pointer-events-auto"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
 
           {/* Right — View All Link */}
           <motion.button
@@ -448,13 +499,6 @@ export const OngoingProjectsCarousel: React.FC<OngoingProjectsCarouselProps> = (
         </button>
       </div>
 
-      {/* Project Inquiry Modal */}
-      <ProjectInquiryModal
-        isOpen={isInquiryOpen}
-        onClose={() => setIsInquiryOpen(false)}
-        project={selectedInquiryProject}
-        theme={theme}
-      />
     </section>
   );
 };
